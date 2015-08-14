@@ -1,0 +1,43 @@
+// Required
+#slider {
+  height: 500px;
+  position: relative;
+  .slides-container {
+    display: none;
+    li { background-position: center top; }
+  }
+  .scrollable {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+  }
+}
+
+.slides-pagination {
+  @include respond-to(tablet) {
+    left: $h1+$h5; bottom: 12rem; //$h1*5;
+    width: auto;
+  }
+  position: absolute;
+  z-index: 3;
+  bottom: 8rem;
+  text-align: center;
+  width: 100%;
+  a {
+    border: 2px solid transparentize($white,0.6);
+    border-radius: 50px;
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
+    margin: 3px;
+    overflow: hidden;
+    text-indent: -100%;
+    &.current {
+      background: $white;
+    }
+  }
+}

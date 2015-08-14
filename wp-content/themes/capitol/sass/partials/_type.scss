@@ -1,0 +1,65 @@
+/* =HIERARCHY */
+$h1: 4.883rem;
+$h2: 3.906rem;
+$h3: 3.125rem;
+$h4: 2.5rem;
+$h5: 2rem;
+$base: 1.6rem;
+$small: 1.28rem;
+$smaller: 1.024rem;
+
+
+/* =HEADINGS */
+%headings {
+  display: block;
+  font-family: $title-font;
+  font-weight: 100;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 { @extend %headings; }
+
+h1 { font-size: $h1; }
+
+h2 { font-size: $h2; }
+
+h3 { font-size: $h3; }
+
+h4 { font-size: $h4; }
+
+h5 { font-size: $h5; }
+
+/* =COMMON
+----------------------------------------------- */
+p {
+  font-family: $display-font;
+  font-size: $base;
+  font-weight: 300;
+  line-height: $golden;
+  em { font-style: italic; }
+}
+
+section p { margin-bottom: 2rem; }
+
+a {
+
+  &:hover {
+      @include transition(color, 0.3s, ease);
+
+  }
+}
+
+blockquote {
+  p {
+    font-size: $h4 !important;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+}
+
+strong { font-weight: 700; }
+
+/* =LINKS
+----------------------------------------------- */
+a, a:link, a:visited { text-decoration: none; }

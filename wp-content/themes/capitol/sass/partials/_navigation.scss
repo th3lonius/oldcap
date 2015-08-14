@@ -1,0 +1,261 @@
+@mixin line {
+  @include transition(all, 0.2s, ease);
+  display: inline-block;
+  width: $button-size;
+  height: $button-size/9;
+  background: #FFF;
+  border-radius: $button-size/14;
+}
+
+$button-size: 2.8rem;
+
+.lines-button {
+  @include transition(all, 0.2s, ease);
+  @include respond-to(tablet) {
+    display: none;
+  }
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  top: 14px; right: 15px;
+  user-select: none;
+  border-radius: $button-size/7;
+  z-index: 99999;
+  &:hover {
+    opacity: 1;
+  }
+  &:hover .lines::before {
+    top: 1rem;
+  }
+  &:hover .lines::after {
+    top: -1rem;
+  }
+  &:active {
+    transition: 0;
+    background: rgba(0, 0, 0, .1);
+  }
+  .lines {
+    @include line;
+    position: relative;
+    &::before, &::after {
+      @include line;
+      position: absolute;
+      left: 0;
+      content: '';
+      transform-origin: $button-size/14 center;
+      -webkit-transform-origin: $button-size/14 center;
+    }
+    &::before {
+      top: $button-size/4;
+    }
+    &::after {
+      top: -$button-size/4;
+    }
+  }
+}
+
+.lines-button.close .lines {
+  /*hide the middle line*/
+
+  background: transparent;
+  /*overlay the lines by setting both their top values to 0*/
+
+  &::before, &::after {
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    top: 0;
+    width: $button-size;
+  }
+  // rotate the lines to form the x shape
+  &::before {
+    @include rotate(Z, 45);
+  }
+  &::after {
+    @include rotate(Z, -45);
+  }
+}
+/* PRIMARY NAV */
+
+body.pml-open .push-menu-right {
+  right: 0;
+}
+
+body.pml-open main {
+  right: 12%;
+}
+
+.nav-main {
+  @include respond-to(tablet) {
+    background: none;
+    top: 0;
+  }
+  @include respond-to(laptop) {
+    font-size: 16px;
+    height: auto;
+  }
+  background: $dark-blue;
+  font-size: 2rem;
+  overflow-y: auto;
+  position: absolute;
+  top: 100px; right: 0;
+  text-align: right;
+  width: 100%; height: 100%;
+  ul {
+    @extend %clearfix;
+    li.nav-item {
+      @include transition(all, 0.2s, ease-in-out);
+      @include respond-to(tablet) {
+        display: inline-block;
+        float: left;
+      }
+      display: block;
+      position: relative;
+      text-align: left;
+      a {
+        @include transition;
+        @include respond-to(tablet) {
+          height: 100%;
+          padding: 0 $h5!important;
+        }
+        color: $white;
+        display: block!important;
+        font-family: $title-font;
+        font-weight: 700;
+        letter-spacing: 1px;
+        overflow: hidden;
+        padding: $small $h5;
+        position: relative;
+        text-align: left;
+        text-transform: uppercase;
+        z-index: 1;
+        &:hover { background-color: $dark-blue; }
+        &::before {
+          @include transition(all, 0.3s, 0.1s);
+          @include respond-to(tablet) {
+            background: $light-blue;
+            content: "";
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 500px; height: 500px;
+            z-index: -1;
+            transform-origin: 0 0;
+            transform: translateY(500px) translateX(490px) rotate(-45deg);
+            -webkit-transform-origin: 0 0;
+            -webkit-transform: translateY(500px) translateX(490px) rotate(-45deg);
+          }
+        }
+        &:hover::before {
+          transform: translateY(500px) translateX(0) rotate(-45deg);
+          -webkit-transform: translateY(500px) translateX(0) rotate(-45deg);
+
+        }
+      }
+    }
+  }
+}
+
+.nav-membership {
+  background-color: $orange;
+  &::before {
+    display: none;
+  }
+  &:hover {
+    background-color: darken($orange, 7%)!important;
+  }
+}
+
+.nav-signin {
+  background-color: $gray;
+  &::before {
+    display: none;
+  }
+  &:hover {
+    background-color: darken($gray, 7%)!important;
+  }
+}
+
+.nav-primary {
+  @include respond-to(tablet) {
+    display: inline-block;
+    height: $header-height - 50px;
+  }
+  display: block;
+  position: relative;
+  width: auto; height: auto;
+  z-index: 99999;
+  &:last-of-type {
+    background: $black;
+  }
+  li:last-child {
+    padding: 1rem 0rem 0rem 1rem;
+    float: right;
+  }
+  li.nav-item a {
+    line-height: 60px;
+  }
+}
+
+.nav-secondary {
+  @extend %clearfix;
+  @include respond-to(tablet) {
+    @include linear-gradient(90deg, $black 160px, $dark-blue, $dark-blue);
+    display: inline-block;
+    height: $header-height - 60px;
+    float: right;
+  }
+  position: relative;
+  height: auto;
+  li.nav-item {
+    @include transition(all, 0.2s, ease-in-out);
+    @include respond-to(tablet) {
+      float: left;
+      width: auto;
+    }
+    @include respond-to(laptop) {
+      display: inline-block;
+    }
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    a {
+      @include respond-to(tablet) {
+        font-size: $small;
+        height: 100%;
+        line-height: 50px;
+        padding: 0 $h4!important;
+      }
+      @include respond-to(laptop) {
+        font-size: $base;
+      }
+      color: $white;
+      display: block!important;
+      font-family: $title-font;
+      font-size: $base;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-align: left;
+      text-transform: uppercase;
+      &:hover { background-color: $dark-blue; }
+    }
+  }
+}
+
+/* PAGE NAV */
+a[rel="prev"],
+a[rel="next"] {
+  @include transition(all, .2s, ease-in-out, 0.1s);
+  font-family: $title-font;
+  font-size: $base;
+  font-weight: 700;
+  padding: 10px;
+  position: fixed;
+  bottom: 300px;
+  text-transform: uppercase;
+  width: 80px;
+  z-index: 1;
+  &:hover {
+    color: $white;
+  }
+}
