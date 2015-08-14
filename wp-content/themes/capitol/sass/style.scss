@@ -38,6 +38,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 ----------------------------------------------- */
 main {
   @include transition(right, 0.2s, ease-in-out);
+  padding: 0 $h1;
   position: relative;
   right: 0; top: 0;
   z-index: 10;
@@ -46,6 +47,7 @@ main {
 article {
   margin: 0 auto;
   overflow: hidden;
+  padding: $base 0;
   position: relative;
   text-align: left;
   width: 100%;
@@ -78,7 +80,7 @@ section {
 
 %article-headers {
   @include respond-to(tablet) {
-    font-size: $h5;
+    font-size: $h4;
     width: auto;
   }
   background-color: $dark-blue;
@@ -109,7 +111,7 @@ section {
     font-size: $base;
   }
   @include respond-to(tv) {
-    font-size: $h5;
+    font-size: $h4;
   }
   background-color: $light-blue;
   display: inline-block;
@@ -129,6 +131,7 @@ section {
 ----------------------------------------------- */
 .global-header {
   @include transition;
+  @include box-shadow(0, 0, 5px, 1px, transparentize($black, 0.8));
   @include respond-to(tablet) {
     bottom: auto; left: 0; right: 0;
   }
@@ -142,13 +145,14 @@ section {
   z-index: 9999;
   .header-content {
     margin: 0 auto;
-    max-width: 1020px;
+    max-width: 1020px; height: 100%;
     position: relative;
   }
 }
 
 
 .small-header {
+  @include transition;
   @include respond-to(tablet) {
     height: $header-height - 20px;
     nav ul.nav-primary {
@@ -169,13 +173,14 @@ section {
       @include transform(translate(20px, -21px) scale(0.9));
     }
     .logo {
+      @include transition;
       background-size: 80%;
     }
   }
 }
 
 .logo {
-  @include transition(all, 0.3s, ease);
+  @include transition;
   @include respond-to(tablet) {
     display: inline-block;
     height: 100%;
@@ -187,7 +192,7 @@ section {
   background-image: url(img/logo.svg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   display: block;
   line-height: $header-height;
   margin-left: $h3;
@@ -210,6 +215,14 @@ main {
     }
     height: 300px;
   }
+}
+
+.module--blog {
+  @include respond-to(tablet) {
+    width: 60%;
+  }
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* =FOOTER

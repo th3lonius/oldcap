@@ -1,6 +1,12 @@
 // Required
-#slider {
-  height: 500px;
+.home-page--slider {
+  @include respond-to(tablet) {
+    max-height: 700px;
+  }
+  @include respond-to(laptop) {
+    max-height: 100vh;
+  }
+  max-height: 500px;
   position: relative;
   .slides-container {
     display: none;
@@ -18,7 +24,7 @@
 
 .slides-pagination {
   @include respond-to(tablet) {
-    left: $h1+$h5; bottom: 12rem; //$h1*5;
+    left: $h1+$h4; bottom: 12rem; //$h1*5;
     width: auto;
   }
   position: absolute;

@@ -1,4 +1,10 @@
 jQuery(document).ready(function($){
+  
+/*----- FLOWTYPE -----*/
+$('article').flowtype({
+ minFont : 16,
+ maxFont : 32
+});
 
 /*----- PARALLAX -----*/
 var $window = $(window);

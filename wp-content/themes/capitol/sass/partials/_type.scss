@@ -1,21 +1,17 @@
 /* =HIERARCHY */
-$h1: 4.883rem;
-$h2: 3.906rem;
-$h3: 3.125rem;
-$h4: 2.5rem;
-$h5: 2rem;
-$base: 1.6rem;
-$small: 1.28rem;
-$smaller: 1.024rem;
-
+$h1: 2.441em;
+$h2: 1.953em;
+$h3: 1.563em;
+$h4: 1.25em;
+$base: 1em;
+$small: 0.8em;
 
 /* =HEADINGS */
 %headings {
   display: block;
   font-family: $title-font;
-  font-weight: 100;
+  font-weight: 700;
   line-height: 1.2;
-  text-transform: uppercase;
 }
 
 h1, h2, h3, h4, h5, h6 { @extend %headings; }
@@ -27,8 +23,6 @@ h2 { font-size: $h2; }
 h3 { font-size: $h3; }
 
 h4 { font-size: $h4; }
-
-h5 { font-size: $h5; }
 
 /* =COMMON
 ----------------------------------------------- */
@@ -43,7 +37,7 @@ p {
 section p { margin-bottom: 2rem; }
 
 a {
-
+  color: $red;
   &:hover {
       @include transition(color, 0.3s, ease);
 

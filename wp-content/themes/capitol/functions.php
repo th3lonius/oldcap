@@ -136,8 +136,10 @@ function wcmScriptToFooter()
 function theme_js() {
     wp_register_script( 'main', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
     wp_register_script( 'superslides', get_template_directory_uri() . '/js/superslides.js', array( 'jquery' ), '', true );
+    wp_register_script( 'flowtype', get_template_directory_uri() . '/js/flowtype.min.js', array( 'jquery' ), '', true );
     wp_enqueue_script( 'main' );
     wp_enqueue_script( 'superslides' );
+    wp_enqueue_script( 'flowtype' );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_js');

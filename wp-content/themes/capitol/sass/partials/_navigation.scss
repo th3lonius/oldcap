@@ -88,17 +88,23 @@ body.pml-open main {
 .nav-main {
   display: inline-block;
   margin-left: 200px;
+  position: absolute;
+  bottom: 0;
+  height: auto;
   z-index: 999999;
   ul {
     @extend %clearfix;
-    margin-top: 50px;
     li {
       float: left;
       a {
+        @include respond-to(laptop) {
+          font-size: $base;
+        }
         color: $text-black;
         display: block;
+        font-size: $small;
         font-weight: 900;
-        padding: 0 $h5;
+        padding: $h4;
         text-transform: uppercase;
       }
     }
