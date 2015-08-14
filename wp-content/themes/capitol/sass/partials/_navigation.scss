@@ -86,12 +86,20 @@ body.pml-open main {
 }
 
 .nav-main {
+  display: inline-block;
+  margin-left: 200px;
+  z-index: 999999;
   ul {
     @extend %clearfix;
+    margin-top: 50px;
     li {
       float: left;
       a {
+        color: $text-black;
         display: block;
+        font-weight: 900;
+        padding: 0 $h5;
+        text-transform: uppercase;
       }
     }
   }
