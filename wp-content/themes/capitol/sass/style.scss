@@ -127,11 +127,14 @@ section {
   }
 }
 
+.article-title {
+  font-size: $h2;
+}
+
 /* =HEADER
 ----------------------------------------------- */
 .global-header {
   @include transition;
-  @include box-shadow(0, 0, 5px, 1px, transparentize($black, 0.8));
   @include respond-to(tablet) {
     bottom: auto; left: 0; right: 0;
   }
@@ -153,6 +156,7 @@ section {
 
 .small-header {
   @include transition;
+  @include box-shadow(0, 0, 5px, 1px, transparentize($black, 0.8));
   @include respond-to(tablet) {
     height: $header-height - 20px;
     nav ul.nav-primary {

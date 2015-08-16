@@ -87,7 +87,7 @@ body.pml-open main {
 
 .nav-main {
   display: inline-block;
-  margin-left: 200px;
+  margin-left: 180px;
   position: absolute;
   bottom: 0;
   height: auto;
@@ -97,6 +97,7 @@ body.pml-open main {
     li {
       float: left;
       a {
+        @include transition;
         @include respond-to(laptop) {
           font-size: $base;
         }
@@ -104,8 +105,12 @@ body.pml-open main {
         display: block;
         font-size: $small;
         font-weight: 900;
-        padding: $h4;
+        padding: $base $h4;
         text-transform: uppercase;
+        &:hover {
+          background-color: $red;
+          color: $white;
+        }
       }
     }
   }

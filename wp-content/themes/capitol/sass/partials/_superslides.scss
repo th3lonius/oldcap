@@ -23,27 +23,47 @@
 }
 
 .slides-pagination {
-  @include respond-to(tablet) {
-    left: $h1+$h4; bottom: 12rem; //$h1*5;
-    width: auto;
-  }
+  @include translate(-50%, 0);
   position: absolute;
   z-index: 3;
-  bottom: 8rem;
+  left: 50%; bottom: $h3;
   text-align: center;
   width: 100%;
   a {
     border: 2px solid transparentize($white,0.6);
     border-radius: 50px;
     display: inline-block;
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 0.6em; height: 0.6em;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
     margin: 3px;
     overflow: hidden;
     text-indent: -100%;
     &.current {
       background: $white;
+    }
+  }
+}
+
+.slides-navigation {
+  margin: 0 auto;
+  position: absolute;
+  z-index: 3;
+  top: 46%;
+  width: 100%;
+  a {
+    background-color: $white;
+    font-size: $h1;
+    font-weight: 100;
+    padding: 0.1em 0.2em;
+    position: absolute;
+    display: block;
+    &.prev {
+      @include border-radius(0, 360, 360, 0);
+      left: 0;
+    }
+    &.next {
+      @include border-radius(360, 0, 0, 360);
+      right: 0;
     }
   }
 }

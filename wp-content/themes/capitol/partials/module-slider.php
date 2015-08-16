@@ -36,5 +36,10 @@
     <?php endif; ?>
     
     <?php endwhile; ?>
+    
+    <nav class="slides-navigation">
+      <a href="#" class="next">></a>
+      <a href="#" class="prev"><</a>
+    </nav>
 
   </article>

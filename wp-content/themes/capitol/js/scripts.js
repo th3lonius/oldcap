@@ -3,7 +3,7 @@ jQuery(document).ready(function($){
 /*----- FLOWTYPE -----*/
 $('article').flowtype({
  minFont : 16,
- maxFont : 32
+ maxFont : 30
 });
 
 /*----- PARALLAX -----*/
