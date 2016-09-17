@@ -18,8 +18,6 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url');?>">
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/remodal.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/remodal-default-theme.css">
     <?php wp_head(); ?>
     <script src="https://use.typekit.net/fae8swm.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -64,8 +62,8 @@
 
       </div>
 
-    </header>
+      <button type="button" role="button" class="lines-button toggle-push-right"><span class="lines"></span></button>
 
-    <button type="button" role="button" class="lines-button toggle-push-right floating"><span class="lines"></span></button>
+    </header>
 
     <main>

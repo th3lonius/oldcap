@@ -18,7 +18,6 @@ $button-size: 2em;
   position: fixed;
   top: $base*$golden; right: $base*$golden;
   user-select: none;
-  border-radius: $button-size/7;
   z-index: 99999;
   &:hover {
     opacity: 1;
@@ -80,6 +79,21 @@ body.pml-open .push-menu-right {
   top: 0;
 }
 
+.small-header {
+  @include transition;
+  .logo {
+    @include transition;
+    opacity: 0;
+    top: 5px;
+    width: 90px; height: 90px;
+  }
+  .lines-button {
+    background: $red;
+    padding: 0.7em $small $small;
+    top: 0; right: 0;
+  }
+}
+
 .global-header {
   @include transition;
   background-color: $red;
@@ -93,7 +107,7 @@ body.pml-open .push-menu-right {
     position: absolute;
     top: 50%; left: 50%;
     width: 100%; height: auto;
-    z-index: 99;
+    z-index: 99999;
   }
 }
 
@@ -106,6 +120,9 @@ body.pml-open .push-menu-right {
   }
   @include respond-to(laptop) {
     width: 160px; height: 160px;
+  }
+  @include respond-to(desktop) {
+    width: 200px; height: 200px;
   }
   background-image: url(img/logo.svg);
   background-position: center;

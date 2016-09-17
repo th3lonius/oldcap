@@ -17,7 +17,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import 'partials/base';
 @import 'partials/functions';
 @import 'partials/grid';
-@import 'partials/navigation';
+@import 'partials/header';
 @import 'partials/animations';
 @import 'partials/superslides';
 @import 'partials/poly-object-fit';
@@ -149,30 +149,6 @@ ul.bullets {
 
 .article-title {
   font-size: $h2;
-}
-
-/* =HEADER
------------------------------------------------ */
-.small-header {
-  @include transition;
-  @include respond-to(tablet) {
-    background-color: $red;
-    height: 60px;
-    .nav-main ul li a {
-      line-height: 60px;
-      &:hover {
-        background-color: $black;
-      }
-    }
-    .lines-button {
-      @include transform(translate(20px, -21px) scale(0.9));
-    }
-    .logo {
-      @include transition;
-      top: 5px;
-      width: 90px; height: 90px;
-    }
-  }
 }
 
 /* =HOMEPAGE COVER SECTION
