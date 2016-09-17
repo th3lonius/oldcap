@@ -46,11 +46,11 @@ main {
 
 article {
   @include respond-to(laptop) {
-    padding: $h2 $h3;
+    padding: $h2 $h3!important;
   }
   margin: 0 auto;
   overflow: hidden;
-  padding: $base 0;
+  padding: $h4!important;
   position: relative;
   text-align: left;
   width: 100%;
@@ -316,20 +316,8 @@ main {
 .locations {
   @extend %clearfix;
   .location {
-    display: inline-block;
-    margin-bottom: $h3;
-    padding: 0 $h4;
-    text-align: center;
-    max-height: 230px;
     &-name {
       font-size: $base;
-    }
-    &-img {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      margin-bottom: 0.6em;
-      height: 200px;
     }
   }
 }

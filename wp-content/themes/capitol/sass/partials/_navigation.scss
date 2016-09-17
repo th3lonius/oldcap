@@ -105,7 +105,7 @@ body.pml-open .push-menu-right {
     left: $h2;
   }
   @include respond-to(laptop) {
-    width: 140px; height: 140px;
+    width: 160px; height: 160px;
   }
   background-image: url(img/logo.svg);
   background-position: center;
@@ -116,7 +116,7 @@ body.pml-open .push-menu-right {
   position: fixed!important;
   top: 20px; left: $base;
   text-indent: -9999px;
-  width: 90px; height: 90px;
+  width: 100px; height: 100px;
   z-index: 999999;
   &::after {
     content: none;

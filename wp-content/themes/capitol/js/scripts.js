@@ -2,9 +2,9 @@ jQuery(document).ready(function($){
   
 /*----- FLOWTYPE -----*/
 $('main').flowtype({
-  minFont : 16,
-  maxFont : 30,
-  fontRatio : 80
+  minFont : 18,
+  maxFont : 32,
+  fontRatio : 60
 });
 
 /*----- PARALLAX -----*/

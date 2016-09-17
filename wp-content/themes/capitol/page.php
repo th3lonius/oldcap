@@ -13,17 +13,8 @@ get_header(); ?>
 
         if( !empty($image) ):
 
-            // vars
-            $url = $image['url'];
-            $title = $image['title'];
-            $alt = $image['alt'];
-            $caption = $image['caption'];
-
-            // thumbnail
-            $size = 'thumbnail';
-            $thumb = $image['sizes'][ $size ];
-            $width = $image['sizes'][ $size . '-width' ];
-            $height = $image['sizes'][ $size . '-height' ];
+          $size = 'medium';
+          $url = $image['sizes'][$size];
 
         ?>
 
@@ -39,7 +30,7 @@ get_header(); ?>
 
     </article>
 
-    <article class="col-8-12 no-float">
+    <article class="col-10-12 no-float">
       <?php the_content(); ?>
     </article>
 

@@ -59,7 +59,7 @@
 
             <ul class="social">
               <li><a href="https://twitter.com/oldcapfoodco" class="twitter">Twitter</a></li>
-              <li><a href="#" class="facebook">Facebook</a></li>
+              <li><a href="https://www.facebook.com/oldcapfoodco/" class="facebook">Facebook</a></li>
             </ul>
 
       </div>

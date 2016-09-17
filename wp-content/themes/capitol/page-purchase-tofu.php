@@ -13,17 +13,8 @@ get_header(); ?>
 
         if( !empty($image) ):
 
-            // vars
-            $url = $image['url'];
-            $title = $image['title'];
-            $alt = $image['alt'];
-            $caption = $image['caption'];
-
-            // thumbnail
-            $size = 'thumbnail';
-            $thumb = $image['sizes'][ $size ];
-            $width = $image['sizes'][ $size . '-width' ];
-            $height = $image['sizes'][ $size . '-height' ];
+          $size = 'medium';
+          $url = $image['sizes'][$size];
 
         ?>
 
@@ -39,24 +30,29 @@ get_header(); ?>
 
     </article>
 
-    <article class="col-8-12 no-float">
+    <article class="col-10-12 no-float">
 
-      <section>
+      <section class="col-6-12">
        <?php the_content(); ?>
       </section>
 
-      <section class="locations">
+      <section class="locations col-6-12">
 
         <?php if( have_rows('location') ): ?>
 
-          <?php while ( have_rows('location') ) : the_row(); ?>
+         <h4>Restaurants & Prepared Foods</h4>
 
-          <div class="location col-4-12">
-            <figure class="location-img" style="background-image: url(<?php the_sub_field('logo'); ?>)"></figure>
-            <a href="<?php the_sub_field('hyperlink'); ?>" target="_blank"><h3 class="location-name"><?php the_sub_field('name'); ?></h3></a>
-          </div>
+          <ul>
 
-          <?php endwhile; ?>
+            <?php while ( have_rows('location') ) : the_row(); ?>
+
+            <li class="location">
+              <a href="<?php the_sub_field('hyperlink'); ?>" target="_blank"><?php the_sub_field('name'); ?></a>
+            </li>
+
+            <?php endwhile; ?>
+
+          </ul>
 
         <?php endif; ?>
 
