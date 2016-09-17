@@ -2,22 +2,21 @@
   @include transition(all, 0.2s, ease);
   display: inline-block;
   width: $button-size;
-  height: $button-size/9;
-  background: #FFF;
-  border-radius: $button-size/14;
+  height: $button-size/8;
+  background: $white;
 }
 
-$button-size: 2.8rem;
+$button-size: 2em;
 
 .lines-button {
   @include transition(all, 0.2s, ease);
   @include respond-to(tablet) {
-    display: none;
+    top: $h4; right: $h3;
   }
   display: inline-block;
   cursor: pointer;
   position: fixed;
-  top: 14px; right: 15px;
+  top: $base*$golden; right: $base*$golden;
   user-select: none;
   border-radius: $button-size/7;
   z-index: 99999;
@@ -25,10 +24,10 @@ $button-size: 2.8rem;
     opacity: 1;
   }
   &:hover .lines::before {
-    top: 1rem;
+    top: $button-size/5;
   }
   &:hover .lines::after {
-    top: -1rem;
+    top: -$button-size/5;
   }
   &:active {
     transition: 0;
@@ -78,39 +77,100 @@ $button-size: 2.8rem;
 /* PRIMARY NAV */
 
 body.pml-open .push-menu-right {
-  right: 0;
+  top: 0;
 }
 
-body.pml-open main {
-  right: 12%;
+.global-header {
+  @include transition;
+  background-color: $red;
+  position: fixed;
+  text-align: center;
+  top: -100%; left: 0; bottom: 0; right: 0;
+  width: 100%; height: 100%;
+  z-index: 99;
+  .nav-container {
+    @include translate(-50%, -50%);
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%; height: auto;
+    z-index: 99;
+  }
+}
+
+.logo {
+  @include transition;
+  @include respond-to(tablet) {
+    display: inline-block;
+    position: fixed !important;
+    left: $h2;
+  }
+  @include respond-to(laptop) {
+    width: 140px; height: 140px;
+  }
+  background-image: url(img/logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: block;
+  line-height: 110px;
+  position: fixed!important;
+  top: 20px; left: $base;
+  text-indent: -9999px;
+  width: 90px; height: 90px;
+  z-index: 999999;
+  &::after {
+    content: none;
+  }
 }
 
 .nav-main {
-  display: inline-block;
-  margin-left: 180px;
-  position: absolute;
-  bottom: 0;
-  height: auto;
-  z-index: 999999;
+  margin-bottom: $base;
+  padding-bottom: $base;
+  position: relative;
+  &::after {
+    @include translate(-50%, 0);
+    background-color: $text-black;
+    content: "";
+    position: absolute;
+    left: 50%; bottom: 0;
+    width: 50%; height: 2px;
+  }
   ul {
-    @extend %clearfix;
     li {
-      float: left;
+      text-align: center;
+      width: 100%;
       a {
         @include transition;
         @include respond-to(laptop) {
-          font-size: $base;
+          font-size: $h1;
+          line-height: 1.4;
         }
         color: $text-black;
         display: block;
-        font-size: $small;
-        font-weight: 900;
-        padding: $base $h4;
+        font-family: $title-font;
+        font-size: $h3;
+        line-height: $golden;
         text-transform: uppercase;
         &:hover {
-          background-color: $red;
           color: $white;
         }
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+.social {
+  position: relative;
+  li {
+    a {
+      color: $text-black;
+      font-family: $title-font;
+      font-size: $base;
+      &:hover {
+        color: $white;
       }
     }
   }

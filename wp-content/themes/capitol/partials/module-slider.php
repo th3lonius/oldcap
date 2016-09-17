@@ -25,9 +25,16 @@
 		// vars
 		$image = get_sub_field('photo');
 
+        // vars
+        $title = $image['title'];
+        $alt = $image['alt'];
+        $caption = $image['caption'];
+
+        $image_url = $image['sizes']['large'];
+
 		?>
      
-     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+     <img src="<?php echo $image_url; ?>" alt="<?php echo $alt ?>" title="<?php echo $title ?>" />
      
      <?php endwhile; ?>
      

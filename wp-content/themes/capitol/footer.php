@@ -1,7 +1,7 @@
 </main>
 
 <footer>
-  <span>&#169; 2015 Filmscene</span>
+  <span>&#169; <?php echo date("Y"); ?> Old Capitol Food Co.</span>
 </footer>
 
 <!--[if lt IE 9]>

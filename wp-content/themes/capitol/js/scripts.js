@@ -1,9 +1,10 @@
 jQuery(document).ready(function($){
   
 /*----- FLOWTYPE -----*/
-$('article').flowtype({
- minFont : 16,
- maxFont : 30
+$('main').flowtype({
+  minFont : 16,
+  maxFont : 30,
+  fontRatio : 80
 });
 
 /*----- PARALLAX -----*/
@@ -31,7 +32,7 @@ function fade_header() {
 
   window_scroll = $(document).scrollTop();
 
-  if ( window_scroll > 300) {
+  if ( window_scroll > 200) {
     $('.global-header').addClass('small-header');
   } else {
     $('.global-header').removeClass('small-header');
@@ -60,6 +61,7 @@ if ( ms_ie ) {
 }
 
 /*----- CONTENT LOADING ANIMATION -----*/
+
 $(window).load(function() {
     // start up after 1sec no matter what
     window.setTimeout(function(){
@@ -67,13 +69,31 @@ $(window).load(function() {
     }, 500);
 });
 
+/*----- DESKTOP VIDEO AUTOPLAY -----*/
+
+$(function() {
+    // onload
+    if(document.body.clientWidth >= 870) {
+        $('video').attr('autoplay', true);
+      $('#bgvid').css('display','block');
+    }
+
+    // If you want to autoplay when the window resized wider than 780px
+    // after load, you can add this:
+
+    $(window).resize(function() {
+        if(document.body.clientWidth >= 870) {
+            $('video').attr('autoplay', true);
+        }
+    });
+});
 
 /*----- SUPERSLIDES INIT -----*/
 $('.home-page--slider').superslides({
   animation: 'fade',
-  slide_speed: 'normal',
-  slide_easing: 'linear',
-  play: 5000
+  slide_speed: 'slow',
+  slide_easing: 'ease-out',
+  play: 3000
 });
 
 /*----- ACTIVE NAVIGATION -----*/
@@ -216,25 +236,5 @@ $('a[href*=#]:not([href=#])').click(function() {
         }
     }
 });
-
-
-/*----- HEXADECIMAL TO RGBA CONVERSION -----*/
-function convertHex(hex,opacity){
-    hex = hex.replace('#','');
-    r = parseInt(hex.substring(0,2), 16);
-    g = parseInt(hex.substring(2,4), 16);
-    b = parseInt(hex.substring(4,6), 16);
-
-    result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
-    return result;
-}
-
-$('.series-title').each(function( index, element ) {
-    var $hex = $(this).css('backgroundColor');
-    $hex = $hex.replace('rgb(', '');
-    $hex = $hex.replace(')', '');
-    $(this).parents('header').siblings('.overlay').css('backgroundImage', 'linear-gradient(180deg, rgba('+$hex+', 0.14), rgba('+$hex+', 0.2) 50%, rgba('+$hex+', 0.9) 100%)');//.children('.overlay'));
-    //$(this).parents('header').siblings('.overlay').css('background', 'rgba('+$hex+', 0.3)');
-  });
 
 });

@@ -1,24 +1,5 @@
 <?php
-get_header();
-
-if($post->post_parent) {
-  $parent_id = $post->post_parent;
-  $parent = get_post($parent_id);
-  $parent_title = $parent->post_title;
-} else {
-  $parent_id = $post->ID;
-  $parent_title = $post->post_title;
-}
-
-$args = array(
-  'post_parent' => $parent_id,
-  'post_type'   => 'page',
-  'numberposts' => -1,
-  'post_status' => 'publish'
-);
-$subpages = get_children( $args );
-
-?>
+get_header(); ?>
 
 <div class="interior">
 
@@ -26,47 +7,43 @@ $subpages = get_children( $args );
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-    <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
+      <?php
 
+        $image = get_field('image');
 
+        if( !empty($image) ):
 
-    <article class="primary-content">
+            // vars
+            $url = $image['url'];
+            $title = $image['title'];
+            $alt = $image['alt'];
+            $caption = $image['caption'];
 
-     <h1 class="series-title"><?php echo($parent_title); ?></h1>
+            // thumbnail
+            $size = 'thumbnail';
+            $thumb = $image['sizes'][ $size ];
+            $width = $image['sizes'][ $size . '-width' ];
+            $height = $image['sizes'][ $size . '-height' ];
 
-      <aside class="col-12-12">
-        <ul>
-          <?php
-            foreach( $subpages as $subpage ){
-          ?>
-          <li>
-            <a href="<?php echo get_template_directory_uri().'/'.$subpage->post_name; ?>">
-              <?php echo($subpage->post_title); ?>
-            </a>
-          </li>
-          <?php
-            }
-          ?>
-        </ul>
-      </aside>
+        ?>
 
-      <section class="col-8-12">
+    <article class="intro-image" style="background-image: url(<?php echo $url; ?>);">
 
-        <?php the_content(); ?>
+      <header class="intro-details">
 
-      </section>
+        <h1 class="intro-title"><?php the_title(); ?></h1>
+
+      </header>
+
+        <?php endif; ?>
 
     </article>
 
-    <article data-type="background" data-speed="12" data-background="<?php echo $src['0']; ?>">
-
+    <article class="col-8-12 no-float">
+      <?php the_content(); ?>
     </article>
 
     <?php endwhile; ?>
-
-
-    <?php else : ?>
-
 
   <?php endif; ?>
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * oldcap functions and definitions
  *
@@ -43,64 +44,24 @@ return $mimes;
 }
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
-add_action( 'init', 'festinfo_post_type' );
-add_action( 'init', 'staff_post_type' );
-add_action( 'init', 'events_post_type' );
+add_action( 'init', 'recipes_post_type' );
 add_action( 'init', 'gallery_post_type' );
 
-function festinfo_post_type() {
+function recipes_post_type() {
 
-	register_post_type( 'festinfo', array(
+	register_post_type( 'recipes', array(
 		'labels' => array(
-			'name' => __('Festival Info'),
-			'singular_name' => __('Festival Info')
+			'name' => __('Recipes'),
+			'singular_name' => __('Recipe')
 			),
 		'public' => true,
         'capability_type' => 'page',
 		'show_ui' => true,
-        'menu_icon' => 'dashicons-video-alt',
+        'menu_icon' => 'dashicons-carrot',
         'show_in_menu' => true,
         'show_in_nav_menus' => true,
 		'rewrite' => array(
-			'slug' => 'festinfo',
-			'with_front' => false
-			),
-		'has_archive' => true
-	) );
-}
-
-function staff_post_type() {
-
-	register_post_type( 'staff', array(
-		'labels' => array(
-			'name' => __('Staff'),
-			'singular_name' => __('Staff Member')
-			),
-		'public' => true,
-        'capability_type' => 'page',
-		'show_ui' => true,
-        'menu_icon' => 'dashicons-admin-users',
-        'show_in_menu' => true,
-        'show_in_nav_menus' => true,
-		'rewrite' => array(
-			'slug' => 'staff',
-			'with_front' => false
-			),
-		'has_archive' => true
-	) );
-}
-
-function events_post_type() {
-
-	register_post_type( 'events', array(
-		'labels' => array(
-			'name' => __('Events'),
-			'singular_name' => __('Event')
-			),
-		'public' => true,
-		'show_ui' => true,
-		'rewrite' => array(
-			'slug' => 'events',
+			'slug' => 'recipes',
 			'with_front' => false
 			),
 		'has_archive' => true
@@ -216,11 +177,7 @@ function change_post_object_label() {
        return array(
         'index.php', // dashboard link
         'edit.php', //the posts tab
-        'edit.php?post_type=festinfo', // Custom post type
-        'edit.php?post_type=staff', // Custom post type
-        'edit.php?post_type=lineup', // Custom post type
-        'edit.php?post_type=venues', // Custom post type
-        'edit.php?post_type=events', // Custom post type
+        'edit.php?post_type=recipes', // Custom post type
         'edit.php?post_type=gallery', // Custom post type
         'edit.php?post_type=page', //the pages tab
         'separator1', // first separator

@@ -13,29 +13,26 @@
 
 get_header(); ?>
 
-<span style="font-size: 26px; color: red; float: right;">I am index</span>
+<div class="interior">
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+  <article class="interior--blog col-6-12">
 
-		<?php if ( have_posts() ) : ?>
+    <?php if ( have_posts() ) : ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+        <?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', get_post_format() ); ?>
+            <?php the_content(); ?>
 
-			<?php endwhile; ?>
+        <?php endwhile; ?>
 
-			<?php tyler_paging_nav(); ?>
+    <?php else : ?>
 
-		<?php else : ?>
+        <?php get_template_part( 'content', 'none' ); ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+    <?php endif; ?>
 
-		<?php endif; ?>
+  </article>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+</div>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

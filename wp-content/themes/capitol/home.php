@@ -1,27 +1,19 @@
-<?php get_header(); ?>
+<?php
 
-<main class="interior">
+get_header();
 
-  <article class="intro-image" data-type="background" data-speed="6" style="background-image: url(<?php echo $url; ?>);">
+/*
+Template Name: Blog
+*/
 
-    <?php if ( have_posts() ) : ?>
+// Which page of the blog are we on?
+$paged = get_query_var('paged');
+query_posts('cat=-0&paged='.$paged);
 
-        <?php /* Start the Loop */ ?>
-        <?php while ( have_posts() ) : the_post(); ?>
+// make posts print only the first part with a link to rest of the post.
+global $more;
+$more = 0;
 
-            <?php the_content(); ?>
-
-        <?php endwhile; ?>
-
-
-    <?php else : ?>
-
-        <?php get_template_part( 'content', 'none' ); ?>
-
-    <?php endif; ?>
-
-  </article><!-- #content -->
-
-</main><!-- .interior -->
-
-<?php get_footer(); ?>
+//load index to show blog
+load_template(TEMPLATEPATH . '/index.php');
+?>

@@ -6,7 +6,8 @@
   @include respond-to(laptop) {
     max-height: 100vh;
   }
-  max-height: 500px;
+  max-height: 600px;
+  padding: 0;
   position: relative;
   .slides-container {
     display: none;
@@ -45,24 +46,29 @@
 }
 
 .slides-navigation {
+  font-family: $title-font;
   margin: 0 auto;
   position: absolute;
-  z-index: 3;
   top: 46%;
   width: 100%;
+  z-index: 3;
   a {
-    background-color: $white;
-    font-size: $h1;
+    color: $white;
+    font-size: $h3;
     font-weight: 100;
-    padding: 0.1em 0.2em;
+    padding: 0 0.2em;
     position: absolute;
     display: block;
+    &::after {
+      content: none;
+    }
+    &:hover {
+      background-color: $red;
+    }
     &.prev {
-      @include border-radius(0, 360, 360, 0);
       left: 0;
     }
     &.next {
-      @include border-radius(360, 0, 0, 360);
       right: 0;
     }
   }
