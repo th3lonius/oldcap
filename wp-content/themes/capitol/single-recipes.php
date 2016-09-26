@@ -108,7 +108,7 @@ get_header();
         $width = $image['sizes'][ $size . '-width' ];
         $height = $image['sizes'][ $size . '-height' ]; ?>
 
-    <section class="col-3-12">
+    <section class="col-3-12 no-padding">
 
     <?php endif; ?>
 

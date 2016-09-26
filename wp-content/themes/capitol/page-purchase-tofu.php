@@ -30,35 +30,51 @@ get_header(); ?>
 
     </article>
 
-    <article class="col-10-12 no-float">
-
-      <section class="col-6-12">
-       <?php the_content(); ?>
-      </section>
-
-      <section class="locations col-6-12">
+    <article class="locations">
 
         <?php if( have_rows('location') ): ?>
 
-         <h4>Restaurants & Prepared Foods</h4>
+      <section class="retail">
 
-          <ul>
+        <h2 class="section-title">Retail Locations</h2>
 
-            <?php while ( have_rows('location') ) : the_row(); ?>
+          <?php while ( have_rows('retail') ) : the_row(); ?>
 
-            <li class="location">
-              <a href="<?php the_sub_field('hyperlink'); ?>" target="_blank"><?php the_sub_field('name'); ?></a>
-            </li>
+            <a href="<?php the_sub_field('hyperlink'); ?>" target="_blank" class="contextual-link">
+              <span><?php the_sub_field('name'); ?></span>
+              <div>
+              <?php while ( has_sub_field('addresses') ) : ?>
+                <address><?php the_sub_field('address'); ?></address>
+              <?php endwhile; ?>
+              </div>
+            </a>
 
-            <?php endwhile; ?>
-
-          </ul>
-
-        <?php endif; ?>
+          <?php endwhile; ?>
 
       </section>
 
-    </article>
+      <section class="wholesale">
+
+         <h2 class="section-title">Restaurants & Prepared Foods</h2>
+
+            <?php while ( have_rows('wholesale') ) : the_row(); ?>
+
+              <a href="<?php the_sub_field('hyperlink'); ?>" target="_blank" class="contextual-link">
+                <span><?php the_sub_field('name'); ?></span>
+                <div>
+                <?php while ( has_sub_field('addresses') ) : ?>
+                  <address><?php the_sub_field('address'); ?></address>
+                <?php endwhile; ?>
+                </div>
+              </a>
+
+            <?php endwhile; ?>
+
+        </section>
+
+        <?php endif; ?>
+
+    </article><!-- .locations -->
 
     <?php endwhile; ?>
 

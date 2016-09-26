@@ -1,5 +1,5 @@
 // =HIERARCHY //
-$h1: 5.063em;
+$h1: 7.594em;
 $h2: 3.375em;
 $h3: 2.25em;
 $h4: 1.5em;
@@ -10,7 +10,7 @@ $small: 0.8em;
 %headings {
   display: block;
   font-family: $title-font;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 1.2;
 }
 
@@ -28,7 +28,7 @@ h4 { font-size: $h4; }
 p {
   font-family: $display-font;
   font-size: $base;
-  font-weight: 400;
+  font-weight: normal;
   line-height: $golden;
   margin-bottom: $base;
   em { font-style: italic; }
@@ -44,33 +44,89 @@ section p { margin-bottom: 2rem; }
 
 a {
   color: $red;
+  text-decoration: none;
   &:hover {
-      @include transition(color, 0.3s, ease);
-
+    @include transition(color, 0.3s, ease);
   }
 }
 
 blockquote {
   p {
     font-size: $h4 !important;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 1.2;
   }
 }
 
-strong { font-weight: 700; }
+strong { font-weight: bold; }
 
 // =LINKS //
-a, a:link, a:visited {
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-}
-
-a::after {
+.contextual-link, .contextual-link:link, .contextual-link:visited {
   @include transition;
+  color: $white;
+  display: inline-block;
+  font-family: $display-font;
+  margin: 0 20px;
+  padding: 18px 20px;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 0 1px rgba(255,255,255,0.3);
+  vertical-align: top;
+  span {
+    display: block;
+    font-size: $base;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  div {
+    @include transition;
+    @include translate(0, -100%);
+    color: transparentize($text-black, 0.4);
+    display: block;
+    font-size: $small;
+    font-style: italic;
+    opacity: 0;
+    padding: 8px 0 0 0;
+    text-shadow: none;
+    text-transform: none!important;
+    z-index: 1;
+  }
 }
 
-a:hover::after {
-  background-color: $red;
+.contextual-link:hover div {
+  @include translate(0, 0);
+  opacity: 1;
+}
+
+.contextual-link:hover::before, .contextual-link:hover::after {
+  @include translate(0, 0);
+  opacity: 1;
+}
+
+.contextual-link:hover::before {
+  height: 6px;
+}
+
+.contextual-link::before, .contextual-link::after {
+  @include transition;
+  background: $white;
+  content: '';
+  opacity: 0.2;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+}
+
+.contextual-link::after {
+  @include translate(0, -10px);
+  opacity: 0;
+  top: 100%;
+}
+
+.section-title {
+  color: $red;
+  font-family: $display-font;
+  margin-bottom: $base;
 }

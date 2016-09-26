@@ -34,6 +34,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   padding: 12rem 7rem 7rem;
 }
 
+.no-padding {
+  padding: 0;
+}
+
 /* =GLOBALS
 ----------------------------------------------- */
 main {
@@ -45,12 +49,8 @@ main {
 }
 
 article {
-  @include respond-to(laptop) {
-    padding: $h2 $h3!important;
-  }
   margin: 0 auto;
   overflow: hidden;
-  padding: $h4!important;
   position: relative;
   text-align: left;
   width: 100%;
@@ -58,7 +58,10 @@ article {
     padding: 0;
   }
   section {
-    margin-bottom: $h3;
+    @include respond-to(laptop) {
+      padding: $h2;
+    }
+    padding: $h3;
   }
 }
 
@@ -103,7 +106,7 @@ ul.bullets {
     font-size: $h4;
     width: auto;
   }
-  background-color: $dark-blue;
+  background-color: $blue;
   color: $white;
   font-size: $base;
   font-weight: 500;
@@ -133,7 +136,7 @@ ul.bullets {
   @include respond-to(tv) {
     font-size: $h4;
   }
-  background-color: $light-blue;
+  background-color: $blue;
   display: inline-block;
   float: left;
   font-size: $small;
@@ -143,7 +146,7 @@ ul.bullets {
   position: relative;
   z-index: 1;
   &:hover {
-    background-color: $dark-blue;
+    background-color: $blue;
   }
 }
 
@@ -262,7 +265,7 @@ main {
 /* =INTERIOR BLOG
 ----------------------------------------------- */
 .interior {
-  margin-bottom: $h4;
+
   .intro-image {
     @include respond-to(laptop) {
       height: 70vh;
@@ -282,6 +285,7 @@ main {
       }
       color: $white;
       font-size: $h2;
+      letter-spacing: 0.05em;
     }
   }
   &--blog {
@@ -289,18 +293,28 @@ main {
   }
 }
 
+
 .locations {
-  @extend %clearfix;
-  .location {
-    &-name {
-      font-size: $base;
+  text-align: center;
+  .wholesale {
+    @extend %clearfix;
+    background: $blue;
+    .location {
+      display: inline-block;
+      margin: $base;
     }
+  }
+  .retail {
+    background: $yellow;
+    color: $white;
+    margin-bottom: 0;
   }
 }
 
+
 /* =RECIPES
 ----------------------------------------------- */
-.section-title {
+.recipe-section-title {
   border-bottom: 3px solid rgba(0, 0, 0, 0.8);
   display: inline-block;
   font-size: 1.5em;
@@ -318,9 +332,6 @@ main {
   top: 52%;
   left: 50%;
   z-index: 99;
-  &:hover .recipe-title {
-    color: $red;
-  }
   .recipe-title {
     @include respond-to(tablet) {
       font-size: $h2;
@@ -340,9 +351,12 @@ main {
 }
 
 .ingredients {
+  background: $red;
   font-family: "prohibition", sans-serif;
-  margin-bottom: 2.25em;
   padding-right: 3.375em;
+  & > * {
+    color: $white;
+  }
   ul li {
     margin-bottom: 0.5em;
   }
@@ -366,9 +380,9 @@ main {
         border-radius: 3px;
         color: $white;
         font-size: $base;
-        padding: 4px 8px 2px;
+        padding: 0 6px 2px;
         top: -4px;
-        left: -2.25em;
+        left: -$h4;
         height: auto;
       }
       content: counter(step-counter);
@@ -389,6 +403,9 @@ main {
 }
 
 .more-recipes {
+  @include respond-to(tablet) {
+
+  }
   padding: 0;
   section {
     height: 360px;

@@ -52,7 +52,7 @@ get_header();
 
         <?php if( have_rows('ingredients') ): ?>
 
-          <h3 class="section-title">Ingredients</h3>
+          <h3 class="recipe-section-title">Ingredients</h3>
 
           <ul>
 
@@ -73,7 +73,7 @@ get_header();
       </section>
 
       <section class="col-8-12 directions">
-        <h3 class="section-title">Directions</h3>
+        <h3 class="recipe-section-title">Directions</h3>
         <?php the_field('directions'); ?>
       </section>
 

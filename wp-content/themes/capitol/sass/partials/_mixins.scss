@@ -134,7 +134,7 @@
 	transform: scale($size);
 }
 
-@mixin transition( $property: all, $duration: 0.1s, $function: ease-in-out, $delay: null ) {
+@mixin transition( $property: all, $duration: 0.2s, $function: ease-in-out, $delay: null ) {
 	-webkit-transition: $property $duration $function $delay;
 	-moz-transition: $property $duration $function $delay;
 	-o-transition: $property $duration $function $delay;
