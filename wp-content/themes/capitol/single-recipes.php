@@ -30,44 +30,118 @@ get_header();
      <?php endif; ?>
 
       <header class="intro-details">
+        
+        <span class="serving">Serving <?php the_field('servings'); ?></span>
 
-        <h1 class="recipe-title"><?php the_title(); ?></h1>
-
-        <?php the_content(); ?>
+        <h1 class="intro-title recipe-title"><?php the_title(); ?></h1>
+                
+        <author>by <?php the_author_posts_link(); ?></author>
 
       </header>
 
     </section>
 
-    <article class="col-10-12 no-float">
+    <article>
+      
+      <?php if ( $post->post_content!=="" ) { ?>
+      
+        <section class="col-12-12 abstract">
+
+          <?php the_content(); ?>
+
+        </section>
+        
+      <?php } ?>
 
       <section class="col-4-12 ingredients">
 
         <?php if( have_rows('ingredients') ): ?>
 
-          <h3 class="section-title">Ingredients</h3>
+          <h3 class="recipe-section-title">Ingredients</h3>
 
           <ul>
 
           <?php while ( have_rows('ingredients') ) : the_row(); ?>
 
           <li>
-            <span><?php the_sub_field('quantity'); ?></span>
-            <span><?php the_sub_field('measurement'); ?></span>
-            <span><?php the_sub_field('ingredient'); ?></span>
+            <span class="quantity">
+              <?php
+              
+              $output = get_sub_field('quantity');
+              $fraction = decimalToFraction($output);
+              
+              if (is_float($output)) {
+                
+              echo $fraction[0];?>/<?php echo $fraction[1];
+                
+              } else {
+                echo the_sub_field('quantity');
+              }
+              ?>
+            </span>
+            
+            <span class="measurement"><?php the_sub_field('measurement'); ?></span>
+            
+            <span class="ingredient"><?php the_sub_field('ingredient'); ?></span>
+            
           </li>
 
           <?php endwhile; ?>
 
           </ul>
+        
+        <p>*<?php the_field('ingredient_notes'); ?></p>
 
         <?php endif; ?>
 
       </section>
 
-      <section class="col-8-12 directions">
-        <h3 class="section-title">Directions</h3>
-        <?php the_field('directions'); ?>
+      <section class="col-8-12 procedure">
+        
+        <section>
+          
+          <h3 class="recipe-section-title">Directions</h3>
+
+          <?php the_field('directions'); ?>
+          
+        </section>
+        
+        <?php if( get_field('cooking_tips') ): ?>
+        
+          <section>
+
+            <h3 class="recipe-section-title">Cooking Tips</h3>
+
+            <?php the_field('cooking_tips'); ?>
+
+          </section>
+        
+        <?php endif; ?>
+        
+        <?php if( get_field('serving_tips') ): ?>
+        
+          <section>
+
+            <h3 class="recipe-section-title">Serving Tips</h3>
+
+            <?php the_field('serving_tips'); ?>
+
+          </section>
+        
+        <?php endif; ?>
+        
+        <?php if( get_field('variations') ): ?>
+        
+          <section>
+
+            <h3 class="recipe-section-title">Variations</h3>
+
+            <?php the_field('variations'); ?>
+
+          </section>
+        
+        <?php endif; ?>
+        
       </section>
 
     </article>
@@ -117,7 +191,9 @@ get_header();
       <figure style="background-image: url(<?php echo $url; ?>);"></figure>
 
         <header class="intro-details">
-          <h1 class="recipe-title"><?php the_title(); ?></h1>
+          <span class="serving">Serving <?php the_field('servings'); ?></span>
+          <h3 class="recipe-title"><?php the_title(); ?></h3>
+          <author>by <?php the_author(); ?></author>
         </header>
 
       </a>

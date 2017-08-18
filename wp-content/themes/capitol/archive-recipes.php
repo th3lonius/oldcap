@@ -40,15 +40,17 @@ get_header();
 
     <article class="intro-image" style="background-image: url(<?php echo $url; ?>);">
 
-      <h3 class="latest-article">Latest</h3>
+      <h3 class="latest-tag">Latest Recipe</h3>
 
       <header class="intro-details">
 
         <a href="<?php the_permalink(); ?>" class="block">
-          <h1 class="recipe-title"><?php the_title(); ?></h1>
+          <h1 class="intro-title recipe-title"><?php the_title(); ?></h1>
         </a>
+        
+        <span class="serving">Serving <?php the_field('servings'); ?></span>
 
-        <?php the_content(); ?>
+        <?php the_excerpt(); ?>
 
       </header>
 
@@ -93,7 +95,7 @@ get_header();
         $width = $image['sizes'][ $size . '-width' ];
         $height = $image['sizes'][ $size . '-height' ]; ?>
 
-    <section class="col-3-12">
+    <section class="col-3-12 no-padding">
 
     <?php endif; ?>
 
@@ -102,7 +104,8 @@ get_header();
       <figure style="background-image: url(<?php echo $url; ?>);"></figure>
 
         <header class="intro-details">
-          <h1 class="recipe-title"><?php the_title(); ?></h1>
+            <span class="recipe-title"><?php the_title(); ?></span>
+            <span class="serving">Serving <?php the_field('servings'); ?></span>
         </header>
 
       </a>
@@ -112,7 +115,6 @@ get_header();
   <?php endwhile; ?>
 
   </article>
-
 
 <?php endif; ?>
 

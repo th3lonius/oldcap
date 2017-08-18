@@ -19,7 +19,7 @@
         $caption = $image['caption'];
 
         // thumbnail
-        $size = 'full';
+        $size = 'large';
         $thumb = $image['sizes'][ $size ];
         $width = $image['sizes'][ $size . '-width' ];
         $height = $image['sizes'][ $size . '-height' ];

@@ -1,7 +1,7 @@
   <article class="intro">
 
     <header>
-      <span>The</span><em>Freshest</em>
+      <span>The</span><em>Best</em><span>in</span><em>Tofu</em>
     </header>
 
     <video loop id="bgvid">

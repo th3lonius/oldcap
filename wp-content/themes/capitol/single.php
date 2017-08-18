@@ -26,7 +26,7 @@
 
         ?>
            
-    <article class="intro-image" data-type="background" data-speed="6" style="background-image: url(<?php echo $url; ?>);">
+    <article class="intro-image" style="background-image: url(<?php echo $url; ?>);">
 
       <div class="caption">
         <h1 class="caption-text"><?php the_title(); ?></h1>
@@ -43,7 +43,7 @@
         <?php next_post_link( '%link', 'Newer' );	?>
    </header>
 
-    <section class="col-5-12 no-float">
+    <section class="col-6-12 no-float">
 
       <?php the_content(); ?>
 

@@ -28,8 +28,13 @@
   <body>
     
     <header class="global-header push-menu-right">
+      
+      <section class="top-bar">
+        <h2 class="top-bar--title">Old Capitol Food Co.  <span class="slogan">| Iowa City's tofu maker</span></h2>
+        <button type="button" role="button" class="lines-button toggle-push-right"><span class="lines"></span></button>
+      </section>
 
-      <a href="<?php echo get_settings('home'); ?>" class="logo"></a>
+      <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/logo.svg"/></a>
 
       <div class="nav-container">
 
@@ -62,7 +67,7 @@
 
       </div>
 
-      <button type="button" role="button" class="lines-button toggle-push-right"><span class="lines"></span></button>
+
 
     </header>
 

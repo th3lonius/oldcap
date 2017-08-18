@@ -35,6 +35,42 @@ register_nav_menus(
     )
 );
 
+// CONVERT DECIMAL NUMBER TO FRACTION
+function decimalToFraction($decimal) {
+    if ($decimal < 0 || !is_numeric($decimal)) {
+        // Negative digits need to be passed in as positive numbers
+        // and prefixed as negative once the response is imploded.
+        return false;
+    }
+    if ($decimal == 0) {
+        return [0, 0];
+    }
+
+    $tolerance = 1.e-4;
+
+    $numerator = 1;
+    $h2 = 0;
+    $denominator = 0;
+    $k2 = 1;
+    $b = 1 / $decimal;
+    do {
+        $b = 1 / $b;
+        $a = floor($b);
+        $aux = $numerator;
+        $numerator = $a * $numerator + $h2;
+        $h2 = $aux;
+        $aux = $denominator;
+        $denominator = $a * $denominator + $k2;
+        $k2 = $aux;
+        $b = $b - $a;
+    } while (abs($decimal - $numerator / $denominator) > $decimal * $tolerance);
+
+    return [
+        $numerator,
+        $denominator
+    ];
+}
+
 /*-----------------------------------------------------------------------------------*/
 /*  enable svg images in media uploader
 /*-----------------------------------------------------------------------------------*/
@@ -45,7 +81,30 @@ return $mimes;
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
 add_action( 'init', 'recipes_post_type' );
+add_action( 'init', 'authors_post_type' );
 add_action( 'init', 'gallery_post_type' );
+
+function authors_post_type() {
+
+	register_post_type( 'authors', array(
+		'labels' => array(
+			'name' => __('Authors'),
+			'singular_name' => __('Author')
+			),
+		'public' => true,
+        'capability_type' => 'page',
+		'show_ui' => true,
+        'menu_icon' => 'dashicons-admin-users',
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+		'rewrite' => array(
+			'slug' => 'author',
+			'with_front' => false
+			),
+		'has_archive' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'comments', 'author')
+	) );
+}
 
 function recipes_post_type() {
 
@@ -64,7 +123,8 @@ function recipes_post_type() {
 			'slug' => 'recipes',
 			'with_front' => false
 			),
-		'has_archive' => true
+		'has_archive' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'comments', 'author')
 	) );
 }
 
@@ -85,6 +145,18 @@ function gallery_post_type() {
 		'has_archive' => true
 	) );
 }
+
+// CUSTOM POST TYPE AUTHOR LISTING
+add_action( 'pre_get_posts', function ( $q ) {
+
+    if( !is_admin() && $q->is_main_query() && $q->is_author() ) {
+
+        $q->set( 'posts_per_page', 100 );
+        $q->set( 'post_type', 'recipes' );
+
+    }
+
+});
 
 /* Plugin Name: jQuery to the footer! */
 add_action( 'wp_enqueue_scripts', 'wcmScriptToFooter', 9999 );

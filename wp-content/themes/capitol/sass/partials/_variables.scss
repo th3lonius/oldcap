@@ -1,20 +1,18 @@
 /* COLORS */
 $black: hsla(345, 6%, 13%, 1.0);
 $text-black: rgba(0,0,0,0.8);
-$mask-black: hsla(345, 6%, 13%, 0.6);
+$mask-black: hsla(345, 6%, 13%, 0.4);
 $white: rgba(255,255,255,1.0);
-$gray: #E0E0E0;
-$light-blue: #0062b3;
-$dark-blue: #004a87;
 $magenta: hsla(328, 67%, 37%, 1.0);
-$red: hsla(358, 80%, 52%, 1.0);
-$orange: hsl(14, 69%, 49%);
-$green: hsla(156, 50%, 43%, 1.0);
-$gold: #765327;
+$red: hsla(358, 70%, 52%, 1.0);
+$blue: hsla(168, 60%, 54%, 1.0);
+$yellow: hsla(66, 60%, 59%, 1.0);
+
 
 /* FONTS */
 $title-font: "prohibition", sans-serif;
 $display-font: "omnes-pro", sans-serif;
+$flourish-font: "fenway-park-jf", serif;
 
 /* STACK */
 $base-padding: 3rem;

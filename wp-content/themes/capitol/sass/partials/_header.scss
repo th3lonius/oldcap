@@ -6,17 +6,16 @@
   background: $white;
 }
 
-$button-size: 2em;
+$button-size: $h4;
 
 .lines-button {
   @include transition(all, 0.2s, ease);
-  @include respond-to(tablet) {
-    top: $h4; right: $h3;
-  }
+  background-color: $text-black;
   display: inline-block;
   cursor: pointer;
-  position: fixed;
-  top: $base*$golden; right: $base*$golden;
+  padding: 0.8em 0.9em 1.1em;
+  position: absolute;
+  top: 0; right: 0;
   user-select: none;
   z-index: 99999;
   &:hover {
@@ -54,10 +53,8 @@ $button-size: 2em;
 
 .lines-button.close .lines {
   /*hide the middle line*/
-
   background: transparent;
   /*overlay the lines by setting both their top values to 0*/
-
   &::before, &::after {
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
@@ -73,8 +70,8 @@ $button-size: 2em;
     @include rotate(Z, -45);
   }
 }
-/* PRIMARY NAV */
 
+/* PRIMARY NAV */
 body.pml-open .push-menu-right {
   top: 0;
 }
@@ -84,13 +81,10 @@ body.pml-open .push-menu-right {
   .logo {
     @include transition;
     opacity: 0;
-    top: 5px;
-    width: 90px; height: 90px;
+    top: -200px;
   }
-  .lines-button {
-    background: $red;
-    padding: 0.7em $small $small;
-    top: 0; right: 0;
+  .top-bar {
+    opacity: 1!important;
   }
 }
 
@@ -99,96 +93,103 @@ body.pml-open .push-menu-right {
   background-color: $red;
   position: fixed;
   text-align: center;
-  top: -100%; left: 0; bottom: 0; right: 0;
+  top: -130%; left: 0; bottom: 0; right: 0;
   width: 100%; height: 100%;
   z-index: 99;
+  .top-bar {
+    @include transition;
+    background-color: $red;
+    opacity: 0;
+    overflow: hidden;
+    position: fixed; top: 0; left: 0; right: 0;
+    width: 100%; height: 3em;
+    &--title {
+      color: $white;
+      font-family: $display-font;
+      font-size: $base;
+      position: absolute;
+      top: 1em; left: 1em;
+    }
+    .slogan {
+      @include respond-to(tablet) {
+        color: $white;
+        display: inline-block;
+        font-family: $flourish-font;
+        margin-left: 0.5em;
+      }
+      display: none;
+    }
+  }
+  .logo {
+    display: none;
+    @include respond-to(tablet) {
+      @include transition;
+      display: block;
+      position: fixed!important;
+      top: 20px; left: $base;
+      width: 16vw; min-width: 90px; max-width: 330px; height: auto;
+      z-index: 999999;
+      &::after {
+        content: none;
+      }
+    }
+  }
   .nav-container {
     @include translate(-50%, -50%);
     position: absolute;
     top: 50%; left: 50%;
     width: 100%; height: auto;
     z-index: 99999;
-  }
-}
-
-.logo {
-  @include transition;
-  @include respond-to(tablet) {
-    display: inline-block;
-    position: fixed !important;
-    left: $h2;
-  }
-  @include respond-to(laptop) {
-    width: 160px; height: 160px;
-  }
-  @include respond-to(desktop) {
-    width: 200px; height: 200px;
-  }
-  background-image: url(img/logo.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  display: block;
-  line-height: 110px;
-  position: fixed!important;
-  top: 20px; left: $base;
-  text-indent: -9999px;
-  width: 100px; height: 100px;
-  z-index: 999999;
-  &::after {
-    content: none;
-  }
-}
-
-.nav-main {
-  margin-bottom: $base;
-  padding-bottom: $base;
-  position: relative;
-  &::after {
-    @include translate(-50%, 0);
-    background-color: $text-black;
-    content: "";
-    position: absolute;
-    left: 50%; bottom: 0;
-    width: 50%; height: 2px;
-  }
-  ul {
-    li {
-      text-align: center;
-      width: 100%;
-      a {
-        @include transition;
-        @include respond-to(laptop) {
-          font-size: $h1;
-          line-height: 1.3;
-        }
-        color: $text-black;
-        display: block;
-        font-family: $title-font;
-        font-size: $h3;
-        letter-spacing: 0.05em;
-        line-height: $golden;
-        text-transform: uppercase;
-        &:hover {
-          color: $white;
-        }
-        &::after {
-          content: none;
+    .nav-main {
+      margin-bottom: $base;
+      padding-bottom: $base;
+      position: relative;
+      &::after {
+        @include translate(-50%, 0);
+        background-color: $text-black;
+        content: "";
+        position: absolute;
+        left: 50%; bottom: 0;
+        width: 50%; height: 2px;
+      }
+      ul {
+        li {
+          text-align: center;
+          width: 100%;
+          a {
+            @include transition;
+            @include respond-to(laptop) {
+              font-size: $h1;
+              line-height: 1.3;
+            }
+            color: $text-black;
+            display: block;
+            font-family: $title-font;
+            font-size: $h3;
+            letter-spacing: 0.05em;
+            line-height: $golden;
+            text-transform: uppercase;
+            &:hover {
+              color: $white;
+            }
+            &::after {
+              content: none;
+            }
+          }
         }
       }
     }
-  }
-}
-
-.social {
-  position: relative;
-  li {
-    a {
-      color: $text-black;
-      font-family: $title-font;
-      font-size: $base;
-      &:hover {
-        color: $white;
+    .social {
+      position: relative;
+      li {
+        a {
+          color: $text-black;
+          font-family: $title-font;
+          font-size: $base;
+          &:hover {
+            color: $white;
+          }
+        }
       }
     }
   }

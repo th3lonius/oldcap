@@ -13,7 +13,7 @@ get_header(); ?>
 
         if( !empty($image) ):
 
-          $size = 'medium';
+          $size = 'large';
           $url = $image['sizes'][$size];
 
         ?>
@@ -31,7 +31,13 @@ get_header(); ?>
     </article>
 
     <article class="col-10-12 no-float">
-      <?php the_content(); ?>
+     
+      <section>
+       
+        <?php the_content(); ?>
+        
+      </section>
+      
     </article>
 
     <?php endwhile; ?>

@@ -46,6 +46,16 @@ main {
   position: relative;
   right: 0; top: 0;
   z-index: 10;
+  *zoom: 1;
+  &::before {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
 }
 
 article {
@@ -58,10 +68,10 @@ article {
     padding: 0;
   }
   section {
-    @include respond-to(laptop) {
-      padding: $h2;
-    }
     padding: $h3;
+  }
+  section > section {
+    padding: 0;
   }
 }
 
@@ -88,7 +98,8 @@ ul.bullets {
 ----------------------------------------------- */
 %mask {
   &::after {
-    background: transparentize($mask-black, 0.3);
+    @include transition;
+    background: transparentize($mask-black, 0.2);
     content: "";
     position: absolute;
     top: 0;
@@ -185,15 +196,11 @@ ul.bullets {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 96vh !important;
+  height: 100vh;
   z-index: 1;
   header {
     @include translate(-50%,-50%);
-    @include respond-to(tablet) {
-      font-size: 100%;
-    }
     color: $white;
-    font-size: 75%;
     line-height: 1;
     position: absolute;
     top: 50%; left: 50%;
@@ -267,25 +274,29 @@ main {
 .interior {
 
   .intro-image {
-    @include respond-to(laptop) {
-      height: 70vh;
-    }
-    @include respond-to(desktop) {
+    @extend %mask;
+    @include respond-to(mobile) {
       height: 90vh;
+    }
+    @include respond-to(tablet) {
+      height: 100vh;
     }
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 500px;
+    height: 65vh;
     padding: $h4;
     position: relative;
     .intro-title {
       @include respond-to(tablet) {
-        font-size: $h1;
+        font-size: 8vw;
       }
-      color: $white;
-      font-size: $h2;
-      letter-spacing: 0.05em;
+      color: $white!important;
+      display: inline-block;
+      font-family: $title-font;
+      font-size: $h2+0.5em;
+      letter-spacing: 0.1em;
+      position: relative;
     }
   }
   &--blog {
@@ -298,15 +309,21 @@ main {
   text-align: center;
   .wholesale {
     @extend %clearfix;
-    background: $blue;
+    background: $red;
+    .section-title {
+      color: $white;
+    }
+    a {
+      color: $white;
+    }
     .location {
       display: inline-block;
       margin: $base;
     }
   }
   .retail {
-    background: $yellow;
-    color: $white;
+    background: $white;
+    color: $red;
     margin-bottom: 0;
   }
 }
@@ -315,54 +332,101 @@ main {
 /* =RECIPES
 ----------------------------------------------- */
 .recipe-section-title {
-  border-bottom: 3px solid rgba(0, 0, 0, 0.8);
+  color: $red;
   display: inline-block;
-  font-size: 1.5em;
-  margin-bottom: 0.667em;
+  font-size: $h3;
   padding-bottom: 0.2em;
+}
+
+author {
+  color: $white;
+  display: block;
+  font-family: $flourish-font;
+  font-size: $h4;
+  line-height: 1.1;
+  margin-top: 0.6em;
 }
 
 .intro-details {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  padding: 2.25em;
+  padding: $h4;
   position: absolute;
   text-align: center;
-  top: 52%;
-  left: 50%;
+  top: 50%; left: 50%;
+  width: 100%;
   z-index: 99;
   .recipe-title {
-    @include respond-to(tablet) {
-      font-size: $h2;
-    }
     @include transition;
     color: $white;
-    font-size: $h3;
-    line-height: 0.9;
-    margin-bottom: 0.3em;
+    font-family: $title-font;
+    line-height: 1;
     position: relative;
+  }
+  .serving {
+    color: $white;
+    display: block;
+    font-family: $flourish-font;
+    font-size: $h4;
   }
   p {
     color: $white;
-    font-size: $base;
+    font-size: $small;
     font-style: oblique;
+    font-weight: 200;
+    padding: 0 $h3;
+  }
+}
+
+.abstract {
+  background-color: $red;
+  p {
+    color: $white;
+    margin-bottom: 0;
   }
 }
 
 .ingredients {
-  background: $red;
-  font-family: "prohibition", sans-serif;
-  padding-right: 3.375em;
-  & > * {
-    color: $white;
+  @include respond-to(tablet) {
+    border-right: 2px solid $red;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
   }
-  ul li {
-    margin-bottom: 0.5em;
+  padding-bottom: 0;
+  font-family: "prohibition", sans-serif;
+  ul {
+    li {
+      margin-bottom: 0.5em;
+      .quantity {
+        color: $red;
+        font-weight: bold;
+      }
+      .measurement {
+        color: $text-black;
+      }
+      .ingredient {
+        color: $text-black;
+        font-weight: bold;
+      }
+    }
+    & + p {
+      color: $red;
+      font-family: $flourish-font;
+      margin-bottom: 0;
+    }
   }
 }
 
-.directions ol {
+.procedure {
+  img {
+    margin: 1em 0;
+  }
+  section {
+    margin-bottom: $h3;
+  }
+  ol {
   list-style-type: decimal-leading-zero;
   &>li:first-child::before {
     @include respond-to(tablet) {
@@ -370,78 +434,123 @@ main {
     }
     padding: 2px 6px;
   }
-  li {
-    counter-increment: step-counter;
-    margin-bottom: 1em;
-    position: relative;
-    &::before {
-      @include respond-to(tablet) {
-        background-color: $red;
-        border-radius: 3px;
-        color: $white;
+    li {
+      counter-increment: step-counter;
+      margin-bottom: 1em;
+      position: relative;
+      &::before {
+        @include respond-to(tablet) {
+          color: $red;
+          height: auto;
+        }
+        content: counter(step-counter);
+        color: $red;
         font-size: $base;
-        padding: 0 6px 2px;
-        top: -4px;
-        left: -$h4;
-        height: auto;
+        font-weight: bold;
+        padding: 2px 4px;
+        position: absolute;
+        top: -2px;
+        left: -1.2em;
+        height: 100%;
       }
-      content: counter(step-counter);
-      color: $red;
-      font-size: 30px;
-      font-weight: bold;
-      padding: 2px 4px;
-      position: absolute;
-      top: -14px;
-      left: -32px;
-      height: 100%;
     }
   }
 }
 
-.directions img {
-    margin: 1em 0;
-}
-
 .more-recipes {
-  @include respond-to(tablet) {
-
-  }
   padding: 0;
   section {
-    height: 360px;
+    @extend %mask;
+    @include respond-to(tablet) {
+      height: 25vw;
+    }
+    height: 100vw;
     position: relative;
+    &:hover::after {
+      @include transition;
+      background: transparentize($mask-black, 0.4);
+    }
     a {
       display: block;
       width: 100%;
       height: 100%;
-      &:hover figure {
-        @include grayscale;
-      }
-      &:hover .recipe-title {
-        font-size: $h3;
-      }
       figure {
         @inlcude transition;
         background-size: cover;
       }
       .recipe-title {
+        @include respond-to(tablet) {
+          font-size: $h3;
+        }
         @inlcude transition;
-        font-size: $h4;
+        color: $white;
+        font-size: $h2;
+        line-height: 1.2;
         text-shadow: none;
+      }
+      .serving {
+        @include respond-to(tablet) {
+          font-size: $base;
+        }
+        font-size: $h4;
+      }
+      author {
+        @include respond-to(tablet) {
+          font-size: $base;
+        }
+        font-size: $h4;
       }
     }
   }
 }
 
-.latest-article {
-    background-color: #e72329;
-    color: #fff;
-    font-size: 1.5em;
-    padding: 0.4em 0.667em;
-    position: absolute;
-    left: 0;
-    top: 20%;
-    z-index: 999
+.latest-tag {
+  @include respond-to(tablet) {
+    font-size: $h3;
+  }
+  @include translate(-50%, 0);
+  background-color: #e72329;
+  color: #fff;
+  font-size: $h4;
+  line-height: 1;
+  padding: 0.4em 0.667em;
+  position: absolute;
+  left: 50%; top: 0;
+  z-index: 999
+}
+
+/* =RECIPES
+----------------------------------------------- */
+.author-page {
+  &--recipes {
+    @include respond-to(tablet) {
+      position: absolute;
+      width: 60vw;
+    }
+    overflow-y: scroll;
+    position: relative;
+    left: 0; top: 0;
+    width: 100vw; height: auto;
+    .intro-image {
+      @include respond-to(tablet) {
+        width: 50vw; height: 100%;
+      }
+        width: 100vw; height: 100%;
+    }
+  }
+  &--bio {
+    @include respond-to(tablet) {
+      position: absolute;
+      width: 40vw; height: 100vh;
+    }
+    background-color: $white;
+    font-family: $display-font;
+    overflow-y: scroll;
+    padding: $h3 $h2;
+    position: relative;
+    top: 0; right: 0; bottom: 0;
+    width: 100vw; height: auto;
+  }
 }
 
 /* =FOOTER
@@ -449,8 +558,13 @@ main {
 footer {
   background-color: $red;
   color: $white;
+  display: none;
   padding: $small;
   position: relative;
   width: 100%; height: 50px;
   z-index: 999;
+}
+
+footer + * {
+  display: none;
 }

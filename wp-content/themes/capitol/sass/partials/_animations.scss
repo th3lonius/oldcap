@@ -1,45 +1,28 @@
 /*
 ==============================================
-floating
+pulse
 ==============================================
 */
 
-.floating{
-  animation-name: floating;
-  -webkit-animation-name: floating;	
+.pulse:after {
+	animation-name: pulse;
+	-webkit-animation-name: pulse;	
 
-  animation-duration: 1.4s;	
-  -webkit-animation-duration: 1.4s;
+	animation-duration: 5s;	
+	-webkit-animation-duration: 5;
 
-  animation-timing-function: ease-in-out;	
-  -webkit-animation-timing-function: ease-in-out;	
-
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-
-  visibility: visible !important;	
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
 }
 
-@keyframes floating {
-  0% {
-      transform: translateY(0%);	
-  }
-  50% {
-      transform: translateY(20%);	
-  }	
-  100% {
-      transform: translateY(0%);
-  }			
-}
-
-@-webkit-keyframes floating {
-  0% {
-      -webkit-transform: translateY(0%);	
-  }
-  50% {
-      -webkit-transform: translateY(20%);	
-  }	
-  100% {
-      -webkit-transform: translateY(0%);
-  }			
+@keyframes pulse {
+	0% {
+		background: transparentize($mask-black, 0.4);
+	}
+	50% {
+		background: transparentize($mask-black, 0);
+	}	
+	100% {
+		background: transparentize($mask-black, 0.4);
+	}			
 }

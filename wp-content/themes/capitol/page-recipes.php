@@ -40,7 +40,7 @@ get_header();
     <section class="intro-image" style="background-image: url(<?php echo $url; ?>);">
 
       <header class="intro-details">
-        <h1 class="recipe-title"><?php the_title(); ?></h1>
+        <h1 class="intro-title recipe-title"><?php the_title(); ?></h1>
         <?php the_content() ?>
       </header>
 
@@ -117,7 +117,7 @@ get_header();
         $width = $image['sizes'][ $size . '-width' ];
         $height = $image['sizes'][ $size . '-height' ]; ?>
 
-    <section class="col-3-12" style="background-image: url(<?php echo $url; ?>);">
+    <section class="col-3-12 no-padding" style="background-image: url(<?php echo $url; ?>);">
 
     <?php endif; ?>
 
