@@ -67,8 +67,4 @@
 
       </div>
 
-
-
     </header>
-
-    <main>

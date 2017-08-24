@@ -1,5 +1,3 @@
-</main>
-
 <footer>
   <span>&#169; <?php echo date("Y"); ?> Old Capitol Food Co.</span>
 </footer>

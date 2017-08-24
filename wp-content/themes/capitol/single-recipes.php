@@ -6,7 +6,7 @@ get_header();
 
 ?>
 
-<div class="interior">
+<main class="interior">
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -37,6 +37,7 @@ get_header();
                 
         <author>by <?php the_author_posts_link(); ?></author>
 
+    
       </header>
 
     </section>
@@ -207,6 +208,6 @@ get_header();
 
 <?php endif; ?>
 
-</div><!-- .interior -->
+</main><!-- .interior -->
 
 <?php get_footer(); ?>
