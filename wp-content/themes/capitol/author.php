@@ -6,22 +6,10 @@ get_header();
 
 ?>
 
-<?php
+<main class="interior author-page">
 
-   if(isset($_GET['author_name'])) :
+<?php while ( have_posts() ) : the_post(); ?>
 
-        $curauth = get_userdatabylogin($author_name);
-
-    else :
-
-        $curauth = get_userdata(intval($author));
-
-    endif;
-
-?>
-
-<div class="interior author-page">
-  
   <article class="col-12-12 author-page--bio">
 
     <?php echo nl2br(get_the_author_meta( 'user_description' )); ?>
@@ -34,7 +22,7 @@ get_header();
 
       $args = array(
         'post_type' => 'recipes',
-        'author_name' => $curauth->nickname
+        'meta_key'   => 'color'
       );
 
       $query = new WP_Query( $args );
@@ -88,6 +76,6 @@ get_header();
   
   </article>
   
-</div><!-- .interior -->
+</main><!-- .interior -->
 
 <?php get_footer(); ?>

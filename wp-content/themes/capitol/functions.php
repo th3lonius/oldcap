@@ -249,6 +249,7 @@ function change_post_object_label() {
        return array(
         'index.php', // dashboard link
         'edit.php', //the posts tab
+        'edit.php?post_type=authors', // Custom post type
         'edit.php?post_type=recipes', // Custom post type
         'edit.php?post_type=gallery', // Custom post type
         'edit.php?post_type=page', //the pages tab
