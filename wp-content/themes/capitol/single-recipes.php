@@ -34,9 +34,18 @@ get_header();
         <span class="serving">Serving <?php the_field('servings'); ?></span>
 
         <h1 class="intro-title recipe-title"><?php the_title(); ?></h1>
-                
-        <author>by <?php the_author_posts_link(); ?></author>
 
+        <?php $authors = get_field('author');
+
+          if( $authors ): ?>
+        
+          <?php foreach( $authors as $author ): // variable must NOT be called $post (IMPORTANT) ?>
+                          
+          <author>by <a href="<?php echo get_permalink( $author->ID ); ?>"><?php echo get_the_title( $author->ID ); ?></a></author>
+        
+          <?php endforeach; ?>
+        
+          <?php endif; ?>
     
       </header>
 

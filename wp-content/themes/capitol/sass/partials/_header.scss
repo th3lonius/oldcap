@@ -126,7 +126,7 @@ body.pml-open .push-menu-right {
       @include transition;
       display: block;
       position: fixed!important;
-      top: 20px; left: $base;
+      top: $h3; left: $h3;
       width: 16vw; min-width: 90px; max-width: 330px; height: auto;
       z-index: 999999;
       &::after {

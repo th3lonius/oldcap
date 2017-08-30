@@ -34,7 +34,7 @@
         <button type="button" role="button" class="lines-button toggle-push-right"><span class="lines"></span></button>
       </section>
 
-      <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/logo.svg"/></a>
+      <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/rebrand.svg"/></a>
 
       <div class="nav-container">
 
