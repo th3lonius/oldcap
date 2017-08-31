@@ -164,6 +164,10 @@ ul.bullets {
   font-size: $h2;
 }
 
+.bg-grey {
+  background-color: $grey;
+}
+
 /* =HOMEPAGE COVER SECTION
 ----------------------------------------------- */
 #bgvid {
@@ -528,27 +532,24 @@ author {
 ----------------------------------------------- */
 .author-page {
   &--recipes {
-    @include respond-to(tablet) {
-      position: absolute;
-      width: 60%; height: 100vh;
-    }
     overflow-y: auto;
     position: relative;
-    left: 0; top: 0;
-    width: 100vw; height: 100%;
+    width: 100%;
   }
   &--bio {
-    @include respond-to(tablet) {
-      position: absolute;
-      width: 40%; height: 100vh;
-    }
     background-color: $white;
     font-family: $display-font;
     overflow-y: auto;
     padding: $h3 $h2;
     position: relative;
-    top: 0; right: 0; bottom: 0;
-    width: 100vw; height: auto;
+    width: 100%; height: auto;
+    .avatar {
+      @include translate(-50%, 0);
+      padding: $base;
+      position: relative;
+      top: 10%; left: 50%;
+      width: $h1;
+    }
   }
 }
 

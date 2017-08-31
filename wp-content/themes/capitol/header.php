@@ -25,8 +25,16 @@
     <script src="http://prod3.agileticketing.net/websales/agile_widget.ashx?orgid=2553&epgid=292&" type="text/javascript"></script>
   </head>
 
+<?php if ( is_page( 'about' )) { ?>
+
+  <body class="bg-grey">
+
+<?php } else { ?>
+
   <body>
-    
+   
+   <?php } ?>
+
     <header class="global-header push-menu-right">
       
       <section class="top-bar">

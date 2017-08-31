@@ -13,7 +13,26 @@ get_header();
   
   <article class="col-12-12 author-page--bio">
     
-    <?php the_title(); ?>
+        
+    <?php $image = get_field('avatar');
+          if( !empty($image) ):
+
+          // vars
+          $url = $image['url'];
+          $title = $image['title'];
+          $alt = $image['alt'];
+          $caption = $image['caption'];
+
+          // thumbnail
+          $size = 'full';
+          $thumb = $image['sizes'][ $size ];
+          $width = $image['sizes'][ $size . '-width' ];
+          $height = $image['sizes'][ $size . '-height' ];
+      ?>
+    
+    <img class="avatar" src="<?php echo $url; ?>" />
+    
+    <?php endif; ?>
 
     <?php the_content(); ?>
 
@@ -23,7 +42,7 @@ get_header();
   
   
   
-  <article class="author-page--recipes">  
+  <article class="col-8-12 author-page--recipes">  
 
   <?php while ( have_posts() ) : the_post(); ?>
 
@@ -57,7 +76,7 @@ get_header();
           $caption = $image['caption'];
 
           // thumbnail
-          $size = 'thumbnail';
+          $size = 'medium';
           $thumb = $image['sizes'][ $size ];
           $width = $image['sizes'][ $size . '-width' ];
           $height = $image['sizes'][ $size . '-height' ];
