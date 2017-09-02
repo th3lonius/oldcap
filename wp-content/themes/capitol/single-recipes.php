@@ -21,11 +21,11 @@ get_header();
 
         // thumbnail
         $size = 'medium';
-        $thumb = $image['sizes'][ $size ];
+        $customphoto = $image['sizes'][ $size ];
         $width = $image['sizes'][ $size . '-width' ];
         $height = $image['sizes'][ $size . '-height' ]; ?>
 
-    <section class="intro-image" style="background-image: url(<?php echo $url; ?>);">
+    <section class="intro-image" style="background-image: url(<?php echo $customphoto; ?>);">
 
      <?php endif; ?>
 
@@ -174,6 +174,8 @@ get_header();
 <?php if ( $query->have_posts() ) : ?>
 
   <article class="col-12-12 more-recipes">
+    
+    <h1 class="intro-title">Recently added recipes:</h1>
 
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 

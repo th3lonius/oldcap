@@ -464,14 +464,21 @@ author {
 }
 
 .more-recipes, .author-page--recipes {
+  margin: 0 auto;
   padding: 0;
+  .intro-title {
+    color: $red;
+    font-size: $h3;
+    text-align: center;
+  }
   section {
     @extend %mask;
     &::after {
       background: transparentize($mask-black, 0.3);
     }
     @include respond-to(tablet) {
-      height: 25vw;
+      margin: 1.6%;
+      width: 30%; height: 25vw;
     }
     height: 100vw;
     position: relative;
@@ -532,19 +539,21 @@ author {
 ----------------------------------------------- */
 .author-page {
   &--recipes {
-    overflow-y: auto;
     position: relative;
-    width: 100%;
   }
   &--bio {
+    @include respond-to(tablet) {
+      padding: $h3 1.6%;
+    }
     background-color: $white;
     font-family: $display-font;
     overflow-y: auto;
-    padding: $h3 $h2;
+    padding: $h3;
     position: relative;
-    width: 100%; height: auto;
+    height: auto;
     .avatar {
       @include translate(-50%, 0);
+      margin-bottom: $h3;
       padding: $base;
       position: relative;
       top: 10%; left: 50%;

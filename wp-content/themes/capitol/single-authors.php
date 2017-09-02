@@ -11,7 +11,7 @@ get_header();
   
   <?php while ( have_posts() ) : the_post(); ?>
   
-  <article class="col-12-12 author-page--bio">
+  <article class="author-page--bio col-10-12 no-float">
     
         
     <?php $image = get_field('avatar');
@@ -40,9 +40,7 @@ get_header();
   
   <?php endwhile; ?>
   
-  
-  
-  <article class="col-8-12 author-page--recipes">  
+  <article class="author-page--recipes col-10-12 no-float">  
 
   <?php while ( have_posts() ) : the_post(); ?>
 
@@ -77,16 +75,16 @@ get_header();
 
           // thumbnail
           $size = 'medium';
-          $thumb = $image['sizes'][ $size ];
+          $customphoto = $image['sizes'][ $size ];
           $width = $image['sizes'][ $size . '-width' ];
           $height = $image['sizes'][ $size . '-height' ];
       ?>
 
-      <section class="col-6-12 no-padding">
+      <section class="col-4-12 no-padding">
         
         <a href="<?php echo get_permalink( $recipe->ID ); ?>" class="block">
         
-          <figure style="background-image: url(<?php echo $thumb; ?>);"></figure>
+          <figure style="background-image: url(<?php echo $customphoto; ?>);"></figure>
 
           <header class="intro-details">
             
@@ -111,7 +109,6 @@ get_header();
 <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
     
   </article>
-
 
 </main><!-- .interior -->
 
