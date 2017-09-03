@@ -13,7 +13,6 @@ get_header();
   
   <article class="author-page--bio col-10-12 no-float">
     
-        
     <?php $image = get_field('avatar');
           if( !empty($image) ):
 

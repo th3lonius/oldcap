@@ -132,7 +132,6 @@ function setNavigation() {
         $("button").toggleClass("close");
     });
 
-
 // Cache selectors
 var lastId,
     topMenu = $("body > nav"),

@@ -362,7 +362,7 @@ author {
   text-align: center;
   top: 50%; left: 50%;
   width: 100%;
-  z-index: 99;
+  z-index: 9;
   .recipe-title {
     @include transition;
     color: $white;
@@ -463,6 +463,12 @@ author {
   }
 }
 
+.more-recipes {
+  @include respond-to(tablet) {
+    padding: $base!important;
+  }
+}
+
 .more-recipes, .author-page--recipes {
   margin: 0 auto;
   padding: 0;
@@ -477,8 +483,8 @@ author {
       background: transparentize($mask-black, 0.3);
     }
     @include respond-to(tablet) {
-      margin: 1.6%;
-      width: 30%; height: 25vw;
+      margin: $base;
+      width: 30.3333%; height: 25vw;
     }
     height: 100vw;
     position: relative;
