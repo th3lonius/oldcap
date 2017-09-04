@@ -38,7 +38,6 @@
     <header class="global-header push-menu-right">
       
       <section class="top-bar">
-        <h2 class="top-bar--title">Old Capitol Food Co.  <span class="slogan">| Iowa City's tofu maker</span></h2>
         <button type="button" role="button" class="lines-button toggle-push-right"><span class="lines"></span></button>
       </section>
 

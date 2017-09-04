@@ -74,6 +74,13 @@ $button-size: $h4;
 /* PRIMARY NAV */
 body.pml-open .push-menu-right {
   top: 0;
+  .nav-container {
+    display: block;
+  }
+}
+
+.pml-open {
+  overflow: hidden;
 }
 
 .small-header {
@@ -91,6 +98,7 @@ body.pml-open .push-menu-right {
 .global-header {
   @include transition;
   background-color: $red;
+  overflow: auto;
   position: fixed;
   text-align: center;
   top: -130%; left: 0; bottom: 0; right: 0;
@@ -98,8 +106,6 @@ body.pml-open .push-menu-right {
   z-index: 99;
   .top-bar {
     @include transition;
-    background-color: $red;
-    opacity: 0;
     overflow: hidden;
     position: fixed; top: 0; left: 0; right: 0;
     width: 100%; height: 3em;
@@ -124,7 +130,9 @@ body.pml-open .push-menu-right {
     display: none;
     @include respond-to(tablet) {
       @include transition;
+      background: $mask-black;
       display: block;
+      padding: $base;
       position: fixed!important;
       top: $h3; left: $h3;
       width: 16vw; min-width: 90px; max-width: 330px; height: auto;
@@ -136,6 +144,7 @@ body.pml-open .push-menu-right {
   }
   .nav-container {
     @include translate(-50%, -50%);
+    display: none;
     position: absolute;
     top: 50%; left: 50%;
     width: 100%; height: auto;

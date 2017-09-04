@@ -1,4 +1,4 @@
-<section class="col-4-12 ingredients">
+<section class="col-4-12 ingredients sticky">
 
   <?php if( have_rows('ingredients') ): ?>
 
