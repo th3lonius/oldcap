@@ -14,6 +14,7 @@ $small: 0.8em;
   display: block;
   font-family: $flourish-font;
   font-weight: bold;
+  letter-spacing: 0.1em;
   line-height: 1.2;
 }
 
@@ -35,6 +36,9 @@ p {
   line-height: $golden;
   margin-bottom: $base;
   em { font-style: italic; }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 li {
@@ -62,10 +66,3 @@ blockquote {
 }
 
 strong { font-weight: bold; }
-
-// =LINKS //
-.section-title {
-  color: $black;
-  font-family: $title-font;
-  margin-bottom: $base;
-}

@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-<div class="interior">
+<main class="interior">
 
   <?php if ( have_posts() ) : ?>
 
@@ -44,6 +44,6 @@ get_header(); ?>
 
   <?php endif; ?>
 
-</div><!-- .interior -->
+</main><!-- .interior -->
 
 <?php get_footer(); ?>

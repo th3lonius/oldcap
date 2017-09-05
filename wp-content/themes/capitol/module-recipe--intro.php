@@ -1,6 +1,6 @@
 <?php include(locate_template('module-photo--large.php')); ?>
 
-<section class="intro-image" style="background-image: url(<?php echo $customphoto; ?>);">
+<section class="intro-image recipe-image" data-stellar-background-ratio="2" style="background-image: url(<?php echo $customphoto; ?>);">
   
   <header class="intro-details">
 

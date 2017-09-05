@@ -1,5 +1,26 @@
 jQuery(document).ready(function($){
   
+/*----- MOBILE RECIPES SCROLL FUNCTION -----*/
+$(window).on('scroll', function() {
+  $(".more-recipes section, .author-page--recipes section").each(function() {
+    if (isScrolledIntoView($(this))) {
+      $(this).find("figure").removeClass("grayscale");
+    } else {
+      $(this).find("figure").addClass("grayscale");
+    }
+  });
+});
+
+function isScrolledIntoView(elem) {
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + $(window).height();
+
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+
+  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+  
 /*----- FLOWTYPE -----*/
 $('main').flowtype({
   minFont : 16,
@@ -7,24 +28,39 @@ $('main').flowtype({
   fontRatio : 70
 });
 
-/*----- PARALLAX -----*/
-var $window = $(window);
+/*----- PARALLAX -----*/  
+$('.intro-image').stellar({
+  // Set scrolling to be in either one or both directions
+  verticalScrolling: true,
+  horizontalScrolling: false,
 
-$('[data-type="background"]').each(function(){
-    var $bgobj = $(this); // assigning the object
+  // Set the global alignment offsets
+  horizontalOffset: 0,
+  verticalOffset: 100,
 
+  // Refreshes parallax content on window load and resize
+  responsive: true,
 
-    $bgobj.css('background-image', 'url(' + $bgobj.data('background') + ')');
+  // Select which property is used to calculate scroll.
+  // Choose 'scroll', 'position', 'margin' or 'transform',
+  // or write your own 'scrollProperty' plugin.
+  scrollProperty: 'transform',
 
-     $(window).scroll(function() {
-         var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+  // Select which property is used to position elements.
+  // Choose between 'position' or 'transform',
+  // or write your own 'positionProperty' plugin.
+  positionProperty: 'transform',
 
-         // Put together our final background position
-         var coords = '50% '+ yPos + 'px';
+  // Enable or disable the two types of parallax
+  parallaxBackgrounds: true,
+  parallaxElements: false,
 
-         // Move the background
-         $bgobj.css({ backgroundPosition: coords });
-     });
+  // Hide parallax elements that move outside the viewport
+  hideDistantElements: false,
+
+  // Customise how elements are shown and hidden
+  hideElement: function($elem) { $elem.hide(); },
+  showElement: function($elem) { $elem.show(); }
 });
 
 /*----- SCROLLING MENU -----*/
@@ -57,7 +93,6 @@ if ( ms_ie ) {
 
 } else {
 
-
 }
 
 /*----- CONTENT LOADING ANIMATION -----*/
@@ -70,10 +105,9 @@ $(window).load(function() {
 });
 
 /*----- DESKTOP VIDEO AUTOPLAY -----*/
-
 $(function() {
     // onload
-    if(document.body.clientWidth >= 870) {
+    if(document.body.clientWidth >= 300) {
         $('video').attr('autoplay', true);
       $('#bgvid').css('display','block');
     }
@@ -86,14 +120,6 @@ $(function() {
             $('video').attr('autoplay', true);
         }
     });
-});
-
-/*----- SUPERSLIDES INIT -----*/
-$('.home-page--slider').superslides({
-  animation: 'fade',
-  slide_speed: 'slow',
-  slide_easing: 'ease-out',
-  play: 3000
 });
 
 /*----- ACTIVE NAVIGATION -----*/

@@ -39,7 +39,7 @@ get_header();
   
   <?php endwhile; ?>
   
-  <article class="author-page--recipes col-10-12 no-float">  
+  <article class="author-page--recipes col-12-12">  
 
   <?php while ( have_posts() ) : the_post(); ?>
 

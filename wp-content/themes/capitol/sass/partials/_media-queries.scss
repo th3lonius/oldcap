@@ -1,13 +1,13 @@
 /*BREAKPOINTS*/
-$break-1: 300px;
-$break-2: 1020px;
+$break-1: 699px;
+$break-2: 700px;
 $break-3: 1270px;
 $break-4: 1600px;
 $break-5: 1920px;
 
 @mixin respond-to($media) {
     @if $media == mobile {
-        @media only screen and (min-width: $break-1) and (orientation: landscape) { @content; }
+        @media only screen and (max-width: $break-1) and (orientation: landscape) { @content; }
     }
     @else if $media == tablet {
         @media only screen and (min-width: $break-2) { @content; }

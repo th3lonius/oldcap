@@ -17,7 +17,7 @@ get_header();
 
 ?>
 
-<div class="interior">
+<main class="interior">
 
 <?php if ( $query->have_posts() ) : ?>
 
@@ -80,34 +80,32 @@ get_header();
 
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-    <?php $image = get_field('photo'); ?>
-    <?php if( !empty($image) ):
-
-        // vars
-        $url = $image['url'];
-        $title = $image['title'];
-        $alt = $image['alt'];
-        $caption = $image['caption'];
-
-        // thumbnail
-        $size = 'medium';
-        $thumb = $image['sizes'][ $size ];
-        $width = $image['sizes'][ $size . '-width' ];
-        $height = $image['sizes'][ $size . '-height' ]; ?>
-
     <section class="col-3-12 no-padding">
 
-    <?php endif; ?>
-
       <a href="<?php the_permalink(); ?>" class="block">
+        
+      <?php include(locate_template('module-photo--medium.php')); ?>
 
       <figure style="background-image: url(<?php echo $url; ?>);"></figure>
 
         <header class="intro-details">
-            <span class="recipe-title"><?php the_title(); ?></span>
-            <span class="serving">Serving <?php the_field('servings'); ?></span>
-        </header>
+          <span class="serving">Serving <?php the_field('servings'); ?></span>
+          <h3 class="recipe-title"><?php the_title(); ?></h3>
+          
+        <?php $authors = get_field('author');
 
+          if( $authors ): ?>
+        
+          <?php foreach( $authors as $author ): // variable must NOT be called $post (IMPORTANT) ?>
+                          
+          <author>by <?php echo get_the_title( $author->ID ); ?></author>
+        
+          <?php endforeach; ?>
+        
+          <?php endif; ?>
+
+        </header>
+        
       </a>
 
     </section>
@@ -118,6 +116,6 @@ get_header();
 
 <?php endif; ?>
 
-</div><!-- .interior -->
+</main><!-- .interior -->
 
 <?php get_footer(); ?>
