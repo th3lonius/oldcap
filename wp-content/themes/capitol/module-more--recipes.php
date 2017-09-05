@@ -13,8 +13,6 @@
 <?php if ( $query->have_posts() ) : ?>
 
   <article class="col-12-12 more-recipes">
-    
-    <h1 class="intro-title">Recently added recipes:</h1>
 
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 

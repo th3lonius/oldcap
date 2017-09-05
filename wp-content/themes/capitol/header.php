@@ -35,43 +35,45 @@
    
    <?php } ?>
 
-    <header class="global-header push-menu-right">
+    <header class="global-header">
       
-      <section class="top-bar">
-        <button type="button" role="button" class="lines-button toggle-push-right"><span class="lines"></span></button>
-      </section>
-
+      <button type="button" role="button" class="menu-toggle toggle-push-right"><span class="lines"></span></button>
+        
       <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/rebrand.svg"/></a>
+      
+      <section class="push-menu-right">
 
-      <div class="nav-container">
+        <menu class="nav-container">
 
-          <?php
-            $defaults = array(
-              'theme_location'  => '',
-              'menu'            => 'main',
-              'container'       => 'nav',
-              'container_class' => 'nav-main',
-              'menu_class'      => '',
-              'echo'            => true,
-              'fallback_cb'     => 'wp_page_menu',
-              'before'          => '',
-              'after'           => '',
-              'link_before'     => '',
-              'link_after'      => '',
-              'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-              'depth'           => 0,
-              'walker'          => ''
-            );
+            <?php
+              $defaults = array(
+                'theme_location'  => '',
+                'menu'            => 'main',
+                'container'       => 'nav',
+                'container_class' => 'nav-main',
+                'menu_class'      => '',
+                'echo'            => true,
+                'fallback_cb'     => 'wp_page_menu',
+                'before'          => '',
+                'after'           => '',
+                'link_before'     => '',
+                'link_after'      => '',
+                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'depth'           => 0,
+                'walker'          => ''
+              );
 
-            wp_nav_menu( $defaults );
+              wp_nav_menu( $defaults );
 
-            ?>
+              ?>
 
-            <ul class="social">
-              <li><a href="https://twitter.com/oldcapfoodco" class="twitter">Twitter</a></li>
-              <li><a href="https://www.facebook.com/oldcapfoodco/" class="facebook">Facebook</a></li>
-            </ul>
+              <ul class="social">
+                <li><a href="https://twitter.com/oldcapfoodco" class="twitter">Twitter</a></li>
+                <li><a href="https://www.facebook.com/oldcapfoodco/" class="facebook">Facebook</a></li>
+              </ul>
 
-      </div>
+        </menu>
+      
+      </section>
 
     </header>

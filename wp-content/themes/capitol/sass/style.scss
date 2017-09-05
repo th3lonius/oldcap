@@ -66,7 +66,7 @@ article {
     padding: 0;
   }
   section {
-    padding: $h3;
+    padding: $h2;
   }
   section > section {
     padding: 0;
@@ -165,6 +165,14 @@ ul.bullets {
 
 .bg-grey {
   background-color: $grey;
+}
+
+.sticky {
+  @include respond-to(tablet) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
 }
 
 /* =HOMEPAGE COVER SECTION
@@ -280,16 +288,10 @@ main {
     &::after {
       background: transparentize($mask-black, 0.3);
     }
-    @include respond-to(mobile) {
-      height: 90vh;
-    }
-    @include respond-to(tablet) {
-      height: 100vh;
-    }
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 65vh;
+    height: 84vh;
     padding: $h4;
     position: relative;
     .intro-title {
@@ -384,84 +386,78 @@ author {
   }
 }
 
-.abstract {
-  background-color: $red;
-  p {
-    color: $white;
-    margin-bottom: 0;
-  }
-}
-
-.sticky {
-  @include respond-to(tablet) {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
-}
-
-.ingredients {
-  @include respond-to(tablet) {
-    border-right: 2px solid $red;
-  }
-  padding-bottom: 0;
-  font-family: "prohibition", sans-serif;
-  ul {
-    li {
-      margin-bottom: 0.5em;
-      .quantity {
-        color: $red;
-        font-weight: bold;
-      }
-      .measurement {
-        color: $text-black;
-      }
-      .ingredient {
-        color: $text-black;
-        font-weight: bold;
-      }
-    }
-    & + p {
-      color: $red;
-      font-family: $flourish-font;
+.recipe {
+  @extend %clearfix;
+  border-bottom: 2px solid $text-black;
+  .abstract {
+    border-bottom: 2px solid $text-black;
+    p {
       margin-bottom: 0;
     }
   }
-}
-
-.procedure {
-  img {
-    margin: 1em 0;
-  }
-  section {
-    margin-bottom: $h3;
-  }
-  ol {
-  list-style-type: decimal-leading-zero;
-  &>li:first-child::before {
+  .ingredients {
     @include respond-to(tablet) {
-      padding: 2px 9px;
+      border-right: 2px solid $text-black;
+      padding-bottom: $h3;;
     }
-    padding: 2px 6px;
-  }
-    li {
-      counter-increment: step-counter;
-      margin-bottom: 1em;
-      position: relative;
-      &::before {
-        @include respond-to(tablet) {
+    padding-bottom: 0;
+    font-family: "prohibition", sans-serif;
+    ul {
+      li {
+        margin-bottom: 0.5em;
+        .quantity {
           color: $red;
-          height: auto;
+          font-weight: bold;
         }
-        content: counter(step-counter);
+        .measurement {
+          color: $text-black;
+        }
+        .ingredient {
+          color: $text-black;
+          font-weight: bold;
+        }
+      }
+      & + p {
         color: $red;
-        font-size: $base;
-        font-weight: bold;
-        padding: 2px 4px;
-        position: absolute;
-        top: -2px;
-        left: -1.2em;
-        height: 100%;
+        font-family: $flourish-font;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .procedure {
+    img {
+      margin: 1em 0;
+    }
+    section {
+      margin-bottom: $h3;
+    }
+    ol {
+    list-style-type: decimal-leading-zero;
+    &>li:first-child::before {
+      @include respond-to(tablet) {
+        padding: 2px 9px;
+      }
+      padding: 2px 6px;
+    }
+      li {
+        counter-increment: step-counter;
+        margin-bottom: 1em;
+        position: relative;
+        &::before {
+          @include respond-to(tablet) {
+            color: $red;
+            height: auto;
+          }
+          content: counter(step-counter);
+          color: $red;
+          font-size: $base;
+          font-weight: bold;
+          padding: 2px 4px;
+          position: absolute;
+          top: -2px;
+          left: -1.1em;
+          height: 100%;
+        }
       }
     }
   }
@@ -469,7 +465,7 @@ author {
 
 .more-recipes {
   @include respond-to(tablet) {
-    padding: $base!important;
+    padding: $h2!important;
   }
 }
 
@@ -483,15 +479,18 @@ author {
   }
   section {
     @extend %mask;
-    &::after {
-      background: transparentize($mask-black, 0.3);
-    }
     @include respond-to(tablet) {
-      margin: $base;
-      width: 30.3333%; height: 25vw;
+      margin-right: 3em;
+      width: 30%; height: 25vw;
     }
     height: 100vw;
     position: relative;
+    &:last-child {
+      margin-right: 0;
+    }
+    &::after {
+      background: transparentize($mask-black, 0.3);
+    }
     &:hover::after {
       @include transition;
       background: transparentize($mask-black, 0.4);
@@ -545,7 +544,7 @@ author {
   z-index: 999
 }
 
-/* =RECIPES
+/* =AUTHOR BIO
 ----------------------------------------------- */
 .author-page {
   &--recipes {
