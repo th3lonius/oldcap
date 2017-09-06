@@ -1,8 +1,8 @@
-<section class="col-4-12 ingredients sticky">
+<section class="col-4-12 ingredients sticky-section">
 
   <?php if( have_rows('ingredients') ): ?>
 
-    <h3 class="recipe-section-title">Ingredients</h3>
+    <h3 class="recipe-section-title sticky-title">Ingredients</h3>
 
     <ul>
 

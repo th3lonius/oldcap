@@ -2,7 +2,7 @@
 
   <section>
 
-    <h3 class="recipe-section-title">Directions</h3>
+    <h3 class="recipe-section-title sticky-title">Directions</h3>
 
     <?php the_field('directions'); ?>
 
@@ -12,7 +12,7 @@
 
     <section>
 
-      <h3 class="recipe-section-title">Cooking Tips</h3>
+      <h3 class="recipe-section-title sticky-title">Cooking Tips</h3>
 
       <?php the_field('cooking_tips'); ?>
 
@@ -24,7 +24,7 @@
 
     <section>
 
-      <h3 class="recipe-section-title">Serving Tips</h3>
+      <h3 class="recipe-section-title sticky-title">Serving Tips</h3>
 
       <?php the_field('serving_tips'); ?>
 
@@ -36,7 +36,7 @@
 
     <section>
 
-      <h3 class="recipe-section-title">Variations</h3>
+      <h3 class="recipe-section-title sticky-title">Variations</h3>
 
       <?php the_field('variations'); ?>
 

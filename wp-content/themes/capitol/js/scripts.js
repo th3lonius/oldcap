@@ -24,7 +24,7 @@ function isScrolledIntoView(elem) {
 /*----- FLOWTYPE -----*/
 $('main').flowtype({
   minFont : 16,
-  maxFont : 32,
+  maxFont : 24,
   fontRatio : 70
 });
 

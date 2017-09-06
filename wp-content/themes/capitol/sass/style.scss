@@ -66,7 +66,7 @@ article {
     padding: 0;
   }
   section {
-    padding: $h2;
+    padding: $h3;
   }
   section > section {
     padding: 0;
@@ -167,12 +167,23 @@ ul.bullets {
   background-color: $grey;
 }
 
-.sticky {
+.sticky-section {
   @include respond-to(tablet) {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
   }
+}
+
+.sticky-title {
+  @include respond-to(tablet) {
+    padding-top: 0;
+    position: relative;
+  }
+  padding-top: 0.3em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .fullcolor {
@@ -353,11 +364,13 @@ main {
 /* =RECIPES
 ----------------------------------------------- */
 .recipe-section-title {
+  background-color: $white;
   color: $red;
-  display: inline-block;
+  display: block;
   font-size: $h3;
   letter-spacing: normal;
-  padding-bottom: 0.2em;
+  padding-bottom: 0.3em;
+  z-index: 9;
 }
 
 author {
@@ -468,6 +481,7 @@ author {
           @include respond-to(tablet) {
             color: $red;
             height: auto;
+            left: -1.2em;
           }
           content: counter(step-counter);
           color: $red;
@@ -476,7 +490,7 @@ author {
           padding: 2px 4px;
           position: absolute;
           top: -2px;
-          left: -1.1em;
+          left: -1.5em;
           height: 100%;
         }
       }
@@ -486,10 +500,10 @@ author {
 
 .more-recipes, .author-page--recipes {
   @include respond-to(tablet) {
-    padding: $h3!important;
+    padding: $h3 - $base;
   }
-  @include respond-to(desktop) {
-    padding: $h4!important;
+  @include respond-to(laptop) {
+    padding: $h3 - $h4;
   }
   margin: 0 auto;
   padding: 0;
@@ -500,7 +514,7 @@ author {
   }
   section {
     @include respond-to(tablet) {
-      padding: $small;
+      padding: $base;
       width: 50%; height: 25vw;
     }
     @include respond-to(laptop) {
