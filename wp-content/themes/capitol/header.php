@@ -39,7 +39,7 @@
       
       <button type="button" role="button" class="menu-toggle toggle-push-right"><span class="lines"></span></button>
         
-      <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/rebrand.svg"/></a>
+      <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/logo.svg"/></a>
       
       <section class="push-menu-right">
 
