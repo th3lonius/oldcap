@@ -9,21 +9,7 @@
     <?php while ( have_rows('ingredients') ) : the_row(); ?>
 
     <li>
-      <span class="quantity">
-        <?php
-
-        $output = get_sub_field('quantity');
-        $fraction = decimalToFraction($output);
-
-        if (is_float($output)) {
-
-        echo $fraction[0];?>/<?php echo $fraction[1];
-
-        } else {
-          echo the_sub_field('quantity');
-        }
-        ?>
-      </span>
+      <span class="quantity"><?php the_sub_field('quantity'); ?></span>
 
       <span class="measurement"><?php the_sub_field('measurement'); ?></span>
 

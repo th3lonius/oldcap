@@ -14,9 +14,28 @@ if ( ! function_exists( 'oldcap_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
+ 
+//Lets add Open Graph Meta Info
+function insert_og_twit_in_head() {
+    global $post;
+    if ( !is_singular()) { //if it is not a post or a page
+        return;
+        echo '<meta property="fb:admins" content="EAQdzCRhadf"/>';
+        $thumbnail_src = get_field('image');
+        echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src['url'] ) . '"/>';
+    } else {
+        $thumbnail_src = get_field('photo');
+        echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src['url'] ) . '"/>';
+    }
+    echo "
+";
+}
+add_action( 'wp_head', 'insert_og_twit_in_head', 5 );
 
+// ADJUST JPEG COMPRESSION
 add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 
+// CUSTOM EXCERPT LENGTH
 function custom_excerpt_length( $length ) {
 	return 50;
 }
@@ -35,45 +54,7 @@ register_nav_menus(
     )
 );
 
-// CONVERT DECIMAL NUMBER TO FRACTION
-function decimalToFraction($decimal) {
-    if ($decimal < 0 || !is_numeric($decimal)) {
-        // Negative digits need to be passed in as positive numbers
-        // and prefixed as negative once the response is imploded.
-        return false;
-    }
-    if ($decimal == 0) {
-        return [0, 0];
-    }
-
-    $tolerance = 1.e-4;
-
-    $numerator = 1;
-    $h2 = 0;
-    $denominator = 0;
-    $k2 = 1;
-    $b = 1 / $decimal;
-    do {
-        $b = 1 / $b;
-        $a = floor($b);
-        $aux = $numerator;
-        $numerator = $a * $numerator + $h2;
-        $h2 = $aux;
-        $aux = $denominator;
-        $denominator = $a * $denominator + $k2;
-        $k2 = $aux;
-        $b = $b - $a;
-    } while (abs($decimal - $numerator / $denominator) > $decimal * $tolerance);
-
-    return [
-        $numerator,
-        $denominator
-    ];
-}
-
-/*-----------------------------------------------------------------------------------*/
-/*  enable svg images in media uploader
-/*-----------------------------------------------------------------------------------*/
+//  enable svg images in media uploader
 function cc_mime_types( $mimes ){
 $mimes['svg'] = 'image/svg+xml';
 return $mimes;
@@ -82,7 +63,6 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 
 add_action( 'init', 'recipes_post_type' );
 add_action( 'init', 'authors_post_type' );
-add_action( 'init', 'gallery_post_type' );
 
 function authors_post_type() {
 
@@ -125,24 +105,6 @@ function recipes_post_type() {
 			),
 		'has_archive' => true,
         'supports' => array('title', 'editor', 'thumbnail', 'comments', 'author')
-	) );
-}
-
-function gallery_post_type() {
-
-	register_post_type( 'gallery', array(
-		'labels' => array(
-			'name' => __('Gallery'),
-			'singular_name' => __('Gallery')
-			),
-		'public' => true,
-		'show_ui' => true,
-        'menu_icon' => 'dashicons-format-gallery',
-		'rewrite' => array(
-			'slug' => 'gallery',
-			'with_front' => false
-			),
-		'has_archive' => true
 	) );
 }
 

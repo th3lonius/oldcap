@@ -13,10 +13,11 @@
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-    <title><?php wp_title( '|', true, 'right' ); ?></title>
+    <title><?php wp_title( '-', true, 'right' ); ?></title>
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url');?>">
+    <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/apple-touch-icon.png?v=5Ae6nvablg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/favicon-32x32.png?v=5Ae6nvablg">
     <link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/android-chrome-192x192.png?v=5Ae6nvablg">
@@ -27,11 +28,17 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/mstile-144x144.png?v=5Ae6nvablg">
     <meta name="theme-color" content="#ffffff">
-    <?php wp_head(); ?>
+    <!-- Scripts -->
     <script src="https://use.typekit.net/fae8swm.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script src="http://prod3.agileticketing.net/websales/agile_widget.ashx?orgid=2553&epgid=292&" type="text/javascript"></script>
+    <?php
+      $image = get_field('photo');
+      $size = 'medium';
+      $customphoto = $image['sizes'][ $size ];
+    ?>
+    <meta name="twitter:image" content="<?php echo $customphoto; ?>"/>
+    <?php wp_head(); ?>
   </head>
 
   <body>
