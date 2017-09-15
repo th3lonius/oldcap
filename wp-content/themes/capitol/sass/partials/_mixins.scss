@@ -103,18 +103,6 @@
 }
 
 @mixin border-radius( $top-left, $top-right, $bottom-right, $bottom-left ) {
-  -webkit-border-top-left-radius: $top-left+px;
-  -webkit-border-top-right-radius: $top-right+px;
-  -webkit-border-bottom-right-radius: $bottom-right+px;
-  -webkit-border-bottom-left-radius: $bottom-left+px;
-  -moz-border-top-left-radius: $top-left+px;
-  -moz-border-top-right-radius: $top-right+px;
-  -moz-border-bottom-right-radius: $bottom-right+px;
-  -moz-border-bottom-left-radius: $bottom-left+px;
-  -o-border-top-left-radius: $top-left+px;
-  -o-border-top-right-radius: $top-right+px;
-  -o-border-bottom-right-radius: $bottom-right+px;
-  -o-border-bottom-left-radius: $bottom-left+px;
   -ms-border-top-left-radius: $top-left+px;
   -ms-border-top-right-radius: $top-right+px;
   -ms-border-bottom-right-radius: $bottom-right+px;

@@ -20,8 +20,12 @@
     <?php endwhile; ?>
 
     </ul>
+  
+    <?php if( get_field('ingredient_notes') ): ?>
 
-  <p>*<?php the_field('ingredient_notes'); ?></p>
+      <p>*<?php the_field('ingredient_notes'); ?></p>
+
+    <?php endif; ?>
 
   <?php endif; ?>
 

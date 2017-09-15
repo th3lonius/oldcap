@@ -1,4 +1,16 @@
 <section class="col-8-12 procedure">
+  
+  <?php if( get_field('serving_tips') ): ?>
+
+    <section>
+
+      <h3 class="recipe-section-title sticky-title">Serving Tips</h3>
+
+      <?php the_field('serving_tips'); ?>
+
+    </section>
+
+  <?php endif; ?>
 
   <section>
 
@@ -15,18 +27,6 @@
       <h3 class="recipe-section-title sticky-title">Cooking Tips</h3>
 
       <?php the_field('cooking_tips'); ?>
-
-    </section>
-
-  <?php endif; ?>
-
-  <?php if( get_field('serving_tips') ): ?>
-
-    <section>
-
-      <h3 class="recipe-section-title sticky-title">Serving Tips</h3>
-
-      <?php the_field('serving_tips'); ?>
 
     </section>
 

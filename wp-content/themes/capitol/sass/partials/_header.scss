@@ -101,15 +101,16 @@ body.pml-open .push-menu-right {
 .global-header {
   .logo {
     @include respond-to(tablet) {
-      padding: $base;
       top: $h4; left: $h4;
-      width: 18vw;
+      width: 15vw;
     }
     @include transition;
+    @include border-radius(200, 200, 200, 200);
+    background-color: transparentize($green, 0.1);
     display: block;
-    padding: $small;
+    padding: 0.3em;
     position: fixed!important;
-    top: 0; left: 0;
+    top: $base; left: $base;
     width: 27vw; height: auto;
     z-index: 99;
     &::after {

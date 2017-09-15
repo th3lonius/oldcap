@@ -32,8 +32,22 @@ get_header();
     <img class="avatar" src="<?php echo $url; ?>" />
     
     <?php endif; ?>
-
+    
+    <h1><?php the_title(); ?></h1>
+    
     <?php the_content(); ?>
+    
+    <?php if( get_field('facebook_id') ): ?>
+    
+      <a class="social" href="https://www.facebook.com/<?php echo get_field('facebook_id');?>"><img src="<?php bloginfo('template_url'); ?>/img/icon/facebook.svg" /></a>
+    
+    <?php endif; ?>
+    
+    <?php if( get_field('twitter_id') ): ?>
+    
+      <a class="social" href="https://twitter.com/<?php echo get_field('twitter_id');?>"><img src="<?php bloginfo('template_url'); ?>/img/icon/twitter.svg" /></a>
+    
+    <?php endif; ?>
 
   </article>
   
