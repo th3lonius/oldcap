@@ -1,3 +1,11 @@
+.recipe-page {
+  section:first-of-type {
+    &::after {
+      background: transparentize($mask-black, 0.3) !important;
+    }
+  }
+}
+
 .recipe-section-title {
   background-color: $white;
   color: $red;
@@ -15,12 +23,6 @@ author {
   font-size: $h4;
   line-height: 1.1;
   margin-top: 0.6em;
-}
-
-.recipe-image {
-  &::after {
-    background: transparentize($mask-black, 0.3) !important;
-  }
 }
 
 .intro-details {
@@ -220,6 +222,7 @@ author {
   background-color: #e72329;
   color: #fff;
   font-size: $h4;
+  letter-spacing: normal;
   line-height: 1;
   padding: 0.4em 0.667em;
   position: absolute;

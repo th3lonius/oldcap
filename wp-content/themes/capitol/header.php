@@ -45,7 +45,10 @@
    
     <header class="global-header">
       
-      <button type="button" role="button" class="menu-toggle toggle-push-right"><span class="lines"></span></button>
+      <button type="button" role="button" class="menu-toggle toggle-push-right">
+        <span>Menu</span>
+        <span class="lines"></span>
+      </button>
         
       <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/logo.svg"/></a>
       

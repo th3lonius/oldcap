@@ -141,11 +141,6 @@ ul.bullets {
   @include respond-to(tablet) {
     left: 0;
   }
-  background-image: url(img/batch-still.jpg) !important;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: none;
   position: absolute !important;
   top: 0;
   right: 0;
@@ -160,10 +155,6 @@ ul.bullets {
 
 .intro {
   @extend %mask;
-  background-image: url(img/batch-still.jpg) !important;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   overflow: hidden;
   top: 0; left: 0; right: 0; bottom: 0;
   width: 100%; height: 100vh;
@@ -243,8 +234,8 @@ main {
 
 /* =INTERIOR BLOG
 ----------------------------------------------- */
-.interior {
-  .intro-image {
+main {
+  & > section {
     @extend %mask;
     background-attachment: fixed;
     background-position: center;
@@ -266,6 +257,11 @@ main {
       position: relative;
     }
   }
+}
+
+.interior {
+  
+
   &--blog {
     margin-left: 20%;
   }

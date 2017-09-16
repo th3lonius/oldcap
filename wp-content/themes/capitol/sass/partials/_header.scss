@@ -16,7 +16,8 @@ $button-size: $h4;
   background-color: $text-black;
   display: inline-block;
   cursor: pointer;
-  padding: 0.8em 0.9em 1.1em;
+  opacity: 0.8;
+  padding: $base;
   position: fixed;
   top: 0; right: 0;
   user-select: none;
@@ -24,19 +25,21 @@ $button-size: $h4;
   &:hover {
     opacity: 1;
   }
-  &:hover .lines::before {
-    top: $button-size/5;
-  }
-  &:hover .lines::after {
-    top: -$button-size/5;
-  }
   &:active {
     transition: 0;
     background: rgba(0, 0, 0, .1);
   }
+  span:first-of-type {
+    color: $white;
+    display: inline-block;
+    font-family: $title-font;
+    letter-spacing: 0.1em;
+    padding-right: 0.5em;
+  }
   .lines {
     @include line;
     position: relative;
+    top: -0.3em;
     &::before, &::after {
       @include line;
       position: absolute;

@@ -14,6 +14,11 @@ if ( ! function_exists( 'oldcap_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
+
+function wpd_attachment_taxonomy() {
+    register_taxonomy_for_object_type( 'post_tag', 'attachment' );
+}
+add_action( 'init', 'wpd_attachment_taxonomy' );
  
 //Lets add Open Graph Meta Info
 function insert_og_twit_in_head() {

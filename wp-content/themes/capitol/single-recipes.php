@@ -6,7 +6,7 @@ get_header();
 
 ?>
 
-<main class="interior">
+<main class="recipe-page">
 
 <?php while ( have_posts() ) : the_post(); ?>
   

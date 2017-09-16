@@ -23,22 +23,7 @@ get_header();
 
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-    <?php $image = get_field('photo'); ?>
-    <?php if( !empty($image) ):
-
-        // vars
-        $url = $image['url'];
-        $title = $image['title'];
-        $alt = $image['alt'];
-        $caption = $image['caption'];
-
-        // thumbnail
-        $size = 'medium';
-        $thumb = $image['sizes'][ $size ];
-        $width = $image['sizes'][ $size . '-width' ];
-        $height = $image['sizes'][ $size . '-height' ]; ?>
-
-    <article class="intro-image" style="background-image: url(<?php echo $url; ?>);">
+    <?php get_template_part( 'module', 'photo--page-header' ); ?>
 
       <h3 class="latest-tag">Latest Recipe</h3>
 
@@ -55,8 +40,6 @@ get_header();
       </header>
 
     </article>
-
-    <?php endif; ?>
 
   <?php endwhile; ?>
 
@@ -84,9 +67,7 @@ get_header();
 
       <a href="<?php the_permalink(); ?>" class="block">
         
-      <?php include(locate_template('module-photo--medium.php')); ?>
-
-      <figure style="background-image: url(<?php echo $url; ?>);"></figure>
+        <?php get_template_part( 'module', 'photo--thumbnail' ); ?>
 
         <header class="intro-details">
           <span class="serving">Serving <?php the_field('servings'); ?></span>
