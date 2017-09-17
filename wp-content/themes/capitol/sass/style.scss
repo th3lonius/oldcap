@@ -259,11 +259,37 @@ main {
   }
 }
 
-.interior {
-  
-
-  &--blog {
-    margin-left: 20%;
+.blog {
+  article {
+    @include respond-to(laptop) {
+      padding: $h1;
+    }
+    padding: $h1 $base;
+  }
+  header {
+    h1 {
+      @include respond-to(tablet) {
+        line-height: 1.4;
+      }
+      @include respond-to(desktop) {
+        font-size: $h2;
+      }
+      border-top: 2px solid $text-black;
+      font-family: $display-font;
+      font-size: $h3;
+      letter-spacing: normal;
+      line-height: 1;
+      padding-top: 0.4em;
+    }
+    author, date {
+      color: $text-black;
+      display: inline-block;
+      margin: 0;
+      padding: 0 0.6em 0.6em 0;
+    }
+  }
+  section {
+    padding: 0;
   }
 }
 

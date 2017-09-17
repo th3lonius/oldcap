@@ -208,7 +208,7 @@ author {
         font-size: $h4;
       }
       author {
-        @include respond-to(tablet) {
+        @include respond-to(laptop) {
           font-size: $base;
         }
         font-size: $h4;
