@@ -1,4 +1,4 @@
-<?php get_template_part( 'module', 'photo--page-header' ); ?>   
+<?php include(locate_template('module-photo--header.php')); ?>
   
   <header class="intro-details">
 

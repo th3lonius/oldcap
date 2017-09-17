@@ -17,12 +17,15 @@
 }
 
 author {
+  @include respond-to(tablet) {
+    font-size: $h3;
+  }
   color: $white;
   display: block;
   font-family: $flourish-font;
   font-size: $h4;
   line-height: 1.1;
-  margin-top: 0.6em;
+  margin: 0.6em 0;
 }
 
 .intro-details {
@@ -50,7 +53,7 @@ author {
   }
   p {
     color: $white;
-    font-size: $small;
+    font-size: $base;
     font-style: oblique;
     font-weight: 200;
     padding: 0 $h3;
@@ -227,7 +230,7 @@ author {
   padding: 0.4em 0.667em;
   position: absolute;
   left: 50%; top: 0;
-  z-index: 999
+  z-index: 99;
 }
 
 /* =AUTHOR BIO

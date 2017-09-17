@@ -17,7 +17,7 @@ $button-size: $h4;
   display: inline-block;
   cursor: pointer;
   opacity: 0.8;
-  padding: $base;
+  padding: $small;
   position: fixed;
   top: 0; right: 0;
   user-select: none;
@@ -29,9 +29,18 @@ $button-size: $h4;
     transition: 0;
     background: rgba(0, 0, 0, .1);
   }
-  span:first-of-type {
+  span:first-child {
+    @include transition;
     color: $white;
     display: inline-block;
+    font-family: $title-font;
+    letter-spacing: 0.1em;
+    padding-right: 0.5em;
+  }
+  span:nth-child(2) {
+    @include transition;
+    display: none;
+    color: $white;
     font-family: $title-font;
     letter-spacing: 0.1em;
     padding-right: 0.5em;
@@ -57,23 +66,31 @@ $button-size: $h4;
   }
 }
 
-.menu-toggle.close .lines {
-  /*hide the middle line*/
-  background: transparent;
-  /*overlay the lines by setting both their top values to 0*/
-  &::before, &::after {
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    top: 0;
-    width: $button-size;
+.menu-toggle.close {
+  span:first-child {
+    display: none;
   }
-  // rotate the lines to form the x shape
-  &::before {
-    @include rotate(Z, 45);
+  span:nth-child(2) {
+    display: inline-block;
   }
-  &::after {
-    @include rotate(Z, -45);
+  .lines {
+    /*hide the middle line*/
+    background: transparent;
+    /*overlay the lines by setting both their top values to 0*/
+    &::before, &::after {
+      -webkit-transform-origin: 50% 50%;
+      -moz-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      top: 0;
+      width: $button-size;
+    }
+    // rotate the lines to form the x shape
+    &::before {
+      @include rotate(Z, 45);
+    }
+    &::after {
+      @include rotate(Z, -45);
+    }
   }
 }
 
@@ -115,7 +132,7 @@ body.pml-open .push-menu-right {
     position: fixed!important;
     top: $base; left: $base;
     width: 27vw; height: auto;
-    z-index: 99;
+    z-index: 999;
     &::after {
       content: none;
     }
@@ -128,7 +145,7 @@ body.pml-open .push-menu-right {
     text-align: center;
     top: -130%; left: 0; bottom: 0; right: 0;
     width: 100%; height: 100%;
-    z-index: 99;
+    z-index: 999;
     .nav-container {
       @include translate(-50%, -50%);
       display: none;

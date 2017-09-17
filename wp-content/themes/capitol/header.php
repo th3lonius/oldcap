@@ -47,6 +47,7 @@
       
       <button type="button" role="button" class="menu-toggle toggle-push-right">
         <span>Menu</span>
+        <span>Close</span>
         <span class="lines"></span>
       </button>
         
