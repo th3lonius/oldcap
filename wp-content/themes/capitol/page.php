@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-<main class="interior">
+<main>
 
   <?php if ( have_posts() ) : ?>
 
@@ -9,7 +9,7 @@ get_header(); ?>
 
       <?php
 
-        $image = get_field('image');
+        $image = get_field('photo');
 
         if( !empty($image) ):
 
@@ -18,7 +18,7 @@ get_header(); ?>
 
         ?>
 
-    <article class="intro-image" style="background-image: url(<?php echo $url; ?>);">
+    <section style="background-image: url(<?php echo $url; ?>);">
 
       <header class="intro-details">
 
@@ -28,7 +28,7 @@ get_header(); ?>
 
         <?php endif; ?>
 
-    </article>
+    </section>
 
     <article class="col-10-12 no-float">
      

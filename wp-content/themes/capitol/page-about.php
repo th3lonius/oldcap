@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="interior">
+<main>
 
   <?php if ( have_posts() ) : ?>
 
@@ -8,7 +8,7 @@
           
       <?php 
 
-        $image = get_field('image');
+        $image = get_field('photo');
 
         if( !empty($image) ): 
 
@@ -26,7 +26,7 @@
 
         ?>
            
-    <article class="intro-image" data-type="background" data-speed="6" style="background-image: url(<?php echo $url; ?>);">
+    <section data-type="background" data-speed="6" style="background-image: url(<?php echo $url; ?>);">
 
         <?php if( $caption ): ?>
 
@@ -44,7 +44,7 @@
 
         <?php endif; ?>
             
-    </article>
+    </section>
            
     <article class="col-6-12 no-float">
      
@@ -58,14 +58,10 @@
             
     <?php endwhile; ?>
 
-
     <?php else : ?>
-
 
   <?php endif; ?>
 
 </main><!-- .interior -->
-
-
 
 <?php get_footer(); ?>
