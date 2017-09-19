@@ -153,12 +153,15 @@ ul.bullets {
   z-index: -100;
 }
 
-.intro {
+#homepage {
   @extend %mask;
   overflow: hidden;
   top: 0; left: 0; right: 0; bottom: 0;
   width: 100%; height: 100vh;
   z-index: 1;
+  &::after {
+    background: transparentize($mask-black, 0.1);
+  }
   header {
     @include translate(-50%,-50%);
     color: $white;
@@ -166,34 +169,35 @@ ul.bullets {
     position: absolute;
     top: 50%; left: 50%;
     text-align: center;
+    width: 100%;
     z-index: 999;
     span {
       display: inline-block;
-      font-size: $h4;
+      font-size: $base;
       letter-spacing: 0.1em;
       position: relative;
       &::before {
         background-color: $white;
         content: "";
         position: absolute;
-        top: 50%; right: 115%;
-        width: 100%; height: 2px;
+        top: 50%; left: -$h4;
+        width: $base; height: 3px;
       }
       &::after {
         background-color: $white;
         content: "";
         position: absolute;
-        top: 50%; left: 115%;
-        width: 100%; height: 2px;
+        top: 50%; right: -$h4;
+        width: $base; height: 3px;
       }
     }
     em {
       @include respond-to(tablet) {
-        font-size: $h1*1.5;
-        margin-bottom: 35px;
+        font-size: $h1;
+        margin-bottom: 30px;
       }
       display: block;
-      font-size: $h2*$golden;
+      font-size: $h2;
       font-style: normal;
       letter-spacing: 0.05em;
       margin-bottom: 20px;
