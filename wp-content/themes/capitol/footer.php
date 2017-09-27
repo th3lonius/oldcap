@@ -1,5 +1,5 @@
 <footer>
-  <span>&#169; <?php echo date("Y"); ?> Old Capitol Food Co.</span>
+  <cite>&#169; <?php echo date("Y"); ?> Old Capitol Food Co.</cite>
 </footer>
 
 <!--[if lt IE 9]>
