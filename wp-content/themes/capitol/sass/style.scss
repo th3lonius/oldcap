@@ -238,6 +238,19 @@ main {
 
 /* =INTERIOR BLOG
 ----------------------------------------------- */
+#blogroll {
+  background-color: $white;
+  padding: $h3;
+  position: fixed;
+  top: 0; right: -100%; bottom: 0;
+  width: 33vw;
+  z-index: 999999;
+  ol {
+    color: $text-black;
+    margin-bottom: $base;
+  }
+}
+
 main {
   & > section {
     @extend %mask;

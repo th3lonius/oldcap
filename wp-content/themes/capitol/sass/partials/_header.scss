@@ -8,6 +8,18 @@
 
 $button-size: $h4;
 
+.blog-toggle {
+  background-color: $text-black;
+  display: inline-block;
+  color: $white;
+  cursor: pointer;
+  opacity: 0.8;
+  padding: $small;
+  position: fixed;
+  bottom: $h4; right: $h4;
+  z-index: 999999;
+}
+
 .menu-toggle {
   @include transition(all, 0.2s, ease);
   @include respond-to(tablet) {
