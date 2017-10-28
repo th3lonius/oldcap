@@ -8,6 +8,7 @@
   
 </main>
 
+<!--
 <button type="button" role="button" class="blog-toggle toggle-push-right">
   <span>News & Updates</span>
   <span>Close</span>
@@ -32,5 +33,7 @@
   <?php endif; ?>
   
 </aside>
+
+-->
 
 <?php get_footer(); ?>

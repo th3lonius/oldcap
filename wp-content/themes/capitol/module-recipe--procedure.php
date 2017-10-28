@@ -22,7 +22,7 @@
 
   <?php if( get_field('cooking_tips') ): ?>
 
-    <section>
+    <section id="cooking-tips">
 
       <h3 class="recipe-section-title sticky-title">Cooking Tips</h3>
 
@@ -34,7 +34,7 @@
 
   <?php if( get_field('variations') ): ?>
 
-    <section>
+    <section id="variations">
 
       <h3 class="recipe-section-title sticky-title">Variations</h3>
 
