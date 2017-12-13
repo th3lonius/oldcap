@@ -124,6 +124,7 @@ body.pml-open .push-menu-right {
     @include transition;
     opacity: 0;
     top: -200px;
+    visibility: hidden;
   }
   .top-bar {
     opacity: 1!important;

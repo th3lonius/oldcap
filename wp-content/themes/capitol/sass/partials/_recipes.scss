@@ -66,9 +66,6 @@ author {
   border-bottom: 2px solid $text-black;
   .abstract {
     border-bottom: 2px solid $text-black;
-    p {
-      margin-bottom: 0;
-    }
   }
   .ingredients {
     @include respond-to(tablet) {

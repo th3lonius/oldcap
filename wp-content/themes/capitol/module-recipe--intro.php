@@ -12,7 +12,12 @@
 
       <?php foreach( $authors as $author ): // variable must NOT be called $post (IMPORTANT) ?>
 
-      <author>by <a href="<?php echo get_permalink( $author->ID ); ?>"><?php echo get_the_title( $author->ID ); ?></a></author>
+      <author>by 
+        <?php if ($author->post_content == '') {
+          echo get_the_title( $author->ID ); 
+          } else { ?>
+          <a href="<?php echo get_permalink( $author->ID ); ?>"><?php echo get_the_title( $author->ID ); ?></a></author>
+        <?php } ?>
 
       <?php endforeach; ?>
 

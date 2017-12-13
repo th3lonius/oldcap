@@ -2,6 +2,16 @@
 get_header(); ?>
 
 <main>
+  
+<?php
+
+    $args = array(
+        'orderby' => 'recipes'
+    );
+
+    $query = new WP_Query( $args );
+
+?>
 
   <?php if ( have_posts() ) : ?>
 
@@ -38,33 +48,41 @@ get_header(); ?>
 
         <h3 class="section-title">Retail Locations</h3>
 
-          <?php while ( have_rows('retail') ) : the_row(); ?>
+        <?php while ( have_rows('retail') ) : the_row(); ?>
 
-            <a href="<?php the_sub_field('hyperlink'); ?>" target="_blank" class="contextual-link"><?php the_sub_field('name'); ?></a>
-        
-            <?php while ( has_sub_field('addresses') ) : ?>
-              <address><?php the_sub_field('address'); ?></address>
-            <?php endwhile; ?>
+        <ol class="location">
 
+          <li><a href="<?php the_sub_field('hyperlink'); ?>" target="_blank" class="contextual-link"><?php the_sub_field('name'); ?></a></li>
+
+          <?php while ( has_sub_field('addresses') ) : ?>
+          <li><address><?php the_sub_field('address'); ?></address></li>
           <?php endwhile; ?>
+
+        </ol>  
+
+        <?php endwhile; ?>
 
       </section>
 
       <section class="wholesale col-6-12">
 
-         <h3 class="section-title">Restaurants & Prepared Foods</h3>
+        <h3 class="section-title">Restaurants & Prepared Foods</h3>
 
-            <?php while ( have_rows('wholesale') ) : the_row(); ?>
+        <?php while ( have_rows('wholesale') ) : the_row(); ?>
 
-              <a href="<?php the_sub_field('hyperlink'); ?>" target="_blank" class="contextual-link"><?php the_sub_field('name'); ?></a>
-        
-              <?php while ( has_sub_field('addresses') ) : ?>
-                <address><?php the_sub_field('address'); ?></address>
-              <?php endwhile; ?>
+        <ol class="location">
 
-            <?php endwhile; ?>
+          <li><a href="<?php the_sub_field('hyperlink'); ?>" target="_blank" class="contextual-link"><?php the_sub_field('name'); ?></a></li>
 
-        </section>
+          <?php while ( has_sub_field('addresses') ) : ?>
+          <li><address><?php the_sub_field('address'); ?></address></li>
+          <?php endwhile; ?>
+
+        </ol>
+
+        <?php endwhile; ?>
+
+      </section>
 
         <?php endif; ?>
 

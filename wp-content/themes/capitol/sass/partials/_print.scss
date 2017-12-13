@@ -1,0 +1,23 @@
+@media print {
+  img, .more-recipes, .global-header, footer {
+    display: none !important;
+  }
+  section, figure {
+    background-image: none !important;
+  }
+  main > section {
+    height: 16vh !important;
+  }
+  main {
+    font-size: 12px !important;
+  }
+  .ingredients {
+    width: 33.3333333333% !important;
+  }
+  .procedure {
+    width: 66.6666666667% !important;
+  }
+  section, .sticky-title {
+    position: relative !important;
+  }
+}
