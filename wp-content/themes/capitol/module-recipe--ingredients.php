@@ -1,4 +1,6 @@
-<section class="col-4-12 ingredients sticky-section">
+<section class="container__row ingredients sticky-section">
+  
+  <article class="container__col-4-12">
 
   <?php if( have_rows('ingredients') ): ?>
 
@@ -28,5 +30,7 @@
     <?php endif; ?>
 
   <?php endif; ?>
+  
+  </article>
 
 </section><!-- .ingredients -->

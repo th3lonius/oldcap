@@ -1,8 +1,12 @@
 <?php if ( $post->post_content!=="" ) { ?>
 
-  <section class="col-12-12 abstract">
+  <section class="container__row abstract">
+    
+    <article class="container__col-12-12">
 
     <?php the_content(); ?>
+    
+    </article>
 
   </section><!-- .abstract -->
 

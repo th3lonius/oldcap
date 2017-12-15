@@ -1,4 +1,4 @@
-<section class="col-8-12 procedure">
+<section class="container__col-8-12 procedure">
   
   <?php if( get_field('serving_tips') ): ?>
 

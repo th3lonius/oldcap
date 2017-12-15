@@ -12,7 +12,7 @@ get_header();
   
   <?php get_template_part( 'module', 'recipe--intro' ); ?>   
 
-    <article class="recipe">
+    <article class="container recipe">
 
       <?php get_template_part( 'module', 'recipe--abstract' ); ?>   
       
