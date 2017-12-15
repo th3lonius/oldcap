@@ -158,6 +158,7 @@ ul.bullets {
 }
 
 #homepage {
+  @extend %clearfix;
   @extend %mask;
   overflow: hidden;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -232,29 +233,48 @@ main {
   }
 }
 
-.module--blog {
-  @include respond-to(tablet) {
-    width: 60%;
+/* =BLOG
+----------------------------------------------- */
+.module--blogroll {
+  @extend %clearfix;
+  @include respond-to(mobile) {
+    width: 100%;
   }
   margin: 0 auto;
-  width: 100%;
-}
-
-/* =INTERIOR BLOG
------------------------------------------------ */
-#blogroll {
-  background-color: $white;
-  padding: $h3;
-  position: fixed;
-  top: 0; right: -100%; bottom: 0;
-  width: 33vw;
-  z-index: 999999;
-  ol {
-    color: $text-black;
-    margin-bottom: $base;
+  &::after {
+    content: none;
+  }
+  article {
+    padding: $h3;
+    header {
+      h1 {
+        @include respond-to(tablet) {
+          line-height: 1.4;
+        }
+        @include respond-to(desktop) {
+          font-size: $h2;
+        }
+        font-family: $display-font;
+        font-size: $h3;
+        letter-spacing: normal;
+        line-height: 1;
+        padding-top: 0.4em;
+      }
+      author, date {
+        color: $text-black;
+        display: inline-block;
+        margin: 0;
+        padding: 0 0.6em 0.6em 0;
+      }
+    }
+    section {
+      padding: 0;
+    }
   }
 }
 
+/* =INTERIOR
+----------------------------------------------- */
 main {
   & > section {
     @extend %mask;
@@ -277,40 +297,6 @@ main {
       letter-spacing: 0.1em;
       position: relative;
     }
-  }
-}
-
-.blog {
-  article {
-    @include respond-to(laptop) {
-      padding: $h1;
-    }
-    padding: $h1 $base;
-  }
-  header {
-    h1 {
-      @include respond-to(tablet) {
-        line-height: 1.4;
-      }
-      @include respond-to(desktop) {
-        font-size: $h2;
-      }
-      border-top: 2px solid $text-black;
-      font-family: $display-font;
-      font-size: $h3;
-      letter-spacing: normal;
-      line-height: 1;
-      padding-top: 0.4em;
-    }
-    author, date {
-      color: $text-black;
-      display: inline-block;
-      margin: 0;
-      padding: 0 0.6em 0.6em 0;
-    }
-  }
-  section {
-    padding: 0;
   }
 }
 
@@ -348,6 +334,7 @@ main {
 /* =FOOTER
 ----------------------------------------------- */
 footer {
+  @extend %clearfix;
   background-color: $red;
   color: $white;
   display: block;

@@ -153,14 +153,7 @@ author {
   section {
     @include respond-to(tablet) {
       padding: $base;
-      width: 50%; height: 25vw;
-    }
-    @include respond-to(laptop) {
-      padding: $h4;
-      width: 33%;
-    }
-    @include respond-to(tv) {
-      width: 25%;
+      height: 25vw;
     }
     height: 100vw;
     position: relative;
