@@ -12,11 +12,24 @@
 
 $columns: 12;
 
-@for $i from 1 through $columns {
-  .col-#{$i}-#{$columns} {
-    @extend %grid-column;
-    @include respond-to(tablet) {
-      width: percentage($i / $columns);
+
+.container {
+  margin: 0 auto;
+  &--fluid {
+    margin: 0;
+    max-width: 100%;
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  @for $i from 1 through $columns {
+    .col-#{$i}-#{$columns} {
+      @extend %grid-column;
+      @include respond-to(tablet) {
+        flex-basis: (100 / ($columns / $i) ) * 1%;
+      }
     }
   }
 }
