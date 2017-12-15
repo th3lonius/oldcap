@@ -1,36 +1,32 @@
-<section class="container__row ingredients sticky-section">
-  
-  <article class="container__col-4-12">
+<article class="ingredients sticky-section container__col-sm-12 container__col-md-4">
 
-  <?php if( have_rows('ingredients') ): ?>
+<?php if( have_rows('ingredients') ): ?>
 
-    <h3 class="recipe-section-title sticky-title">Ingredients</h3>
+  <h3 class="recipe-section-title sticky-title">Ingredients</h3>
 
-    <ul>
+  <ul>
 
-    <?php while ( have_rows('ingredients') ) : the_row(); ?>
+  <?php while ( have_rows('ingredients') ) : the_row(); ?>
 
-    <li>
-      <span class="quantity"><?php the_sub_field('quantity'); ?></span>
+  <li>
+    <span class="quantity"><?php the_sub_field('quantity'); ?></span>
 
-      <span class="measurement"><?php the_sub_field('measurement'); ?></span>
+    <span class="measurement"><?php the_sub_field('measurement'); ?></span>
 
-      <span class="ingredient"><?php the_sub_field('ingredient'); ?></span>
+    <span class="ingredient"><?php the_sub_field('ingredient'); ?></span>
 
-    </li>
+  </li>
 
-    <?php endwhile; ?>
+  <?php endwhile; ?>
 
-    </ul>
-  
-    <?php if( get_field('ingredient_notes') ): ?>
+  </ul>
 
-      <p>*<?php the_field('ingredient_notes'); ?></p>
+  <?php if( get_field('ingredient_notes') ): ?>
 
-    <?php endif; ?>
+    <p>*<?php the_field('ingredient_notes'); ?></p>
 
   <?php endif; ?>
-  
-  </article>
 
-</section><!-- .ingredients -->
+<?php endif; ?>
+
+</article><!-- .ingredients -->

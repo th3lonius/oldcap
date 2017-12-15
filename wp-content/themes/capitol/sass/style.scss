@@ -44,18 +44,6 @@ article {
   position: relative;
   text-align: left;
   width: 100%;
-  article {
-    padding: 0;
-  }
-  section {
-    @include respond-to(laptop) {
-      padding: $h2;
-    }
-    padding: $h3;
-  }
-  section > section {
-    padding: 0;
-  }
 }
 
 section {
@@ -245,7 +233,6 @@ main {
     content: none;
   }
   article {
-    padding: $h3;
     header {
       h1 {
         @include respond-to(tablet) {
@@ -266,9 +253,6 @@ main {
         margin: 0;
         padding: 0 0.6em 0.6em 0;
       }
-    }
-    section {
-      padding: 0;
     }
   }
 }

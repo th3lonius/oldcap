@@ -12,11 +12,11 @@
 
 <?php if ( $query->have_posts() ) : ?>
 
-  <article class="col-12-12 more-recipes">
+  <section class="more-recipes container__row">
 
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-    <section class="col-3-12 no-padding">
+    <article class="container__col-sm-12 container__col-md-6 container__col-lg-3">
 
       <a href="<?php the_permalink(); ?>" class="block">
         
@@ -42,10 +42,10 @@
 
       </a>
 
-    </section>
+    </article>
 
   <?php endwhile; ?>
 
-  </article>
+  </section>
 
 <?php endif; ?>

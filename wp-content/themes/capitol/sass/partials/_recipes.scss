@@ -137,25 +137,24 @@ author {
 }
 
 .more-recipes, .author-page--recipes {
-  @include respond-to(tablet) {
-    padding: $h3 - $base;
-  }
-  @include respond-to(laptop) {
-    padding: $h3 - $h4;
-  }
-  margin: 0 auto;
-  padding: 0;
+  display: flex;
+  justify-content: space-between;
   .intro-title {
     color: $red;
     font-size: $h3;
     text-align: center;
   }
-  section {
+  [class*='container__col-'] {
     @include respond-to(tablet) {
       padding: $base;
-      height: 25vw;
+      height: 50vw - 2;
+    }
+    @include respond-to(laptop) {
+      padding: $h4;
+      height: 25vw - 2;
     }
     height: 100vw;
+    padding: 0;
     position: relative;
     &::after {
       background: transparentize($mask-black, 0.3);

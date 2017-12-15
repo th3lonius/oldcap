@@ -1,19 +1,53 @@
-%grid-container {
-  width: 100%;
-  margin: 0 0 1.5em;
+$map-col-padding: ('-sm': $h4, '-md': $h3, '-lg': $h2);
+
+@at-root {
+  [class*='container__col-'] {
+    
+  }
+  [class*='container__col-sm'] {
+    padding: map-get($map-col-padding, '-sm');
+  }
+  [class*='container__col-md'] {
+    @include respond-to(tablet) {
+      padding: map-get($map-col-padding, '-md');
+    }
+  }
+  [class*='container__col-lg'] {
+    @include respond-to(desktop) {
+      padding: map-get($map-col-padding, '-lg');
+    }
+  }
 }
 
-%grid-column {
-  @include transition(width, 0.4s, ease);
-  float: left;
-  margin: 0 auto;
-  width: 100%;
+/*BREAKPOINTS*/
+$grid__bp-md: 700;
+$grid__bp-lg: 1270;
+$grid__cols: 12;
+
+$map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
+
+@mixin create-mq($breakpoint) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (min-width: $breakpoint *1px) {
+      @content;
+    }
+  }
 }
 
-$columns: 12;
-
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mq($breakpoint) {
+    @for $i from 1 through $grid-cols {
+      &__col#{$modifier}-#{$i} {
+        flex-basis: (100 / ($grid-cols / $i) ) * 1%;
+      }
+    }
+  }
+}
 
 .container {
+  max-width: $grid__bp-md * 1px;
   margin: 0 auto;
   &--fluid {
     margin: 0;
@@ -24,12 +58,7 @@ $columns: 12;
     flex-wrap: wrap;
     width: 100%;
   }
-  @for $i from 1 through $columns {
-    .col-#{$i}-#{$columns} {
-      @extend %grid-column;
-      @include respond-to(tablet) {
-        flex-basis: (100 / ($columns / $i) ) * 1%;
-      }
-    }
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include create-col-classes($modifier, $grid__cols, $breakpoint);
   }
 }

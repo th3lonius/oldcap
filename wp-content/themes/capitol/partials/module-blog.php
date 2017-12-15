@@ -1,27 +1,47 @@
-<section class="module--blogroll col-6-12">
-
-  <?php if ( have_posts() ) : ?>
+<section class="module--blogroll container__col-sm-12 container__col-md-6">
   
-  <h3>Blogroll</h3>
+<?php
 
-    <?php while ( have_posts() ) : the_post(); ?>
+    $args = array(
+      'category_name' => 'blogpost',
+      'showposts'=> 6,
+      'post__not_in' => array($post->ID)
+    );
 
-  <article>
+    $query = new WP_Query( $args );
 
-    <header>
-      <h1 class="article-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h1>
-      <date><?php the_date(); ?> @ <?php the_time('F j, Y'); ?></date>
-      <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
-    </header>
+?>
 
-    <section>
-      <?php the_excerpt(); ?>
-    </section>
+  <?php if ( $query->have_posts() ) : ?>
+  
+  <article class="container__row">
+    
+    <section class="container__col-sm-12">
+  
+      <h2>Blogroll</h2>
 
-  </article>
+      <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
+      <article>
+
+        <header>
+          <h3 class="article-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+          <date><?php the_date(); ?> @ <?php the_time('F j, Y'); ?></date>
+          <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
+        </header>
+
+        <section>
+          <?php the_excerpt(); ?>
+        </section>
+
+      </article>
 
     <?php endwhile; ?>
+      
+    </section><!-- .container__col-sm-12 -->
+    
+  </article><!-- .container__row -->
   
   <?php endif; ?>
 
-</section>
+</section><!-- .module--blogroll -->

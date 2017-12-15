@@ -2,13 +2,17 @@
   get_header();
 ?>
 
-<main>
+<main class="container--fluid">
 
   <?php get_template_part( 'partials/module', 'video' ); ?>
+  
+  <article class="container__row">
 
-  <?php get_template_part( 'partials/module', 'blog' ); ?>
+    <?php get_template_part( 'partials/module', 'blog' ); ?>
 
-  <?php get_template_part( 'partials/module', 'latest-recipes' ); ?>
+    <?php get_template_part( 'partials/module', 'aside' ); ?>
+    
+  </article>
   
 </main>
 

@@ -12,19 +12,23 @@ get_header();
   
   <?php get_template_part( 'module', 'recipe--intro' ); ?>   
 
-    <article class="container recipe">
+    <article class="container--fluid recipe">
 
-      <?php get_template_part( 'module', 'recipe--abstract' ); ?>   
+      <?php get_template_part( 'module', 'recipe--abstract' ); ?>
       
-      <?php get_template_part( 'module', 'recipe--ingredients' ); ?>
+      <section class="container__row">
       
-      <?php get_template_part( 'module', 'recipe--procedure' ); ?>
-      
-    </article>
+        <?php get_template_part( 'module', 'recipe--ingredients' ); ?>
+
+        <?php get_template_part( 'module', 'recipe--procedure' ); ?>
+        
+      </section>
 
 <?php endwhile; ?>
 
   <?php get_template_part( 'module', 'more--recipes' ); ?>
+      
+    </article>
 
 </main><!-- .interior -->
 

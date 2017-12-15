@@ -2,7 +2,7 @@
 
   <section class="container__row abstract">
     
-    <article class="container__col-12-12">
+    <article class="container__col-sm-12">
 
     <?php the_content(); ?>
     

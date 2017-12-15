@@ -1,4 +1,4 @@
-<section class="container__col-8-12 procedure">
+<article class="procedure container__col-sm-12 container__col-md-8">
   
   <?php if( get_field('serving_tips') ): ?>
 
@@ -44,4 +44,4 @@
 
   <?php endif; ?>
 
-</section><!-- .procedure -->
+</article><!-- .procedure -->

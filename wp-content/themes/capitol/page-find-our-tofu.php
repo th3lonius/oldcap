@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-<main>
+<main class="container--fluid">
   
 <?php
 
@@ -40,11 +40,11 @@ get_header(); ?>
 
     </section>
 
-    <article class="locations">
+    <article class="locations container__row">
 
         <?php if( have_rows('location') ): ?>
 
-      <section class="retail col-6-12">
+      <section class="retail container__col-sm-12 container__col-md-6">
 
         <h3 class="section-title">Retail Locations</h3>
 
@@ -64,7 +64,7 @@ get_header(); ?>
 
       </section>
 
-      <section class="wholesale col-6-12">
+      <section class="wholesale container__col-sm-12 container__col-md-6">
 
         <h3 class="section-title">Restaurants & Prepared Foods</h3>
 
