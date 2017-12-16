@@ -70,13 +70,13 @@
     animation: #{$str};
 }
 
-@mixin linear-gradient($degree, $fromColor, $toColor, $stop: null) {
-  background-image: -webkit-gradient(linear, left top, right bottom, from($fromColor), color-stop($stop), to($toColor)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient($degree, $fromColor, $stop, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image:    -moz-linear-gradient($degree, $fromColor, $stop, $toColor); /* FF3.6 */
-  background-image:     -ms-linear-gradient($degree, $fromColor, $stop, $toColor); /* IE10 */
-  background-image:      -o-linear-gradient($degree, $fromColor, $stop, $toColor); /* Opera 11.10+ */
-  background-image:         linear-gradient($degree, $fromColor, $stop, $toColor);
+@mixin linear-gradient($degree, $fromColor, $toColor) {
+  background: -webkit-gradient(linear, left top, right bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background: -webkit-linear-gradient($degree, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background:    -moz-linear-gradient($degree, $fromColor, $toColor); /* FF3.6 */
+  background:     -ms-linear-gradient($degree, $fromColor, $toColor); /* IE10 */
+  background:      -o-linear-gradient($degree, $fromColor, $toColor); /* Opera 11.10+ */
+  background:         linear-gradient($degree, $fromColor, $toColor);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
 }
 

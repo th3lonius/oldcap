@@ -152,7 +152,7 @@ body.pml-open .push-menu-right {
   }
   section {
     @include transition;
-    background-color: $red;
+    @include linear-gradient(135deg, $green, #6d328e);
     overflow: auto;
     position: fixed;
     text-align: center;

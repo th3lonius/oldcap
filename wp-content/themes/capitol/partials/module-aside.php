@@ -1,4 +1,4 @@
-<aside class="container__col-sm-12 container__col-md-6">
+<aside class="container__col-sm-12 container__col-md-4">
 
 <?php
 
@@ -18,13 +18,14 @@
     
     <section class="container__col-sm-12">
       
-      <h2>Quick Tips</h2>
+      <h2 class="section-title">Quick Tips</h2>
 
       <?php while ( $query->have_posts() ) : $query->the_post(); ?>
     
     
-      <h3><a href="<?php the_permalink(); ?>" class="block"><?php the_title(); ?></a></h3>
-
+      <h3 class="article-title"><a href="<?php the_permalink(); ?>" class="block"><?php the_title(); ?></a></h3>
+      <date><?php the_date(); ?> @ <?php the_time('F j, Y'); ?></date>
+      <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
 
       <?php endwhile; ?>
       
@@ -50,39 +51,43 @@
 
     <article class="more-recipes container__row">
       
-      <h2>Latest Recipes</h2>
-
-    <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-
       <section class="container__col-sm-12">
+      
+        <h2 class="section-title">Latest Recipes</h2>
 
-        <a href="<?php the_permalink(); ?>" class="block">
+      <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-          <?php include(locate_template('module-photo--thumbnail.php')); ?> 
+        <section class="container__col-sm-12">
 
-          <header class="intro-details">
-            <span class="serving">Serving <?php the_field('servings'); ?></span>
-            <h3 class="recipe-title"><?php the_title(); ?></h3>
+          <a href="<?php the_permalink(); ?>" class="block">
 
-          <?php $authors = get_field('author');
+            <?php include(locate_template('module-photo--thumbnail.php')); ?> 
 
-            if( $authors ): ?>
+            <header class="intro-details">
+              <span class="serving">Serving <?php the_field('servings'); ?></span>
+              <h3 class="recipe-title"><?php the_title(); ?></h3>
 
-            <?php foreach( $authors as $author ): // variable must NOT be called $post (IMPORTANT) ?>
+            <?php $authors = get_field('author');
 
-            <author>by <?php echo get_the_title( $author->ID ); ?></author>
+              if( $authors ): ?>
 
-            <?php endforeach; ?>
+              <?php foreach( $authors as $author ): // variable must NOT be called $post (IMPORTANT) ?>
 
-            <?php endif; ?>
+              <author>by <?php echo get_the_title( $author->ID ); ?></author>
 
-          </header>
+              <?php endforeach; ?>
 
-        </a>
+              <?php endif; ?>
 
+            </header>
+
+          </a>
+
+        </section>
+
+      <?php endwhile; ?>
+        
       </section>
-
-    <?php endwhile; ?>
       
     </article>
 

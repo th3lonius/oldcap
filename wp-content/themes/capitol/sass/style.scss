@@ -50,11 +50,35 @@ section {
   position: relative;
 }
 
+.section-title {
+  color: #6d328e;
+  display: inline-block;
+  font-family: $flourish-font;
+  font-size: $h3;
+  letter-spacing: normal;
+  margin-bottom: 0.5em;
+}
+
+.article-title {
+  letter-spacing: normal;
+}
+
 ul.bullets {
   margin-bottom: 1.5em;
   li {
     list-style-type: disc;
   }
+}
+
+date, cite {
+  color: $grey;
+  font-style: normal;
+}
+
+cite {
+  font-family: $flourish-font;
+  font-weight: 100;
+  letter-spacing: normal;
 }
 
 /* =EXTENSIBLE CLASSES
@@ -221,40 +245,45 @@ main {
   }
 }
 
+.more-recipes .section-title, .quick-tips .section-title, .blogroll .section-title {
+  &::before {
+    background-size: 100%;
+    content: "";
+    display: inline-block;
+    margin-right: 6px;
+    position: relative;
+    left: 0; top: 5px;
+    width: 1em; height: 1em;
+  }
+}
+
+.quick-tips {
+  .section-title::before {
+    background-image: url(img/icon/icon-quick-tip.svg);
+  }
+}
+
 /* =BLOG
 ----------------------------------------------- */
-.module--blogroll {
-  @extend %clearfix;
-  @include respond-to(mobile) {
-    width: 100%;
+.blogroll {
+  @include respond-to(tablet) {
+    border-bottom: none;
+    border-right: 2px solid $grey;
   }
+  border-bottom: 2px solid $grey;
   margin: 0 auto;
-  &::after {
-    content: none;
+  .section-title::before {
+    background-image: url(img/icon/icon-blog-post.svg);
   }
-  article {
-    header {
-      h1 {
-        @include respond-to(tablet) {
-          line-height: 1.4;
-        }
-        @include respond-to(desktop) {
-          font-size: $h2;
-        }
-        font-family: $display-font;
-        font-size: $h3;
-        letter-spacing: normal;
-        line-height: 1;
-        padding-top: 0.4em;
-      }
-      author, date {
-        color: $text-black;
-        display: inline-block;
-        margin: 0;
-        padding: 0 0.6em 0.6em 0;
-      }
+  header {
+    author, date {
+      display: inline-block;
     }
   }
+  .content-block {
+    margin-bottom: $h4;
+  }
+  
 }
 
 /* =INTERIOR
@@ -286,9 +315,7 @@ main {
 
 .locations {
   .section-title {
-    color: $red;
-    letter-spacing: normal;
-    padding-bottom: 0.3em;
+    background-color: $red;
   }
   .location {
     margin-bottom: $base;

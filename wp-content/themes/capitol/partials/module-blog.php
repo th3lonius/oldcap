@@ -1,4 +1,4 @@
-<section class="module--blogroll container__col-sm-12 container__col-md-6">
+<section class="blogroll container__col-sm-12 container__col-md-8">
   
 <?php
 
@@ -18,7 +18,7 @@
     
     <section class="container__col-sm-12">
   
-      <h2>Blogroll</h2>
+      <h2 class="section-title">Blogroll</h2>
 
       <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
@@ -30,7 +30,7 @@
           <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
         </header>
 
-        <section>
+        <section class="content-block">
           <?php the_excerpt(); ?>
         </section>
 

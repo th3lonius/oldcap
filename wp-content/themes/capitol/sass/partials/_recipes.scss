@@ -136,9 +136,24 @@ author {
   }
 }
 
+.more-recipes > section {
+  height: auto!important;
+}
+
+[class*='container__col-'] > [class*='container__col-'] {
+  padding-top: 0!important;
+  padding-right: 0!important;
+  padding-left: 0!important;
+}
+
 .more-recipes, .author-page--recipes {
   display: flex;
   justify-content: space-between;
+  .section-title {
+    &::before {
+      background-image: url(img/icon/icon-recipe.svg);
+    }
+  }
   .intro-title {
     color: $red;
     font-size: $h3;
@@ -154,7 +169,6 @@ author {
       height: 25vw - 2;
     }
     height: 100vw;
-    padding: 0;
     position: relative;
     &::after {
       background: transparentize($mask-black, 0.3);
