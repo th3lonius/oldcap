@@ -1,5 +1,7 @@
 jQuery(document).ready(function($){
   
+$( "[class*='container__col-']:has([class*='container__col-'])" ).addClass( "no-padding" );
+  
 /*----- MOBILE RECIPES SCROLL FUNCTION -----*/
 $(window).on('scroll', function() {
   $(".more-recipes section, .author-page--recipes section").each(function() {

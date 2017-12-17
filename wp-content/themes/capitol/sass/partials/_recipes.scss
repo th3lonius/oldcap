@@ -140,12 +140,6 @@ author {
   height: auto!important;
 }
 
-[class*='container__col-'] > [class*='container__col-'] {
-  padding-top: 0!important;
-  padding-right: 0!important;
-  padding-left: 0!important;
-}
-
 .more-recipes, .author-page--recipes {
   display: flex;
   justify-content: space-between;
@@ -161,15 +155,18 @@ author {
   }
   [class*='container__col-'] {
     @include respond-to(tablet) {
-      padding: $base;
       height: 50vw - 2;
     }
     @include respond-to(laptop) {
-      padding: $h4;
       height: 25vw - 2;
     }
     height: 100vw;
+    padding: $h3;
     position: relative;
+    & [class*='container__col-'] {
+      padding: 0;
+      padding-bottom: $h3;
+    }
     &::after {
       background: transparentize($mask-black, 0.3);
     }

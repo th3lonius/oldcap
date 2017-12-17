@@ -1,24 +1,3 @@
-$map-col-padding: ('-sm': $h4, '-md': $h3, '-lg': $h2);
-
-@at-root {
-  [class*='container__col-'] {
-    
-  }
-  [class*='container__col-sm'] {
-    padding: map-get($map-col-padding, '-sm');
-  }
-  [class*='container__col-md'] {
-    @include respond-to(tablet) {
-      padding: map-get($map-col-padding, '-md');
-    }
-  }
-  [class*='container__col-lg'] {
-    @include respond-to(desktop) {
-      padding: map-get($map-col-padding, '-lg');
-    }
-  }
-}
-
 /*BREAKPOINTS*/
 $grid__bp-md: 700;
 $grid__bp-lg: 1270;
@@ -61,4 +40,8 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
   @each $modifier , $breakpoint in $map-grid-props {
     @include create-col-classes($modifier, $grid__cols, $breakpoint);
   }
+}
+
+[class*='container__col-'] {
+  padding: $h3;
 }

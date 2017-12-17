@@ -6,6 +6,12 @@
 
   <?php get_template_part( 'partials/module', 'video' ); ?>
   
+  <article class="clients-container container__row">
+    
+    <?php get_template_part( 'partials/module', 'clients' ); ?>
+    
+  </article>
+  
   <article class="container__row">
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>

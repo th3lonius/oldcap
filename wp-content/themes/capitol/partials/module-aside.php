@@ -24,7 +24,7 @@
     
     
       <h3 class="article-title"><a href="<?php the_permalink(); ?>" class="block"><?php the_title(); ?></a></h3>
-      <date><?php the_date(); ?> @ <?php the_time('F j, Y'); ?></date>
+      <date><?php the_date(); ?> @ <?php the_time(); ?></date>
       <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
 
       <?php endwhile; ?>

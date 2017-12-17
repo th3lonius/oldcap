@@ -61,6 +61,7 @@ section {
 
 .article-title {
   letter-spacing: normal;
+  font-size: $h4;
 }
 
 ul.bullets {
@@ -174,7 +175,7 @@ cite {
   @extend %mask;
   overflow: hidden;
   top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 100vh;
+  width: 100%; height: 78vh;
   z-index: 1;
   &::after {
     background: transparentize($mask-black, 0.1);
@@ -258,8 +259,54 @@ main {
 }
 
 .quick-tips {
+  border-bottom: 2px solid $grey;
   .section-title::before {
     background-image: url(img/icon/icon-quick-tip.svg);
+  }
+}
+
+.clients-container {
+  background-color: $grey;
+  background-image: url(img/light_toast.png);
+  flex-direction: column;
+  .clients {
+    text-align: center;
+    .section-title {
+      color: white;
+      font-family: $display-font;
+      font-size: $base;
+      font-weight: 400;
+      margin-bottom: $h3;
+      position: relative;
+      text-align: center;
+      &::before {
+        background-color: $white;
+        content: "";
+        position: absolute;
+        left: -3em; top: 8px;
+        width: 2em; height: 2px;
+      }
+      &::after {
+        background-color: $white;
+        content: "";
+        position: absolute;
+        right: -3em; top: 8px;
+        width: 2em; height: 2px;
+      }
+    }
+    li {
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: inline-block;
+      text-indent: -9999px;
+      width: 5em; height: 5em;
+    }
+    #client-uofi {
+      background-image: url(img/icon/logo-uofi.svg);
+    }
+    #client-grinnell {
+      background-image: url(img/icon/logo-grinnell.svg);
+    }
   }
 }
 
@@ -283,7 +330,6 @@ main {
   .content-block {
     margin-bottom: $h4;
   }
-  
 }
 
 /* =INTERIOR
@@ -346,13 +392,15 @@ main {
 ----------------------------------------------- */
 footer {
   @extend %clearfix;
-  background-color: $red;
-  color: $white;
+  background-color: $green;
   display: block;
   padding: $small;
   position: relative;
   width: 100%; height: 50px;
   z-index: 9;
+  cite {
+    color: $white;
+  }
 }
 
 footer + * {
