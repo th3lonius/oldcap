@@ -73,6 +73,8 @@ ul.bullets {
 
 date, cite {
   color: $grey;
+  display: inline-block;
+  font-family: $flourish-font;
   font-style: normal;
 }
 
@@ -265,9 +267,15 @@ main {
   }
 }
 
+.primary-container {
+  @include respond-to(laptop) {
+    width: 80%;
+  }
+}
+
 .clients-container {
   background-color: $grey;
-  background-image: url(img/light_toast.png);
+  background-image: url(img/dark_matter.png);
   flex-direction: column;
   .clients {
     text-align: center;
@@ -318,6 +326,7 @@ main {
     border-right: 2px solid $grey;
   }
   border-bottom: 2px solid $grey;
+  border-right: none;
   margin: 0 auto;
   .section-title::before {
     background-image: url(img/icon/icon-blog-post.svg);

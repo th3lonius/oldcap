@@ -155,10 +155,11 @@ author {
   }
   [class*='container__col-'] {
     @include respond-to(tablet) {
-      height: 50vw - 2;
+      height: 50vw - 10;
     }
     @include respond-to(laptop) {
       height: 25vw - 2;
+      padding: $h4;
     }
     height: 100vw;
     padding: $h3;

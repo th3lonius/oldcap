@@ -12,7 +12,7 @@
     
   </article>
   
-  <article class="container__row">
+  <article class="primary-container container__row">
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
 
