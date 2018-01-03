@@ -180,13 +180,13 @@ author {
       overflow: hidden;
       width: 100%; height: 100%;
       &:hover figure {
-        @include scale(1.05);
-        @include fullcolor;
+        @include scale(1.07);
+        @include grayscale;
       }
       figure {
         @include transition;
         @include respond-to(tablet) {
-          @include grayscale;
+          @include fullcolor;
         }
         background-size: cover;
       }

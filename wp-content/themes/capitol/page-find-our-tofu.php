@@ -6,7 +6,7 @@ get_header(); ?>
 <?php
 
     $args = array(
-        'orderby' => 'recipes'
+
     );
 
     $query = new WP_Query( $args );

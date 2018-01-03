@@ -138,8 +138,6 @@ body.pml-open .push-menu-right {
       width: 15vw;
     }
     @include transition;
-    @include border-radius(200, 200, 200, 200);
-    background-color: transparentize($green, 0.1);
     display: block;
     padding: 0.3em;
     position: fixed!important;

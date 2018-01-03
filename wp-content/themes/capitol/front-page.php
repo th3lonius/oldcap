@@ -12,11 +12,23 @@
     
   </article>
   
+  <article class="container__row">
+    
+    <?php get_template_part( 'partials/module', 'link--stores' ); ?>
+  
+  </article>
+  
   <article class="primary-container container__row">
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
 
     <?php get_template_part( 'partials/module', 'aside' ); ?>
+    
+  </article>
+  
+  <article class="stores-container container__row">
+  
+    <?php get_template_part( 'partials/module', 'stores' ); ?>
     
   </article>
   

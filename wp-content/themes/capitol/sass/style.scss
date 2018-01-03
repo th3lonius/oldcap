@@ -51,7 +51,7 @@ section {
 }
 
 .section-title {
-  color: #6d328e;
+  color: $text-black;
   display: inline-block;
   font-family: $flourish-font;
   font-size: $h3;
@@ -72,7 +72,6 @@ ul.bullets {
 }
 
 date, cite {
-  color: $grey;
   display: inline-block;
   font-family: $flourish-font;
   font-style: normal;
@@ -156,6 +155,18 @@ cite {
 
 /* =HOMEPAGE COVER SECTION
 ----------------------------------------------- */
+.module-link--fullscreen {
+  background-color: $red;
+  a {
+    color: $white!important;
+    display: block;
+    font-family: $title-font;
+    font-size: $h4;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+}
+
 #bgvid {
   @include respond-to(tablet) {
     left: 0;
@@ -177,7 +188,7 @@ cite {
   @extend %mask;
   overflow: hidden;
   top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 78vh;
+  width: 100%; height: 82vh;
   z-index: 1;
   &::after {
     background: transparentize($mask-black, 0.1);
@@ -261,7 +272,6 @@ main {
 }
 
 .quick-tips {
-  border-bottom: 2px solid $grey;
   .section-title::before {
     background-image: url(img/icon/icon-quick-tip.svg);
   }
@@ -274,7 +284,7 @@ main {
 }
 
 .clients-container {
-  background-color: $grey;
+  background-color: $black;
   background-image: url(img/dark_matter.png);
   flex-direction: column;
   .clients {
@@ -326,14 +336,30 @@ main {
   }
 }
 
+.stores-container {
+  background-color: $red;
+}
+
+#module-stores {
+  margin: 0 auto;
+  .section-title {
+    color: $white;
+    font-weight: normal;
+  }
+  .location {
+    column-count: 2;
+    column-gap: $base;
+  }
+}
+
 /* =BLOG
 ----------------------------------------------- */
 .blogroll {
   @include respond-to(tablet) {
     border-bottom: none;
-    border-right: 2px solid $grey;
+    border-right: 2px solid $text-black;
   }
-  border-bottom: 2px solid $grey;
+  border-bottom: 2px solid $text-black;
   border-right: none;
   margin: 0 auto;
   .section-title::before {
