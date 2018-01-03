@@ -306,11 +306,19 @@ main {
       background-repeat: no-repeat;
       background-size: 100%;
       display: inline-block;
+      margin: $base;
       text-indent: -9999px;
       width: 5em; height: 5em;
     }
     #client-uofi {
       background-image: url(img/icon/logo-uofi.svg);
+    }
+    #client-isu {
+      background-image: url(img/icon/logo-uofi.svg);
+    }
+    #client-cornell {
+      background-image: url(img/icon/logo-cornell.png);
+      width: 16em;
     }
     #client-grinnell {
       background-image: url(img/icon/logo-grinnell.svg);

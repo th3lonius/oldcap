@@ -5,8 +5,8 @@
   <ul>
     <li id="client-uofi">University of Iowa</li>
     <li id="client-isu">Iowa State University</li>
-    <li id="client-cornell">Cornell College</li>
     <li id="client-grinnell">Grinnell College</li>
+    <li id="client-cornell">Cornell College</li>
   </ul>
 
 </section><!-- .clients -->
