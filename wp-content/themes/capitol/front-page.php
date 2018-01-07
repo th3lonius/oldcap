@@ -18,11 +18,21 @@
   
   </article>
   
-  <article class="primary-container container__row">
+  <article class="container__row">
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
-
-    <?php get_template_part( 'partials/module', 'aside' ); ?>
+    
+  </article>
+  
+  <article class="container__row">
+    
+    <?php get_template_part( 'partials/module', 'quick-tips' ); ?>
+    
+  </article>
+  
+  <article class="container__row">
+    
+    <?php get_template_part( 'partials/module', 'new-recipes' ); ?>
     
   </article>
   

@@ -53,10 +53,9 @@ section {
 .section-title {
   color: $text-black;
   display: inline-block;
-  font-family: $flourish-font;
-  font-size: $h3;
-  letter-spacing: normal;
-  margin-bottom: 0.5em;
+  font-family: $title-font;
+  font-size: $h4;
+  margin-bottom: $h3;
 }
 
 .article-title {
@@ -309,12 +308,6 @@ main {
 .quick-tips {
   .section-title::before {
     background-image: url(img/icon/icon-quick-tip.svg);
-  }
-}
-
-.primary-container {
-  @include respond-to(laptop) {
-    width: 80%;
   }
 }
 

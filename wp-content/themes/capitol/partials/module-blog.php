@@ -14,10 +14,6 @@
 
   <?php if ( $query->have_posts() ) : ?>
   
-  <article class="container__row">
-    
-    <section class="container__col-sm-12">
-  
       <h2 class="section-title">Blogroll</h2>
 
       <?php while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -37,10 +33,6 @@
       </article>
 
     <?php endwhile; ?>
-      
-    </section><!-- .container__col-sm-12 -->
-    
-  </article><!-- .container__row -->
   
   <?php endif; ?>
 
