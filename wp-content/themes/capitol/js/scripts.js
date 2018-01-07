@@ -1,6 +1,15 @@
 jQuery(document).ready(function($){
   
 $( "[class*='container__col-']:has([class*='container__col-'])" ).addClass( "no-padding" );
+
+/* push menu left */
+$('.button-play-video').click(function(ev){
+    $(this).addClass('fade-out');
+    $(this).parent().addClass('hide-bgimage');
+    $(this).siblings('.intro-details').addClass('fade-out');
+    $("iframe")[0].src += "&autoplay=1"; ev.preventDefault();
+    $("iframe").css( "z-index", "0" );
+});
   
 /*----- HASH SMOOTH SCROLL -----*/
 // Select all links with hashes
