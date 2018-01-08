@@ -383,13 +383,22 @@ main {
 /* =BLOG
 ----------------------------------------------- */
 .blogroll {
-  @include respond-to(tablet) {
-    border-bottom: none;
-    border-right: 2px solid $text-black;
-  }
-  border-bottom: 2px solid $text-black;
-  border-right: none;
   margin: 0 auto;
+  .horizontal-scroll-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+  }
+  article {
+    flex: 0 0 auto;
+    padding: 0 $h3;
+    width: 40%;
+  }
+  .section-title {
+    display: block;
+  }
   .section-title::before {
     background-image: url(img/icon/icon-blog-post.svg);
   }
