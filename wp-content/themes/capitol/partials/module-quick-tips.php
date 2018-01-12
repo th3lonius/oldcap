@@ -13,8 +13,6 @@
 <?php if ( $query->have_posts() ) : ?>
 
 <section class="quick-tips container__col-sm-12 container__col-md-4">
-        
-      <h2 class="section-title">Quick Tips</h2>
 
       <?php while ( $query->have_posts() ) : $query->the_post(); ?>
     

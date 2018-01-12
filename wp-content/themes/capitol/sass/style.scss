@@ -52,10 +52,35 @@ section {
 
 .section-title {
   color: $text-black;
-  display: inline-block;
+  display: block;
   font-family: $title-font;
-  font-size: $h4;
-  margin-bottom: $h3;
+  font-size: $h3;
+  margin: $h4 0;
+  position: relative;
+  left: -0.825em;
+  text-align: center;
+  width: 100%;
+  &::before {
+    background-size: 100%;
+    content: "";
+    display: inline-block;
+    margin-right: 0.4em;
+    position: relative;
+    left: 0; top: 11px;
+    width: 1.25em; height: 1.25em;
+  }
+}
+
+.st-blogroll {
+  &::before {
+    background-image: url(img/icon/icon-blog-post.svg);
+  }
+}
+
+.st-quicktips {
+  &::before {
+    background-image: url(img/icon/icon-quick-tip.svg);
+  }
 }
 
 .article-title {
@@ -190,7 +215,7 @@ iframe {
 /* =HOMEPAGE COVER SECTION
 ----------------------------------------------- */
 .module-link--fullscreen {
-  background-color: $red;
+  background-color: $green-dk;
   a {
     color: $white!important;
     display: block;
@@ -282,7 +307,7 @@ iframe {
 
 main {
   @extend %clearfix;
-  .home-page--featured {
+  .home-page--featugreen-lt {
     @include respond-to(tablet) {
       height: 600px;
     }
@@ -290,24 +315,6 @@ main {
       height: 100vh;
     }
     height: 300px;
-  }
-}
-
-.more-recipes .section-title, .quick-tips .section-title, .blogroll .section-title {
-  &::before {
-    background-size: 100%;
-    content: "";
-    display: inline-block;
-    margin-right: 6px;
-    position: relative;
-    left: 0; top: 5px;
-    width: 1em; height: 1em;
-  }
-}
-
-.quick-tips {
-  .section-title::before {
-    background-image: url(img/icon/icon-quick-tip.svg);
   }
 }
 
@@ -365,7 +372,7 @@ main {
 }
 
 .stores-container {
-  background-color: $red;
+  background-color: $green-lt;
 }
 
 #module-stores {
@@ -395,12 +402,6 @@ main {
     flex: 0 0 auto;
     padding: 0 $h3;
     width: 40%;
-  }
-  .section-title {
-    display: block;
-  }
-  .section-title::before {
-    background-image: url(img/icon/icon-blog-post.svg);
   }
   header {
     author, date {
@@ -440,7 +441,7 @@ main {
 
 .locations {
   .section-title {
-    background-color: $red;
+    background-color: $green-lt;
   }
   .location {
     margin-bottom: $base;

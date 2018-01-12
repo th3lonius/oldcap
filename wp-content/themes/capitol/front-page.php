@@ -19,12 +19,16 @@
   </article>
   
   <article class="container__row">
+    
+    <h3 class="section-title st-blogroll">Blogroll</h3>
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
     
   </article>
   
   <article class="container__row">
+    
+    <h3 class="section-title st-quicktips">Quick Tips</h3>
     
     <?php get_template_part( 'partials/module', 'quick-tips' ); ?>
     

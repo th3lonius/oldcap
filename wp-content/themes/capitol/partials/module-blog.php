@@ -13,8 +13,6 @@
 
   <?php if ( $query->have_posts() ) : ?>
   
-      <h2 class="section-title">Blogroll</h2>
-  
       <div class="horizontal-scroll-container">
 
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -22,7 +20,7 @@
         <article>
 
           <header>
-            <h3 class="article-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+            <h4><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
             <date><?php the_date('F j, Y'); ?> @ <?php the_time('g:ia'); ?></date>
             <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
           </header>
