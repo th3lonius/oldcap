@@ -57,7 +57,6 @@ section {
   font-size: $h3;
   margin: 0 0 $h4 0;
   position: relative;
-  left: -0.825em;
   text-align: center;
   width: 100%;
   &::before {
@@ -106,14 +105,6 @@ cite {
   font-family: $flourish-font;
   font-weight: 100;
   letter-spacing: normal;
-}
-
-iframe {
-  @include transition;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 82vh;
-  z-index: -1;
 }
 
 .button-play-video {
@@ -216,6 +207,7 @@ iframe {
 /* =HOMEPAGE COVER SECTION
 ----------------------------------------------- */
 a.module-link--full {
+  @include linear-gradient(135deg, $green, #6d328e);
   @include transition;
   background-color: $green-lt;
   color: $white!important;
@@ -226,8 +218,21 @@ a.module-link--full {
   padding: $h4;
   text-align: center;
   width: 100%;
-  &:hover {
-    background-color: $green-dk;
+  z-index: 100;
+  &::before {
+    @include transition;
+    @include linear-gradient(270deg, $green, #6d328e);
+    content: "";
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -100;
+  }
+  &:hover::before {
+    @include transition;
+    opacity: 1;
   }
 }
 
@@ -335,6 +340,7 @@ main {
       font-family: $display-font;
       font-size: $base;
       font-weight: 400;
+      letter-spacing: normal;
       margin-bottom: $h3;
       position: relative;
       text-align: center;
@@ -388,8 +394,43 @@ main {
     font-weight: normal;
   }
   .location {
-    column-count: 2;
-    column-gap: $base;
+    column-count: 3;
+    column-gap: $h2;
+    width: 75vw;
+  }
+}
+
+#module-our-story {
+  flex-basis: 100%;
+  height: 75vh;
+  padding: 0;
+  position: relative;
+  .section-title {
+    color: $white;
+    font-size: $h3;
+    margin-bottom: 0.4em;
+    text-align: left;
+    &::before {
+      content: none;
+    }
+  }
+  figure {
+    @extend %mask;
+    @include grayscale;
+    background-image: url(img/kitchen-jake-matt.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%; height: 100%;
+    div {
+      background-color: transparentize($green-lt, 0.2);
+      padding: $h4;
+      position: absolute;
+      left: $h2; top: $h3;
+      width: 30vw;
+      z-index: 999;
+    }
   }
 }
 

@@ -1,3 +1,20 @@
+@mixin saw-tooth-horizontal($width: 12px, $bg: #fff) {
+  background-image:
+    /* Top jagged */
+    linear-gradient(135deg, $bg 50%, transparent 50%),
+    linear-gradient(225deg, $bg 50%, transparent 50%),
+    /* Bottom jagged */
+    linear-gradient(45deg, $bg 50%, transparent 50%),
+    linear-gradient(-45deg, $bg 50%, transparent 50%);
+  background-position:
+    /* Top jagged */
+    top left, top left,
+    /* Bottom jagged */
+    bottom left, bottom left;
+  background-size: $width $width;
+  background-repeat: repeat-x;
+}
+
 @mixin calc($property, $expression) {
   #{$property}: -webkit-calc(#{$expression});
   #{$property}: -moz-calc(#{$expression});

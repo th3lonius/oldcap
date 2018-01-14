@@ -54,11 +54,13 @@ li {
 section p { margin-bottom: 2rem; }
 
 a {
+  @include transition;
   color: $green-dk;
   font-family: $display-font;
   text-decoration: none;
   &:hover {
-    @include transition(color, 0.3s, ease);
+    @include transition;
+    color: $green;
   }
 }
 

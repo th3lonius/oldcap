@@ -51,7 +51,7 @@ $('a[href*="#"]')
   
 /*----- MOBILE RECIPES SCROLL FUNCTION -----*/
 $(window).on('scroll', function() {
-  $(".more-recipes section, .author-page--recipes section").each(function() {
+  $(".more-recipes article, .author-page--recipes section").each(function() {
     if (isScrolledIntoView($(this))) {
       $(this).find("figure").removeClass("grayscale");
     } else {

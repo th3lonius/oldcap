@@ -19,6 +19,18 @@
   </article>
   
   <article class="container__row">
+    
+    <?php get_template_part( 'partials/module', 'our-story' ); ?>
+    
+  </article>
+  
+  <article class="container__row">
+    
+    <?php get_template_part( 'partials/module', 'new-recipes' ); ?>
+    
+  </article>
+  
+  <article class="container__row">
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
     
@@ -29,12 +41,6 @@
     <h3 class="section-title st-quicktips">Quick Tips</h3>
     
     <?php get_template_part( 'partials/module', 'quick-tips' ); ?>
-    
-  </article>
-  
-  <article class="container__row">
-    
-    <?php get_template_part( 'partials/module', 'new-recipes' ); ?>
     
   </article>
   

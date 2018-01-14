@@ -141,8 +141,13 @@ author {
 }
 
 .more-recipes, .author-page--recipes {
+  @include saw-tooth-horizontal;
+  @include respond-to(tablet) {
+    padding: $h2;
+  }
   display: flex;
   justify-content: space-between;
+  padding: $h4;
   .section-title {
     &::before {
       background-image: url(img/icon/icon-recipe.svg);
