@@ -19,8 +19,6 @@
   </article>
   
   <article class="container__row">
-    
-    <h3 class="section-title st-blogroll">Blogroll</h3>
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
     

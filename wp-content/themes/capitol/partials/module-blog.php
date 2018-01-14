@@ -13,6 +13,8 @@
 
   <?php if ( $query->have_posts() ) : ?>
   
+  <h3 class="section-title st-blogroll">Blogroll</h3>
+  
       <div class="horizontal-scroll-container">
 
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>

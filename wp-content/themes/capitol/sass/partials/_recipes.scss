@@ -159,10 +159,8 @@ author {
     }
     @include respond-to(laptop) {
       height: 25vw - 2;
-      padding: $h4;
     }
     height: 100vw;
-    padding: $h3;
     position: relative;
     & [class*='container__col-'] {
       padding: 0;

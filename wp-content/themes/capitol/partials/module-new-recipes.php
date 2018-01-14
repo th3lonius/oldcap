@@ -20,7 +20,7 @@
 
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-      <section class="container__col-sm-12 container__col-md-4">
+      <section class="container__col-sm-12 container__col-md-4 no-padding">
 
         <a href="<?php the_permalink(); ?>" class="block">
 

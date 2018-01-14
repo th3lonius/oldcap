@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
   
-$( "[class*='container__col-']:has([class*='container__col-'])" ).addClass( "no-padding" );
+/* $( "[class*='container__col-']:has([class*='container__col-'])" ).addClass( "no-padding" ); */
 
 /* push menu left */
 $('.button-play-video').click(function(ev){
