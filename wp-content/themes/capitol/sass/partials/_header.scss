@@ -205,20 +205,22 @@ body.pml-open .push-menu-right {
           }
         }
       }
-      .social {
-        position: relative;
-        li {
-          a {
-            color: $text-black;
-            font-family: $title-font;
-            font-size: $base;
-            &:hover {
-              color: $white;
-            }
-          }
-        }
-      }
     }
+  }
+}
+
+.social {
+  li {
+    display: inline-block;
+  }
+}
+
+.twitter, .facebook {
+  display: inline-block;
+  margin: 0 auto;
+  width: $h2; height: $h2;
+  img {
+  
   }
 }
 

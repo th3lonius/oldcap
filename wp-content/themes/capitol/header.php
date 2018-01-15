@@ -80,8 +80,8 @@
               ?>
 
               <ul class="social">
-                <li><a href="https://twitter.com/oldcapfoodco" class="twitter">Twitter</a></li>
-                <li><a href="https://www.facebook.com/oldcapfoodco/" class="facebook">Facebook</a></li>
+                <li><a href="https://twitter.com/oldcapfoodco" class="twitter"><img src="<?php echo get_bloginfo('template_url') ?>/img/icon/twitter.svg"/></a></li>
+                <li><a href="https://www.facebook.com/oldcapfoodco/" class="facebook"><img src="<?php echo get_bloginfo('template_url') ?>/img/icon/facebook.svg"/></a></li>
               </ul>
 
         </menu>
