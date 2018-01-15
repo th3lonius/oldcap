@@ -51,12 +51,36 @@ section {
 }
 
 .section-title {
-  color: #6d328e;
-  display: inline-block;
-  font-family: $flourish-font;
+  color: $text-black;
+  display: block;
+  font-family: $title-font;
   font-size: $h3;
-  letter-spacing: normal;
-  margin-bottom: 0.5em;
+  margin: 0 0 $h4 0;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  &::before {
+    background-size: 100%;
+    content: "";
+    display: inline-block;
+    margin-right: 0.4em;
+    position: relative;
+    left: 0;
+    vertical-align: middle;
+    width: 1.25em; height: 1.25em;
+  }
+}
+
+.st-blogroll {
+  &::before {
+    background-image: url(img/icon/icon-blog-post.svg);
+  }
+}
+
+.st-quicktips {
+  &::before {
+    background-image: url(img/icon/icon-quick-tip.svg);
+  }
 }
 
 .article-title {
@@ -72,7 +96,6 @@ ul.bullets {
 }
 
 date, cite {
-  color: $grey;
   display: inline-block;
   font-family: $flourish-font;
   font-style: normal;
@@ -82,6 +105,33 @@ cite {
   font-family: $flourish-font;
   font-weight: 100;
   letter-spacing: normal;
+}
+
+.button-play-video {
+  @include transition;
+  @include translate(-50%, -50%);
+  background-image: url(img/icon/youtube-play.svg);
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: $h1; height: $h1;
+  z-index: 99999;
+}
+
+.fade-out {
+  @include transition;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hide-bgimage {
+  @include transition;
+  background-image: none!important;
+  &::after {
+    @include transition;
+    content: none;
+  }
 }
 
 /* =EXTENSIBLE CLASSES
@@ -156,6 +206,36 @@ cite {
 
 /* =HOMEPAGE COVER SECTION
 ----------------------------------------------- */
+a.module-link--full {
+  @include linear-gradient(135deg, $green, #6d328e);
+  @include transition;
+  background-color: $green-lt;
+  color: $white!important;
+  display: block;
+  font-family: $title-font;
+  font-size: $h4;
+  letter-spacing: 0.1em;
+  padding: $h4;
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+  &::before {
+    @include transition;
+    @include linear-gradient(270deg, $green, #6d328e);
+    content: "";
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -100;
+  }
+  &:hover::before {
+    @include transition;
+    opacity: 1;
+  }
+}
+
 #bgvid {
   @include respond-to(tablet) {
     left: 0;
@@ -177,7 +257,7 @@ cite {
   @extend %mask;
   overflow: hidden;
   top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 78vh;
+  width: 100%; height: 82vh;
   z-index: 1;
   &::after {
     background: transparentize($mask-black, 0.1);
@@ -237,7 +317,7 @@ cite {
 
 main {
   @extend %clearfix;
-  .home-page--featured {
+  .home-page--featugreen-lt {
     @include respond-to(tablet) {
       height: 600px;
     }
@@ -248,42 +328,19 @@ main {
   }
 }
 
-.more-recipes .section-title, .quick-tips .section-title, .blogroll .section-title {
-  &::before {
-    background-size: 100%;
-    content: "";
-    display: inline-block;
-    margin-right: 6px;
-    position: relative;
-    left: 0; top: 5px;
-    width: 1em; height: 1em;
-  }
-}
-
-.quick-tips {
-  border-bottom: 2px solid $grey;
-  .section-title::before {
-    background-image: url(img/icon/icon-quick-tip.svg);
-  }
-}
-
-.primary-container {
-  @include respond-to(laptop) {
-    width: 80%;
-  }
-}
-
 .clients-container {
-  background-color: $grey;
+  background-color: $black;
   background-image: url(img/dark_matter.png);
   flex-direction: column;
   .clients {
     text-align: center;
-    .section-title {
+    h2 {
       color: white;
+      display: inline-block;
       font-family: $display-font;
       font-size: $base;
       font-weight: 400;
+      letter-spacing: normal;
       margin-bottom: $h3;
       position: relative;
       text-align: center;
@@ -306,11 +363,19 @@ main {
       background-repeat: no-repeat;
       background-size: 100%;
       display: inline-block;
+      margin: $base;
       text-indent: -9999px;
       width: 5em; height: 5em;
     }
     #client-uofi {
       background-image: url(img/icon/logo-uofi.svg);
+    }
+    #client-isu {
+      background-image: url(img/icon/logo-uofi.svg);
+    }
+    #client-cornell {
+      background-image: url(img/icon/logo-cornell.png);
+      width: 16em;
     }
     #client-grinnell {
       background-image: url(img/icon/logo-grinnell.svg);
@@ -318,18 +383,72 @@ main {
   }
 }
 
+.stores-container {
+  background-color: $green-lt;
+}
+
+#module-stores {
+  margin: 0 auto;
+  .section-title {
+    color: $white;
+    font-weight: normal;
+  }
+  .location {
+    column-count: 3;
+    column-gap: $h2;
+    width: 75vw;
+  }
+}
+
+#module-our-story {
+  flex-basis: 100%;
+  height: 75vh;
+  padding: 0;
+  position: relative;
+  .section-title {
+    color: $white;
+    font-size: $h3;
+    margin-bottom: 0.4em;
+    text-align: left;
+    &::before {
+      content: none;
+    }
+  }
+  figure {
+    @extend %mask;
+    @include grayscale;
+    background-image: url(img/kitchen-jake-matt.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%; height: 100%;
+    div {
+      background-color: transparentize($green-lt, 0.2);
+      padding: $h4;
+      position: absolute;
+      left: $h2; top: $h3;
+      width: 30vw;
+      z-index: 999;
+    }
+  }
+}
+
 /* =BLOG
 ----------------------------------------------- */
 .blogroll {
-  @include respond-to(tablet) {
-    border-bottom: none;
-    border-right: 2px solid $grey;
-  }
-  border-bottom: 2px solid $grey;
-  border-right: none;
   margin: 0 auto;
-  .section-title::before {
-    background-image: url(img/icon/icon-blog-post.svg);
+  .horizontal-scroll-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+  }
+  article {
+    flex: 0 0 auto;
+    padding: 0 $h3;
+    width: 40%;
   }
   header {
     author, date {
@@ -351,7 +470,6 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     height: 84vh;
-    padding: $h4;
     position: relative;
     top: 0; left: 0;
     .intro-title {
@@ -370,7 +488,7 @@ main {
 
 .locations {
   .section-title {
-    background-color: $red;
+    background-color: $green-lt;
   }
   .location {
     margin-bottom: $base;
@@ -401,7 +519,7 @@ main {
 ----------------------------------------------- */
 footer {
   @extend %clearfix;
-  background-color: $green;
+  background-color: $green-dk;
   display: block;
   padding: $small;
   position: relative;

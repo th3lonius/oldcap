@@ -1,10 +1,57 @@
 jQuery(document).ready(function($){
   
-$( "[class*='container__col-']:has([class*='container__col-'])" ).addClass( "no-padding" );
+/* $( "[class*='container__col-']:has([class*='container__col-'])" ).addClass( "no-padding" ); */
+
+/* push menu left */
+$('.button-play-video').click(function(ev){
+    $(this).addClass('fade-out');
+    $(this).parent().addClass('hide-bgimage');
+    $(this).siblings('.intro-details').addClass('fade-out');
+    $("iframe")[0].src += "&autoplay=1"; ev.preventDefault();
+    $("iframe").css( "z-index", "0" );
+});
+  
+/*----- HASH SMOOTH SCROLL -----*/
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
   
 /*----- MOBILE RECIPES SCROLL FUNCTION -----*/
 $(window).on('scroll', function() {
-  $(".more-recipes section, .author-page--recipes section").each(function() {
+  $(".more-recipes article, .author-page--recipes section").each(function() {
     if (isScrolledIntoView($(this))) {
       $(this).find("figure").removeClass("grayscale");
     } else {
@@ -28,41 +75,6 @@ $('main').flowtype({
   minFont : 16,
   maxFont : 24,
   fontRatio : 82
-});
-
-/*----- PARALLAX -----*/  
-$('.intro-image').stellar({
-  // Set scrolling to be in either one or both directions
-  verticalScrolling: true,
-  horizontalScrolling: false,
-
-  // Set the global alignment offsets
-  horizontalOffset: 0,
-  verticalOffset: 100,
-
-  // Refreshes parallax content on window load and resize
-  responsive: true,
-
-  // Select which property is used to calculate scroll.
-  // Choose 'scroll', 'position', 'margin' or 'transform',
-  // or write your own 'scrollProperty' plugin.
-  scrollProperty: 'transform',
-
-  // Select which property is used to position elements.
-  // Choose between 'position' or 'transform',
-  // or write your own 'positionProperty' plugin.
-  positionProperty: 'transform',
-
-  // Enable or disable the two types of parallax
-  parallaxBackgrounds: true,
-  parallaxElements: false,
-
-  // Hide parallax elements that move outside the viewport
-  hideDistantElements: false,
-
-  // Customise how elements are shown and hidden
-  hideElement: function($elem) { $elem.hide(); },
-  showElement: function($elem) { $elem.show(); }
 });
 
 /*----- SCROLLING MENU -----*/
@@ -120,51 +132,5 @@ $(window).load(function() {
         activeNav = 'pml-open';
         $("button").toggleClass("close");
     });
-
-// Cache selectors
-var lastId,
-    topMenu = $("body > nav"),
-    topMenuHeight = topMenu.outerHeight(),
-    // All list items
-    menuItems = topMenu.find("a"),
-    // Anchors corresponding to menu items
-    scrollItems = menuItems.map(function(){
-      var item = $($(this).attr("href"));
-      if (item.length) { return item; }
-    });
-
-// Bind click handler to menu items
-// so we can get a fancy scroll animation
-menuItems.click(function(e){
-  var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top;
-  $('html, body').stop().animate({
-      scrollTop: offsetTop
-  }, 500);
-  e.preventDefault();
-});
-
-// Bind to scroll
-$(window).scroll(function(){
-   // Get container scroll position
-   var fromTop = $(this).scrollTop()+topMenuHeight;
-
-   // Get id of current scroll item
-   var cur = scrollItems.map(function(){
-     if ($(this).offset().top < fromTop)
-       return this;
-   });
-   // Get the id of the current element
-   cur = cur[cur.length-1];
-   var id = cur && cur.length ? cur[0].id : "";
-
-   if (lastId !== id) {
-       lastId = id;
-       // Set/remove active class
-       menuItems
-         .parent().removeClass("active")
-         .end().filter("[href=#"+id+"]").parent().addClass("active");
-   }
-});
 
 });
