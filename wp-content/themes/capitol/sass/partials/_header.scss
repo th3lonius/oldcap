@@ -122,12 +122,9 @@ body.pml-open .push-menu-right {
   @include transition;
   .logo {
     @include transition;
-    opacity: 0;
-    top: -200px;
-    visibility: hidden;
-  }
-  .top-bar {
-    opacity: 1!important;
+    @include scale(0.5);
+    @include translate(-1em, -1em);
+    opacity: 0.75;
   }
 }
 
