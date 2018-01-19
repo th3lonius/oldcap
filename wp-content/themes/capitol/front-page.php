@@ -31,14 +31,6 @@
   </article>
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
-    
-  <article class="container__row">
-    
-    <h3 class="section-title st-quicktips">Quick Tips</h3>
-    
-    <?php get_template_part( 'partials/module', 'quick-tips' ); ?>
-    
-  </article>
   
   <article class="stores-container container__row">
   

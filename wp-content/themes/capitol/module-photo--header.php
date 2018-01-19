@@ -20,7 +20,7 @@
 
 <section data-stellar-background-ratio="2" style="background-image: url(<?php echo $customphoto; ?>);">
 
-<iframe width="100%" height="82vh" src="https://www.youtube.com/embed/<?php the_field('video'); ?>?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<iframe class="video-recipe" width="100%" height="82vh" src="https://www.youtube.com/embed/<?php the_field('video'); ?>?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
   
   <button class="button-play-video"></button>
     

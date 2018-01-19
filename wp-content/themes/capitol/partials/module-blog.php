@@ -7,7 +7,7 @@
 
       $args = array(
         'category_name' => 'blogpost',
-        'showposts'=> 6
+        'showposts'=> 4
       );
 
       $query = new WP_Query( $args );
@@ -24,9 +24,7 @@
 
           <article class="container__col-sm-12 container__col-md-6 container__col-lg-3">
 
-            <figure>
-              <a href="<?php the_permalink(); ?>"><img src="<?php the_field('image'); ?>" /></a>
-            </figure>
+            <?php include(locate_template('module-photo--thumbnail.php')); ?>
 
             <h4><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
             <date><?php the_date('F j, Y'); ?> @ <?php the_time('g:ia'); ?></date>
@@ -39,6 +37,8 @@
           </article>
 
         <?php endwhile; ?>
+
+          <a href="<?php $url = home_url( 'blog', 'relative' ); echo esc_url( $url ); ?>">View all blog posts</a>
         
         </section>
 

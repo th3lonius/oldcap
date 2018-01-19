@@ -8,18 +8,6 @@
 
 $button-size: $h4;
 
-.blog-toggle {
-  background-color: $text-black;
-  display: inline-block;
-  color: $white;
-  cursor: pointer;
-  opacity: 0.8;
-  padding: $small;
-  position: fixed;
-  bottom: $h4; right: $h4;
-  z-index: 999999;
-}
-
 .menu-toggle {
   @include transition(all, 0.2s, ease);
   @include respond-to(tablet) {
@@ -122,7 +110,7 @@ body.pml-open .push-menu-right {
   @include transition;
   .logo {
     @include transition;
-    @include transform(scale(0.6) translate(-8em, -8em));
+    @include transform(scale(0.6) translate(-5em, -6em));
     opacity: 0.5;
   }
 }
