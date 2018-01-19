@@ -1,40 +1,49 @@
-<section class="blogroll container__row">
-  
-<?php
 
-    $args = array(
-      'category_name' => 'blogpost',
-      'showposts'=> 6
-    );
+<article class="container__row">
 
-    $query = new WP_Query( $args );
+  <section class="blogroll container__col-sm-12">
 
-?>
+  <?php
 
-  <?php if ( $query->have_posts() ) : ?>
-  
-  <h3 class="section-title st-blogroll">Blogroll</h3>
-  
-        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+      $args = array(
+        'category_name' => 'blogpost',
+        'showposts'=> 6
+      );
 
-        <article class="container__col-sm-12 container__col-md-6 container__col-lg-3">
+      $query = new WP_Query( $args );
 
-          <figure>
-            <a href="<?php the_permalink(); ?>"><img src="<?php the_field('image'); ?>" /></a>
-          </figure>
+  ?>
 
-          <h4><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
-          <date><?php the_date('F j, Y'); ?> @ <?php the_time('g:ia'); ?></date>
-          <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
+    <?php if ( $query->have_posts() ) : ?>
 
-          <section class="content-block">
-            <?php the_excerpt(); ?>
-          </section>
+      <h3 class="section-title st-blogroll">Blogroll</h3>
+          
+        <section class="container__row">
 
-        </article>
+          <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-      <?php endwhile; ?>
-  
-  <?php endif; ?>
+          <article class="container__col-sm-12 container__col-md-6 container__col-lg-3">
 
-</section><!-- .module--blogroll -->
+            <figure>
+              <a href="<?php the_permalink(); ?>"><img src="<?php the_field('image'); ?>" /></a>
+            </figure>
+
+            <h4><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
+            <date><?php the_date('F j, Y'); ?> @ <?php the_time('g:ia'); ?></date>
+            <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
+
+            <section class="content-block">
+              <?php the_excerpt(); ?>
+            </section>
+
+          </article>
+
+        <?php endwhile; ?>
+        
+        </section>
+
+    <?php endif; ?>
+
+  </section><!-- .module--blogroll -->
+
+</article>

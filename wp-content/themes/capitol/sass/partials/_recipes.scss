@@ -141,36 +141,38 @@ author {
 }
 
 .more-recipes, .author-page--recipes {
-  @include saw-tooth-horizontal;
   @include respond-to(tablet) {
     padding: $h2;
   }
   display: flex;
   justify-content: space-between;
-  padding: $h4;
+  &::before, &::after {
+    background-image: url(img/rpt-tile-white.svg);
+    background-repeat: repeat-x;
+    content: "";
+    position: absolute;
+    top: -15px; left: 0;
+    width: 100%; height: 15px;
+    z-index: 999;
+  }
+  &::after {
+    @include rotate(X, 180);
+    bottom: -15px; top: auto;
+  }
   .section-title {
     &::before {
       background-image: url(img/icon/icon-recipe.svg);
     }
   }
-  .intro-title {
-    color: $red;
-    font-size: $h3;
-    text-align: center;
-  }
   [class*='container__col-'] {
     @include respond-to(tablet) {
-      height: 50vw - 10;
+      height: 40vw;
     }
     @include respond-to(laptop) {
-      height: 25vw - 2;
+      height: 20vw;
     }
-    height: 100vw;
+    height: 66vw;
     position: relative;
-    & [class*='container__col-'] {
-      padding: 0;
-      margin-bottom: $h3;
-    }
     &::after {
       background: transparentize($mask-black, 0.3);
     }
@@ -194,15 +196,11 @@ author {
         background-size: cover;
       }
       .recipe-title {
-        @include respond-to(tablet) {
-          font-size: $h3;
-        }
         @include respond-to(laptop) {
           font-size: $h4;
         }
         @inlcude transition;
         color: $white;
-        font-size: $h2;
         line-height: 1.2;
         text-shadow: none;
       }

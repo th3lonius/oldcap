@@ -51,14 +51,11 @@ section {
 }
 
 .section-title {
-  @include respond-to(tablet) {
-    margin-bottom: $h4;
-  }
   color: $text-black;
   display: block;
   font-family: $title-font;
   font-size: $h3;
-  margin-bottom: $base;
+  margin: $small 0 $base 0;
   position: relative;
   text-align: center;
   width: 100%;
@@ -446,6 +443,7 @@ main {
 /* =BLOG
 ----------------------------------------------- */
 .blogroll {
+  background-color: $gray;
   margin: 0 auto;
   article {
     padding: 0 $base;

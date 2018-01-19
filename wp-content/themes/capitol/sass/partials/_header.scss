@@ -122,9 +122,8 @@ body.pml-open .push-menu-right {
   @include transition;
   .logo {
     @include transition;
-    @include scale(0.5);
-    @include translate(-1em, -1em);
-    opacity: 0.75;
+    @include transform(scale(0.6) translate(-8em, -8em));
+    opacity: 0.5;
   }
 }
 
@@ -140,7 +139,7 @@ body.pml-open .push-menu-right {
     position: fixed!important;
     top: $base; left: $base;
     width: 27vw; height: auto;
-    z-index: 999;
+    z-index: 9999;
     &::after {
       content: none;
     }
