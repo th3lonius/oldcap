@@ -29,13 +29,9 @@
     <?php get_template_part( 'partials/module', 'new-recipes' ); ?>
     
   </article>
-  
-  <article class="container__row">
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
     
-  </article>
-  
   <article class="container__row">
     
     <h3 class="section-title st-quicktips">Quick Tips</h3>

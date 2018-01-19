@@ -47,4 +47,7 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
     padding: $h2;
   }
   padding: $h4;
+  & [class*='container__col-'] {
+    padding: $base;
+  }
 }
