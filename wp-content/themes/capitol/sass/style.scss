@@ -259,12 +259,20 @@ a.module-link--full {
   top: 0;
   right: 0;
   bottom: 0;
-  left: -25em;
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
   z-index: -100;
+}
+
+.video-wrapper {
+  position: relative;
+  iframe {
+    position: absolute;
+    top: -126px; left: -100%;
+    width: 300%; height: 110vh;
+  }
 }
 
 #homepage {
@@ -280,6 +288,7 @@ a.module-link--full {
     @include translate(-50%,-50%);
     color: $white;
     line-height: 1;
+    padding: $h3;
     position: absolute;
     top: 50%; left: 50%;
     text-align: center;
@@ -326,18 +335,6 @@ a.module-link--full {
       font-size: 1.5em;
       margin-bottom: 4rem;
     }
-  }
-}
-
-main {
-  .home-page--featugreen-lt {
-    @include respond-to(tablet) {
-      height: 600px;
-    }
-    @include respond-to(laptop) {
-      height: 100vh;
-    }
-    height: 300px;
   }
 }
 
