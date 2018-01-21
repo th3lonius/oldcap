@@ -24,7 +24,7 @@
     
   </article>
   
-  <article class="container__row">
+  <article class="container__row tiled-border">
     
     <?php get_template_part( 'partials/module', 'new-recipes' ); ?>
     

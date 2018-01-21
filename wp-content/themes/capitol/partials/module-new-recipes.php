@@ -16,7 +16,7 @@
 
   <section class="container__row">
 
-      <h2 class="section-title">Latest Recipes</h2>
+      <h2 class="section-title st-recipes">Latest Recipes</h2>
 
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 

@@ -1,7 +1,7 @@
 
 <article class="container__row">
 
-  <section class="blogroll container__col-sm-12">
+  <section class="blogroll bg-color-gray container__col-sm-12">
 
   <?php
 
@@ -16,7 +16,7 @@
 
     <?php if ( $query->have_posts() ) : ?>
 
-      <h3 class="section-title st-blogroll">Blogroll</h3>
+      <h3 class="section-title st-blogroll">What's Cooking?</h3>
           
         <section class="container__row">
 

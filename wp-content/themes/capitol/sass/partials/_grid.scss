@@ -26,7 +26,7 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
 }
 
 .container {
-  max-width: $grid__bp-md * 1px;
+  max-width: $grid__bp-lg * 1px;
   margin: 0 auto;
   &--fluid {
     margin: 0;

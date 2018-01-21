@@ -28,7 +28,7 @@ get_header(); ?>
 
         ?>
 
-    <section style="background-image: url(<?php echo $url; ?>);">
+    <section class="bg-image-intro" style="background-image: url(<?php echo $url; ?>);">
 
       <header class="intro-details">
 

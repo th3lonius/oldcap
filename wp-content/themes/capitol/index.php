@@ -13,26 +13,38 @@
 
 get_header(); ?>
 
-<div class="interior">
+<main class="blogroll container">
 
-  <article class="interior--blog col-6-12">
+  <section class="container__row">
 
     <?php if ( have_posts() ) : ?>
 
-        <?php while ( have_posts() ) : the_post(); ?>
+      <?php while ( have_posts() ) : the_post(); ?>
+    
+          <article class="container__col-sm-12 container__col-md-6 container__col-lg-4">
 
-            <?php the_content(); ?>
+            <?php include(locate_template('module-photo--thumbnail.php')); ?>
 
-        <?php endwhile; ?>
+            <h4><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
+            <date><?php the_date('F j, Y'); ?> @ <?php the_time('g:ia'); ?></date>
+            <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
+
+            <section class="content-block">
+              <?php the_excerpt(); ?>
+            </section>
+
+          </article>
+
+      <?php endwhile; ?>
 
     <?php else : ?>
 
-        <?php get_template_part( 'content', 'none' ); ?>
+      <?php get_template_part( 'content', 'none' ); ?>
 
     <?php endif; ?>
 
-  </article>
+  </section>
 
-</div>
+</main>
 
 <?php get_footer(); ?>

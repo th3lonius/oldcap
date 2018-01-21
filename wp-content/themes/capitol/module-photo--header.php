@@ -18,7 +18,7 @@
 
 <?php if( get_field('video') ): ?>
 
-<section data-stellar-background-ratio="2" style="background-image: url(<?php echo $customphoto; ?>);">
+<section class="bg-image-intro" data-stellar-background-ratio="2" style="background-image: url(<?php echo $customphoto; ?>);">
 
 <iframe class="video-recipe" width="100%" height="82vh" src="https://www.youtube.com/embed/<?php the_field('video'); ?>?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
   
@@ -26,7 +26,7 @@
     
 <?php else: ?>
 
-      <section data-stellar-background-ratio="2" style="background-image: url(<?php echo $customphoto; ?>);">
+      <section class="bg-image-intro" data-stellar-background-ratio="2" style="background-image: url(<?php echo $customphoto; ?>);">
         
 <?php endif; ?>
 
