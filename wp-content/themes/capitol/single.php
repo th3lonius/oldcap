@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="blog container--fluid">
+<main class="blogroll container--fluid">
   
 <?php $image = get_field('photo');
 
@@ -28,13 +28,13 @@
                               
     <article class="container__col-sm-12 container__col-md-8">
       
-      <img src="<?php echo $customphoto; ?>" />
-
       <header>
-        <author>by <?php the_author(); ?> </author>
-        <date> on <?php the_date(); ?> @ <?php the_time(); ?></date>
-        <h1><?php the_title(); ?></h1>
+        <h1 class="article-title"><?php the_title(); ?></h1>
+        <date><?php the_date('F j, Y'); ?> @ <?php the_time('g:ia'); ?></date>
+        <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
       </header>
+      
+      <img src="<?php echo $customphoto; ?>" />
 
       <section>
 

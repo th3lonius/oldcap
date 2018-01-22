@@ -27,7 +27,7 @@
 
       ?>
       
-      <em><?php echo $rows[ $i ]['phrase']; ?></em>
+      <span><?php echo $rows[ $i ]['phrase']; ?></span>
       
     </header>
     
