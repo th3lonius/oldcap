@@ -23,6 +23,11 @@
   <?php if ( have_posts() ) : ?>
   
   <section class="container__row">
+    
+   <nav>
+      <?php previous_post_link( '%link', 'Older' ); ?>
+      <?php next_post_link( '%link', 'Newer' );	?>
+   </nav>
 
     <?php while ( have_posts() ) : the_post(); ?>
                               
@@ -30,17 +35,32 @@
       
       <header>
         <h1 class="article-title"><?php the_title(); ?></h1>
-        <date><?php the_date('F j, Y'); ?> @ <?php the_time('g:ia'); ?></date>
-        <cite>by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
+        <date><?php the_date('F j, Y'); ?></date>
+        <ul class="post-categories">
+          <?php
+          $categories = get_the_category();
+          $separator = ' ';
+          $output = '';
+          if($categories){
+              foreach($categories as $category) {
+          if($category->name !== 'Blogpost'){
+                  $output .= '<li><a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a></li>'.$separator;}
+              }
+          echo trim($output, $separator);
+          }
+          ?>
+        </ul>
       </header>
       
       <img src="<?php echo $customphoto; ?>" />
 
-      <section>
+      <section class="content-full">
 
         <?php the_content(); ?>
 
       </section>
+      
+      <cite>Written by <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></cite>
 
     </article>
             

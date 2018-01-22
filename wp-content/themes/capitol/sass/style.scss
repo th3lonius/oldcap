@@ -79,6 +79,7 @@ section {
 .article-title {
   letter-spacing: normal;
   font-size: $h2;
+  margin: 0.2em 0;
 }
 
 ul.bullets {
@@ -437,7 +438,11 @@ a.module-link--full {
 /* =BLOG
 ----------------------------------------------- */
 .blogroll {
-
+  header {
+    margin: $h3 auto;
+    text-align: center;
+    width: 100%;
+  }
   article {
     padding: 0 $base;
     figure {
@@ -445,10 +450,6 @@ a.module-link--full {
       background-repeat: no-repeat;
       background-size: 100%;
       height: 200px;
-    }
-    header {
-      margin: $h3 0;
-      text-align: center;
     }
     img {
       margin: $base 0;
@@ -458,19 +459,39 @@ a.module-link--full {
     }
     cite, date {
       display: inline-block;
+      font-family: $display-font;
     }
-    p {
-      padding: $h4;
+    .content-full {
+      margin-bottom: $h4;
+      p { padding: $h4; }
     }
   }
-  .content-block {
-    margin-bottom: $h4;
+}
+
+.post-categories {
+  li {
+    display: inline-block;
+    &::after {
+      content: " / ";
+    }
+    &:last-child::after {
+      content: none;
+    }
+    a {
+      font-weight: bold;
+    }
   }
+}
+
+.archive-title {
+  font-size: $h2;
+  margin: 0.2em 0;
 }
 
 /* =INTERIOR
 ----------------------------------------------- */
 main {
+  margin-bottom: $h2 !important;
   .intro-title {
     @include respond-to(tablet) {
       font-size: 8vw;

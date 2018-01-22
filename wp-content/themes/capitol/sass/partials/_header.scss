@@ -209,17 +209,26 @@ body.pml-open .push-menu-right {
 /* PAGE NAV */
 a[rel="prev"],
 a[rel="next"] {
-  @include transition(all, .2s, ease-in-out, 0.1s);
-  font-family: $title-font;
-  font-size: $base;
-  font-weight: 700;
-  padding: 10px;
-  position: fixed;
-  bottom: 300px;
-  text-transform: uppercase;
-  width: 80px;
-  z-index: 1;
-  &:hover {
+  @include respond-to(tablet) {
+    @include transition(all, .2s, ease-in-out, 0.1s);
+    @include translate(0, -50%);
+    background-color: $green-dk;
     color: $white;
+    font-family: $display-font;
+    font-size: $base;
+    font-weight: 700;
+    padding: $base;
+    position: fixed;
+    top: 50%; left: 0;
+    text-transform: uppercase;
+    width: 80px;
+    z-index: 1;
+    &:hover {
+      color: $green-lt;
+    }
   }
+}
+
+a[rel="next"] {
+  left: auto; right: 0;
 }
