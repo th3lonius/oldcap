@@ -19,6 +19,9 @@ author {
   font-size: $h4;
   line-height: 1.1;
   margin: 0.6em 0;
+  a {
+    font-family: $flourish-font;
+  }
 }
 
 .intro-details {
@@ -54,15 +57,13 @@ author {
 }
 
 .recipe {
-  @extend %clearfix;
-  border-bottom: 2px solid $text-black;
   .abstract {
     border-bottom: 2px solid $text-black;
   }
   .ingredients {
     @include respond-to(tablet) {
       border-right: 2px solid $text-black;
-      padding-bottom: $h3;;
+      padding-bottom: $h3;
     }
     padding-bottom: 0;
     font-family: "prohibition", sans-serif;

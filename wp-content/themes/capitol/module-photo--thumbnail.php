@@ -16,7 +16,7 @@
     
     ?>
 
-      <figure style="background-image: url(<?php echo $customphoto; ?>);"></figure>
+<figure style="background-image: url(<?php echo $customphoto; ?>);"></figure>
 
   <?php } else {
 

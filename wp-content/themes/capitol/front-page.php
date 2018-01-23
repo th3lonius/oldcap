@@ -12,7 +12,7 @@
     
   </article>
   
-  <article class="container__row">
+  <article class="container__row arrow-down">
     
     <?php get_template_part( 'partials/module', 'link--stores' ); ?>
   
@@ -24,13 +24,17 @@
     
   </article>
   
-  <article class="container__row tiled-border">
+  <article class="container__row">
     
     <?php get_template_part( 'partials/module', 'new-recipes' ); ?>
     
   </article>
+  
+  <article class="container__row">
 
     <?php get_template_part( 'partials/module', 'blog' ); ?>
+    
+  </article>
   
   <article class="stores-container container__row">
   

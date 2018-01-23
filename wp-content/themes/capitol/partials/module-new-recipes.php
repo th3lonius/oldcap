@@ -15,8 +15,11 @@
 <section class="more-recipes container__col-sm-12">
 
   <section class="container__row">
-
-      <h2 class="section-title st-recipes">Latest Recipes</h2>
+    
+    <header class="section-header">
+      <h2 class="section-title st-recipes">What's Cooking?</h2>
+      <small class="section-title--sub">The latest &amp; greatest tofu recipes</small>
+    </header>
 
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 

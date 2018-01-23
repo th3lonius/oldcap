@@ -194,15 +194,11 @@ body.pml-open .push-menu-right {
 .social {
   li {
     display: inline-block;
-  }
-}
-
-.twitter, .facebook {
-  display: inline-block;
-  margin: 0 auto;
-  width: $h2; height: $h2;
-  img {
-  
+    .twitter, .facebook {
+      display: inline-block;
+      margin: 0 auto;
+      width: $h2; height: $h2;
+    }
   }
 }
 
@@ -210,23 +206,34 @@ body.pml-open .push-menu-right {
 a[rel="prev"],
 a[rel="next"] {
   @include respond-to(tablet) {
-    @include transition(all, .2s, ease-in-out, 0.1s);
+    @include transition;
     @include translate(0, -50%);
     background-color: $green-dk;
+    background-image: url(img/nav-arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
     color: $white;
-    font-family: $display-font;
+    display: block;
+    font-family: $title-font;
     font-size: $base;
-    font-weight: 700;
-    padding: $base;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
     position: fixed;
+    text-indent: -9999px;
     top: 50%; left: 0;
-    text-transform: uppercase;
-    width: 80px;
+    width: 50px; height: 50px;
     z-index: 1;
     &:hover {
-      color: $green-lt;
+      @include transition;
+      opacity: 1;
     }
   }
+  display: none;
+}
+
+a[rel="prev"] {
+  @include rotate(Y,180);
 }
 
 a[rel="next"] {
