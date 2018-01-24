@@ -116,10 +116,16 @@ body.pml-open .push-menu-right {
 }
 
 .global-header {
+  background-color: $green;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 4em;
+  z-index: 99;
   .logo {
     @include respond-to(tablet) {
-      top: $h4; left: $h4;
-      width: 15vw;
+      @include translate(-50%,0);
+      top: -16px; left: 50%;
+      width: 10vw;
     }
     @include transition;
     display: block;

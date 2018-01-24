@@ -339,23 +339,7 @@ a.module-link--full {
       font-style: normal;
       letter-spacing: 0.05em;
       line-height: 1;
-      padding: 0.3em $h4 0.4em $h4;
-      &::before {
-        @include translate(-50%,0);
-        background-color: $white;
-        content: "";
-        position: absolute;
-        top: 0; left: 50%;
-        width: 50%; height: 4px;
-      }
-      &::after {
-        @include translate(-50%,0);
-        background-color: $white;
-        content: "";
-        position: absolute;
-        bottom: 0; left: 50%;
-        width: 50%; height: 4px;
-      }
+      padding: 0.4em $h4 0.5em $h4;
     }
   }
 }
