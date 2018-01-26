@@ -12,12 +12,12 @@
 
 <?php if ( $query->have_posts() ) : ?>
 
-<section class="more-recipes container__col-sm-12">
+<section class="more-recipes texture-paper-rice container__col-sm-12">
 
   <section class="container__row">
     
     <header class="section-header">
-      <h2 class="section-title st-recipes">What's Cooking?</h2>
+      <h2 class="section-title st-recipes">What's Cookin?</h2>
       <small class="section-title--sub">The latest &amp; greatest tofu recipes</small>
     </header>
 

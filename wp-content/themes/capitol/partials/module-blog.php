@@ -1,4 +1,4 @@
-<section class="blogroll bg-color-gray container__col-sm-12">
+<section class="blogroll texture-noise bg-color-gray container__col-sm-12">
 
 <?php
 
@@ -13,12 +13,12 @@
 
 <?php if ( $query->have_posts() ) : ?>
 
-  <header class="section-header">
-    <h2 class="section-title st-blogroll">Soybean Community</h2>
-    <small class="section-title--sub">Catching up with Old Capitol</small>
-  </header>
-
     <section class="container__row">
+      
+      <header class="section-header">
+        <h2 class="section-title st-blogroll">Soybean Community</h2>
+        <small class="section-title--sub">Catching up with Old Capitol</small>
+      </header>
 
       <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 

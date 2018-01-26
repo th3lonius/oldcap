@@ -239,8 +239,15 @@ iframe.video-recipe {
   }
 }
 
-.more-recipes {
-  background-image: url(img/texture-ricepaper.png);
+.texture-noise {
+  background-image: url(img/texture-noise.png);
+  &::before {
+    background-color: transparentize($green-lt, 0.9);
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
 }
 
 .arrow-down {
@@ -402,7 +409,7 @@ a.module-link--full {
 }
 
 .stores-container {
-  background-color: $green-lt;
+  background-color: transparentize($green-lt, 0.5);
 }
 
 #module-stores {
@@ -553,7 +560,7 @@ a.module-link--full {
 /* =FOOTER
 ----------------------------------------------- */
 footer {
-  background-color: $green-dk;
+  background-color: transparentize($blue, 0.5);
   display: block;
   padding: $small;
   position: relative;
