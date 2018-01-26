@@ -36,7 +36,7 @@
     
   </article>
   
-  <article class="stores-container container__row">
+  <article class="bg-color-green-lt container__row">
   
     <?php get_template_part( 'partials/module', 'stores' ); ?>
     

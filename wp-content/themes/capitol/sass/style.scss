@@ -19,6 +19,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import 'partials/header';
 @import 'partials/recipes';
 @import 'partials/print';
+@import 'partials/animate';
 
 /* =GLOBALS
 ----------------------------------------------- */
@@ -48,9 +49,6 @@ section {
 }
 
 .section-header {
-  @include respond-to(tablet) {
-    
-  }
   margin: 0 0 $h3 0 !important;
   text-align: center;
   width: 100%;
@@ -148,7 +146,7 @@ iframe.video-recipe {
 %mask {
   &::after {
     @include transition;
-    background: $mask-black;
+    background: $mask-black-rgba;
     content: "";
     position: absolute;
     top: 0;
@@ -196,7 +194,7 @@ iframe.video-recipe {
     align-self: flex-start;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top: $base;
   }
 }
 
@@ -219,10 +217,10 @@ iframe.video-recipe {
 
 .no-padding { padding: 0; }
 
-.bg-color-gray { background-color: $gray; }
-.bg-color-green-lt { background-color: $green-lt; }
-.bg-color-green { background-color: $green; }
-.bg-color-green-dk { background-color: $green-dk; }
+.bg-color-gray { background-color: transparentize($gray,0.4); }
+.bg-color-green-lt { background-color: transparentize($green-lt,0.4); }
+.bg-color-green { background-color: transparentize($green,0.4); }
+.bg-color-green-dk { background-color: transparentize($green-dk,0.4); }
 
 .fade-out {
   @include transition;
@@ -239,16 +237,12 @@ iframe.video-recipe {
   }
 }
 
-.more-recipes {
-  background-image: url(img/texture-ricepaper.png);
-}
-
 .arrow-down {
   &::after {
     @include translate(-50%,0);
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid $purple;
+    border-top: 20px solid $green-lt;
     content: "";
     position: absolute;
     left: 50%; bottom: -20px;
@@ -260,33 +254,15 @@ iframe.video-recipe {
 /* =HOMEPAGE COVER SECTION
 ----------------------------------------------- */
 a.module-link--full {
-  @include transition;
-  background-color: $purple;
-  color: $white!important;
   display: block;
   font-family: $title-font;
   font-size: $h4;
   letter-spacing: 0.1em;
-  padding: $small;
+  padding: $base;
   position: relative;
   text-align: center;
   width: 100%;
   z-index: 100;
-  &::before {
-    @include transition;
-    @include linear-gradient(270deg, $green, #6d328e);
-    content: "";
-    display: block;
-    opacity: 0;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -100;
-  }
-  &:hover::before {
-    @include transition;
-    opacity: 1;
-  }
 }
 
 #bgvid {
@@ -401,10 +377,6 @@ a.module-link--full {
   }
 }
 
-.stores-container {
-  background-color: $green-lt;
-}
-
 #module-stores {
   margin: 0 auto;
   text-align: center;
@@ -446,7 +418,8 @@ a.module-link--full {
     .module-textblock {
       @include respond-to(laptop) {
         @include translate(0, -50%);
-        right: $h3; left: auto; bottom: auto; top: 50%;
+        opacity: 0;
+        right: $base; left: auto; bottom: auto; top: 25%;
         width: 30vw;
       }
       background-color: transparentize($green-lt, 0.2);
