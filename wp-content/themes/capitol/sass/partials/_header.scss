@@ -110,34 +110,27 @@ body.pml-open .push-menu-right {
   @include transition;
   .logo {
     @include transition;
-    @include transform(scale(0.6) translate(-50%, 0));
+    @include transform(scale(0.6) translate(-5em, -6em));
+    opacity: 0.5;
   }
 }
 
 .global-header {
   background-color: $green;
-  background-image: url(img/texture-noise.png);
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 4em;
-  z-index: 9999;
-  &::before {
-    background-color: transparentize($green-dk, 0.2);
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-  }
+  z-index: 99;
   .logo {
     @include respond-to(tablet) {
-     @include transform(translate(-50%, 0));
+      @include translate(-50%,0);
       top: -16px; left: 50%;
       width: 10vw;
     }
     @include transition;
     display: block;
     padding: 0.3em;
-    position: absolute;
+    position: fixed!important;
     top: $base; left: $base;
     width: 27vw; height: auto;
     z-index: 9999;
