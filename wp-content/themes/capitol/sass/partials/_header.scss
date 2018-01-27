@@ -9,17 +9,18 @@
 $button-size: $h4;
 
 .menu-toggle {
-  @include transition(all, 0.2s, ease);
-  @include respond-to(tablet) {
-    top: $h4; right: $h4;
+  @include respond-to(laptop) {
+    display: none;
+    visibility: hidden;
   }
-  background-color: $text-black;
+  @include transition(all, 0.2s, ease);
+  @include translate(0, -50%);
   display: inline-block;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.9;
   padding: $small;
-  position: fixed;
-  top: 0; right: 0;
+  position: absolute;
+  top: 50%; right: 0;
   user-select: none;
   z-index: 99999;
   &:hover {
@@ -108,46 +109,95 @@ body.pml-open .push-menu-right {
 
 .small-header {
   @include transition;
-  .logo {
+  @include respond-to(tablet) {
+    height: 4em!important;
+  }  
+  .logo img {
     @include transition;
-    @include transform(scale(0.6) translate(-5em, -6em));
-    opacity: 0.5;
+    @include transform(scale(1.5) translate(1em, -20em));
+    visibility: hidden;
+  }
+  .logo span {
+    @include transition;
+    opacity: 1!important;
   }
 }
 
 .global-header {
+  @include transition;
+  @include respond-to(tablet) {
+    height: 6em;
+  }
   background-color: $green;
+  background-image: url(img/texture-noisy.png);
   position: fixed;
   top: 0; left: 0;
-  width: 100%; height: 4em;
-  z-index: 99;
+  width: 100%; height: $h2;
+  z-index: 9999;
+  &::before {
+    background-color: transparentize($green,0.3);
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
   .logo {
-    @include respond-to(tablet) {
-      @include translate(-50%,0);
-      top: -16px; left: 50%;
-      width: 10vw;
-    }
     @include transition;
     display: block;
     padding: 0.3em;
-    position: fixed!important;
-    top: $base; left: $base;
-    width: 27vw; height: auto;
+    position: absolute;
+    top: 0; left: 0;
+    width: auto; height: 100%;
     z-index: 9999;
-    &::after {
-      content: none;
+    img {
+      @include transition;
+      @include respond-to(laptop) {
+        width: 14vw;
+      }
+      margin-left: $small;
+      width: 20vw;
+    }
+    span {
+      @include transition;
+      @include translate(0, -50%);
+      @include respond-to(tablet) {
+        font-size: $h4;
+        width: 270px;
+      }
+      color: $white;
+      font-family: $title-font;
+      font-size: $base;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      opacity: 0;
+      padding: 0.5em;
+      position: absolute;
+      top: 50%; left: 6px;
+      width: 200px;
     }
   }
   section {
+    @include respond-to(laptop) {
+      background: none;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+    }
     @include transition;
-    @include linear-gradient(135deg, $green, #6d328e);
-    overflow: auto;
+    @include linear-gradient(135deg, $green, $purple);
+    overflow-y: auto;
+    overflow-x: hidden;
     position: fixed;
     text-align: center;
     top: -130%; left: 0; bottom: 0; right: 0;
     width: 100%; height: 100%;
     z-index: 999;
     .nav-container {
+      @include respond-to(laptop) {
+        @include translate(0, -50%);
+        display: block;
+        left: auto;
+      }
       @include translate(-50%, -50%);
       display: none;
       position: absolute;
@@ -155,10 +205,18 @@ body.pml-open .push-menu-right {
       width: 100%; height: auto;
       z-index: 99999;
       .nav-main {
+        @include respond-to(laptop) {
+          display: inline-block;
+          margin: auto;
+          padding: inherit;
+        }
         margin-bottom: $base;
         padding-bottom: $base;
         position: relative;
         &::after {
+          @include respond-to(laptop) {
+            content: none;
+          }
           @include translate(-50%, 0);
           background-color: $text-black;
           content: "";
@@ -168,13 +226,22 @@ body.pml-open .push-menu-right {
         }
         ul {
           li {
+            @include respond-to(laptop) {
+              display: inline-block;
+              width: auto;
+            }
             text-align: center;
             width: 100%;
             a {
               @include transition;
+              @include respond-to(tablet) {
+                font-size: $h2;
+              }
               @include respond-to(laptop) {
-                font-size: $h1;
+                color: $white;
+                font-size: $h4;
                 line-height: 1.3;
+                padding: $h4;
               }
               color: $text-black;
               display: block;
@@ -182,12 +249,11 @@ body.pml-open .push-menu-right {
               font-size: $h3;
               letter-spacing: 0.05em;
               line-height: $golden;
+              text-shadow: 0 1px 2px rgba(16,16,16,0.3);
               text-transform: uppercase;
               &:hover {
+                background-color: $mask-black-rgba;
                 color: $white;
-              }
-              &::after {
-                content: none;
               }
             }
           }
@@ -198,8 +264,10 @@ body.pml-open .push-menu-right {
 }
 
 .social {
+  @include respond-to(laptop) {
+    display: none;
+  }
   li {
-    display: inline-block;
     .twitter, .facebook {
       display: inline-block;
       margin: 0 auto;

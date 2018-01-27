@@ -51,7 +51,7 @@
         <span class="lines"></span>
       </button>
         
-      <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/logo.svg"/></a>
+      <a href="<?php echo get_settings('home'); ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/img/logo.svg"/><span>Old Capitol Food Co.</span></a>
       
       <section class="push-menu-right">
 

@@ -17,7 +17,7 @@
   <section class="container__row">
     
     <header class="section-header">
-      <h2 class="section-title st-recipes">What's Cooking?</h2>
+      <h2 class="section-title st-recipes">Tofu Academy</h2>
       <small class="section-title--sub">The latest &amp; greatest tofu recipes</small>
     </header>
 

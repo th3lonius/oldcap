@@ -14,7 +14,7 @@
 <?php if ( $query->have_posts() ) : ?>
 
   <header class="section-header">
-    <h2 class="section-title st-blogroll">Soybean Community</h2>
+    <h2 class="section-title st-blogroll">What's Cookin'?</h2>
     <small class="section-title--sub">Catching up with Old Capitol</small>
   </header>
 
