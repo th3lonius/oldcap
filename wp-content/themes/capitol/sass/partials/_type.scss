@@ -1,11 +1,3 @@
-// =HIERARCHY //
-$h1: 7.594em;
-$h2: 3.375em;
-$h3: 2.25em;
-$h4: 1.5em;
-$base: 1em;
-$small: 0.8em;
-
 // =HEADINGS //
 %headings {
   @include respond-to(laptop) {

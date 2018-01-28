@@ -126,13 +126,14 @@ body.pml-open .push-menu-right {
 .global-header {
   @include transition;
   @include respond-to(tablet) {
-    height: 6em;
+    $global-header-height: 5.5em;
+    height: $global-header-height;
   }
   background-color: $green;
   background-image: url(img/texture-noisy.png);
   position: fixed;
   top: 0; left: 0;
-  width: 100%; height: $h2;
+  width: 100%; height: $global-header-height;
   z-index: 9999;
   &::before {
     background-color: transparentize($green,0.3);

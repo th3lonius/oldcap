@@ -3,16 +3,6 @@ get_header(); ?>
 
 <main class="container--fluid">
   
-<?php
-
-    $args = array(
-
-    );
-
-    $query = new WP_Query( $args );
-
-?>
-
   <?php if ( have_posts() ) : ?>
 
     <?php while ( have_posts() ) : the_post(); ?>
@@ -46,7 +36,7 @@ get_header(); ?>
 
       <section class="retail container__col-sm-12 container__col-md-6">
 
-        <h3 class="section-title">Retail Locations</h3>
+        <h3 class="article-title">Retail Locations</h3>
 
         <?php while ( have_rows('retail') ) : the_row(); ?>
 
@@ -66,7 +56,7 @@ get_header(); ?>
 
       <section class="wholesale container__col-sm-12 container__col-md-6">
 
-        <h3 class="section-title">Restaurants & Prepared Foods</h3>
+        <h3 class="article-title">Restaurants & Prepared Foods</h3>
 
         <?php while ( have_rows('wholesale') ) : the_row(); ?>
 
@@ -91,6 +81,12 @@ get_header(); ?>
     <?php endwhile; ?>
 
   <?php endif; ?>
+  
+  <article class="bg-color-green-lt container__row">
+  
+    <?php get_template_part( 'partials/module', 'stores' ); ?>
+    
+  </article>
 
 </main><!-- .interior -->
 

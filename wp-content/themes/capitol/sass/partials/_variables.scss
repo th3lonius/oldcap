@@ -5,22 +5,26 @@ $mask-black: hsla(345, 6%, 13%, 0.5);
 $mask-black-rgba: rgba(16, 16, 16, 0.26);
 $white: rgba(255,255,255,1.0);
 $red: hsla(358, 70%, 52%, 1.0);
-
+$gray: hsla(165, 48%, 90%, 1.0);
+$purple: hsla(278, 48%, 38%, 1.0);
 $green: hsla(165, 67%, 41%, 1.0);
 $green-lt: adjust-color($green, $saturation: -25%, $lightness: +12%);
 $green-dk: adjust-color($green, $saturation: +9%, $lightness: -15%);
 $green-xdk: adjust-color($green, $hue: +1, $saturation: +33%, $lightness: -28%);
-
-$gray: hsla(165, 48%, 90%, 1.0);
-
-$purple: hsla(278, 48%, 38%, 1.0);
 
 /* FONTS */
 $title-font: "prohibition", sans-serif;
 $display-font: "adelle", sans-serif;
 $flourish-font: "fenway-park-jf", serif;
 
+/* TYPE HIERARCHY */
+$h1: 7.594em;
+$h2: 3.375em;
+$h3: 2.25em;
+$h4: 1.5em;
+$base: 1em;
+$small: 0.8em;
+
 /* STACK */
-$base-padding: 3rem;
 $golden: 1.61803398875;
-$header-height: 110px;
+$global-header-height: $h2;

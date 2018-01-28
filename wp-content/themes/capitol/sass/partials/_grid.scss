@@ -47,8 +47,18 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
   @include respond-to(tablet) {
     padding: $h2;
   }
-  padding: $h2 $h4;
+  padding: $h4;
   & [class*='container__col-'] {
     padding: $base;
+  }
+}
+
+.blogroll, .locations {
+  [class*='container__col-'] {
+    @include respond-to(tablet) {
+      $global-header-height: 5.5em;
+      padding: $global-header-height+$h4 $h2;
+    }
+    padding: $global-header-height $h4;
   }
 }

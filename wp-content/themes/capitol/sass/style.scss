@@ -10,9 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 @import 'partials/reset';
-@import 'partials/variables';
-@import 'partials/media-queries';
 @import 'partials/mixins';
+@import 'partials/media-queries';
+@import 'partials/variables';
 @import 'partials/type';
 @import 'partials/base';
 @import 'partials/grid';
@@ -495,9 +495,6 @@ a.module-link--full {
 /* =INTERIOR
 ----------------------------------------------- */
 .locations {
-  .section-title {
-    background-color: $green-lt;
-  }
   .location {
     margin-bottom: $base;
     a {
