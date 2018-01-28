@@ -1,6 +1,11 @@
-<?php get_header(); ?>
+<?php
 
-<main class="container--fluid">
+/* Template Name: Get in Touch Page */
+/* Template Post Type: page */
+
+get_header(); ?>
+
+<main class="container">
 
   <?php if ( have_posts() ) : ?>
 
@@ -26,7 +31,13 @@
 
         ?>
            
-    <section data-type="background" data-speed="6" style="background-image: url(<?php echo $url; ?>);">
+    <section class="bg-image-intro" style="background-image: url(<?php echo $url; ?>);">
+      
+      <header class="intro-details">
+
+        <h1 class="intro-title"><?php the_title(); ?></h1>
+
+      </header>
 
         <?php endif; ?>
             
@@ -34,11 +45,11 @@
   
     <section class="container__row">
            
-      <article class="contaniner__col-sm-12">
+      <article class="container__col-sm-12">
 
         <?php the_content(); ?>
         
-        [wpgmza id="1"]
+        <?php echo do_shortcode('[wpgmza id="1"]'); ?>
 
       </article>
     
