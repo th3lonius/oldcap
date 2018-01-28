@@ -152,11 +152,13 @@ body.pml-open .push-menu-right {
     z-index: 9999;
     img {
       @include transition;
-      @include respond-to(laptop) {
-        width: 14vw;
+      @include respond-to(tablet) {
+        position: relative;
+        top: -1.5em;
+        width: 10vw;
       }
       margin-left: $small;
-      width: 20vw;
+      width: 18vw;
     }
     span {
       @include transition;

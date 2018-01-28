@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main class="container">
 
   <?php if ( have_posts() ) : ?>
 
@@ -17,7 +17,7 @@
 
         ?>
 
-    <section style="background-image: url(<?php echo $url; ?>);">
+    <section class="bg-image-intro" style="background-image: url(<?php echo $url; ?>);">
 
       <header class="intro-details">
 
@@ -28,16 +28,16 @@
         <?php endif; ?>
 
     </section>
+  
+    <section class="container__row">
 
-    <article class="col-10-12 no-float">
-     
-      <section>
-       
+      <article class="container__col-sm-12">
+
         <?php the_content(); ?>
-        
-      </section>
-      
-    </article>
+
+      </article>
+
+    </section>
 
     <?php endwhile; ?>
 

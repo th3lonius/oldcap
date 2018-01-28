@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main class="container--fluid">
 
   <?php if ( have_posts() ) : ?>
 
@@ -45,16 +45,16 @@
         <?php endif; ?>
             
     </section>
+  
+    <section class="container__row">
            
-    <article class="col-6-12 no-float">
-     
-      <section>
-      
+      <article class="contaniner__col-sm-12">
+
         <?php the_content(); ?>
-      
-      </section>
-      
-    </article>
+
+      </article>
+    
+    </section>
             
     <?php endwhile; ?>
 
