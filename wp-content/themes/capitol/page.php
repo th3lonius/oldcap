@@ -6,18 +6,27 @@
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-      <?php
+      <?php 
 
         $image = get_field('photo');
 
-        if( !empty($image) ):
+        if( !empty($image) ): 
 
-          $size = 'large';
-          $url = $image['sizes'][$size];
+        // vars
+        $url = $image['url'];
+        $title = $image['title'];
+        $alt = $image['alt'];
+        $caption = $image['caption'];
+
+        // thumbnail
+        $size = 'medium';
+        $thumb = $image['sizes'][ $size ];
+        $width = $image['sizes'][ $size . '-width' ];
+        $height = $image['sizes'][ $size . '-height' ];
 
         ?>
 
-    <section class="bg-image-intro" style="background-image: url(<?php echo $url; ?>);">
+    <section class="bg-image-intro imgblur" style="background-image: url(<?php echo $url; ?>);">
 
       <header class="intro-details">
 
@@ -34,6 +43,12 @@
       <article class="container__col-sm-12">
 
         <?php the_content(); ?>
+        
+        <?php if (is_page( 'Get In Touch' )) { ?>
+        
+          <?php echo do_shortcode('[wpgmza id="1"]'); ?>
+        
+        <?php } else {}; ?>
 
       </article>
 
@@ -43,6 +58,6 @@
 
   <?php endif; ?>
 
-</main><!-- .interior -->
+</main>
 
 <?php get_footer(); ?>

@@ -29,6 +29,9 @@ $(window).on('scroll', function() {
     if(isScrolledIntoView('#module-our-story')) {
         $('.module-textblock').addClass('bounceInRight');
     }
+    if(isScrolledIntoView('.more-recipes')) {
+        $('.more-recipes .animated').addClass('zoomInDown');
+    }
 });
 
 function isScrolledIntoView(elem) {

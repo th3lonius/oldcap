@@ -23,7 +23,7 @@
 
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-      <article class="container__col-sm-12 container__col-md-6 container__col-lg-3">
+      <article class="container__col-sm-12 container__col-md-6 container__col-lg-3 animated">
 
         <a href="<?php the_permalink(); ?>" class="block">
 

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="container--fluid">
+<main class="container">
   
   <?php if ( have_posts() ) : ?>
 
@@ -17,7 +17,7 @@
 
         ?>
 
-    <section class="bg-image-intro" style="background-image: url(<?php echo $url; ?>);">
+    <section class="bg-image-intro imgblur" style="background-image: url(<?php echo $url; ?>);">
 
       <header class="intro-details">
 
@@ -81,12 +81,12 @@
 
   <?php endif; ?>
   
+</main>
+
   <article class="bg-color-green-lt container__row">
   
     <?php get_template_part( 'partials/module', 'stores' ); ?>
     
   </article>
-
-</main><!-- .interior -->
 
 <?php get_footer(); ?>
