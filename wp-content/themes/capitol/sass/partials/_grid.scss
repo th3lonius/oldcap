@@ -1,5 +1,5 @@
 /*BREAKPOINTS*/
-$grid__bp-md: 780;
+$grid__bp-md: 700;
 $grid__bp-lg: 1270;
 $grid__cols: 12;
 
@@ -47,18 +47,11 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
   @include respond-to(tablet) {
     padding: $h2;
   }
-  padding: $h4;
+  padding: $base;
   & [class*='container__col-'] {
-    padding: $base!important;
-  }
-}
-
-.blogroll, .locations {
-  [class*='container__col-'] {
     @include respond-to(tablet) {
-      $global-header-height: 5.5em;
-      padding: $global-header-height+$h4 $h2;
+      padding: $base;
     }
-    padding: $global-header-height $h4;
+    padding: $base 0;
   }
 }

@@ -9,7 +9,7 @@
     $caption = $image['caption'];
 
     // thumbnail
-    $size = 'medium';
+    $size = 'thumbnail';
     $customphoto = $image['sizes'][ $size ];
     $width = $image['sizes'][ $size . '-width' ];
     $height = $image['sizes'][ $size . '-height' ];

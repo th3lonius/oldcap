@@ -49,7 +49,10 @@ section {
 }
 
 .section-header {
-  margin: 0 0 $h3 0 !important;
+  @include respond-to(tablet) {
+    margin: 0 0 $h3 0 !important;
+  }
+  margin: $base 0 $h3 0 !important;
   text-align: center;
   width: 100%;
 }
@@ -65,6 +68,7 @@ section {
   &::before {
     @include respond-to(tablet) {
       top: -2em;
+      width: 1.7em; height: 1.7em;
     }
     @include translate(-50%, 0);
     background-position: center;
@@ -75,8 +79,8 @@ section {
     content: "";
     display: inline-block;
     position: absolute;
-    left: 50%; top: -1.7em;
-    width: 1.7em; height: 1.7em;
+    left: 50%; top: -1.3em;
+    width: 1.3em; height: 1.3em;
     z-index: 999;
   }
   &--sub {
@@ -274,24 +278,20 @@ a.module-link--full {
   z-index: 100;
 }
 
-#bgvid {
-  @include respond-to(tablet) {
-    left: 0;
-  }
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-}
-
 .video-wrapper {
+  background: url(img/tofu-tapas.jpg);
+  background-color: transparent;
+  background-image: url(img/tofu-tapas.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
+  width: 100%; height: 100%;
   iframe {
+    @include respond-to(tablet) {
+     display: block;
+    }
+    display: none;
     position: absolute;
     top: -126px; left: -100%;
     width: 300%; height: 110vh;
@@ -347,15 +347,23 @@ a.module-link--full {
       position: relative;
       text-align: center;
       &::before {
+        @include respond-to(tablet) {
+          display: block;
+        }
         background-color: $white;
         content: "";
+        display: none;
         position: absolute;
         left: -3em; top: 8px;
         width: 2em; height: 2px;
       }
       &::after {
+        @include respond-to(tablet) {
+          display: block;
+        }
         background-color: $white;
         content: "";
+        display: none;
         position: absolute;
         right: -3em; top: 8px;
         width: 2em; height: 2px;
@@ -427,11 +435,11 @@ a.module-link--full {
     .module-textblock {
       @include respond-to(laptop) {
         @include translate(0, -50%);
-        opacity: 0;
         right: $base; left: auto; bottom: auto; top: 25%;
         width: 30vw;
       }
       background-color: transparentize($green-lt, 0.2);
+      opacity: 0;
       padding: $h3;
       position: absolute;
       right: 0; left: 0; bottom: 0;
@@ -453,7 +461,7 @@ a.module-link--full {
     @include transition;
     &.animate-grow:hover, &.animate-grow:focus {
       @include transition;
-      @include scale(1.1);
+      @include scale(1.08);
       background-color: $white;
       z-index: 99;
     }
@@ -461,7 +469,7 @@ a.module-link--full {
       background-position: center;
       background-repeat: no-repeat;
       background-size: 100%;
-      height: 200px;
+      height: 250px;
       margin-bottom: $small;
     }
     img {
