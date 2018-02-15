@@ -49,10 +49,7 @@ section {
 }
 
 .section-header {
-  @include respond-to(tablet) {
-    margin: 0 0 $h3 0 !important;
-  }
-  margin: $base 0 $h3 0 !important;
+  margin-bottom: $h3;
   text-align: center;
   width: 100%;
 }
@@ -166,6 +163,30 @@ iframe.video-recipe {
   }
 }
 
+.link-box {
+  border: 2px solid $green;
+  font-weight: bold;
+  margin: auto;
+  padding: $small;
+  position: relative;
+  &::before {
+    @include transition;
+    background-color: $green;
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 100%;
+    z-index: -1;
+  }
+  &:hover {
+    color: $white;
+  }
+  &:hover::before {
+    @include transition;
+    width: 100%;
+  }
+}
+
 .bg-image-intro {
   background-attachment: fixed;
   background-position: center;
@@ -229,6 +250,10 @@ iframe.video-recipe {
 .no-float { float: none !important; }
 
 .no-padding { padding: 0; }
+
+[class*='bg-color-'] {
+  z-index: 1;
+}
 
 .bg-color-gray { background-color: transparentize($gray,0.4); }
 .bg-color-green-lt { background-color: transparentize($green-lt,0.4); }
@@ -453,7 +478,6 @@ a.module-link--full {
 ----------------------------------------------- */
 .blogroll {
   header {
-    margin: $h3 auto;
     text-align: center;
     width: 100%;
   }
@@ -461,7 +485,7 @@ a.module-link--full {
     @include transition;
     &.animate-grow:hover, &.animate-grow:focus {
       @include transition;
-      @include scale(1.08);
+      @include scale(1.03);
       background-color: $white;
       z-index: 99;
     }

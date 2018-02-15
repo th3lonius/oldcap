@@ -5,6 +5,6 @@
     <small class="section-title--sub">Find our 'fu near you!</small>
   </header>
     
-  <p><iframe src="//batchgeo.com/map/049b5214dfd3515186addbf50a052f7e" frameborder="0" width="100%" height="550" style="border:1px solid #aaa;"></iframe></p><p><small>View <a href="https://batchgeo.com/map/049b5214dfd3515186addbf50a052f7e">Grocery Locations</a> in a full screen map</small></p>
+  <p><iframe src="//batchgeo.com/map/049b5214dfd3515186addbf50a052f7e" frameborder="0" width="100%" height="550" style="border:1px solid #aaa;"></iframe></p><a class="link-box" href="https://batchgeo.com/map/049b5214dfd3515186addbf50a052f7e">View map in full screen</a>
 
 </section><!-- #module-stores -->
