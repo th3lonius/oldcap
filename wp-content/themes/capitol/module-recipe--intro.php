@@ -4,23 +4,23 @@
 
     <span class="serving">Serving <?php the_field('servings'); ?></span>
     
-    <?php if ( is_archive() ) { ?>
-  
-        <a href="<?php the_permalink(); ?>" class="block">
-          <h1 class="intro-title recipe-title"><?php the_title(); ?></h1>
-        </a>
-  
-    <?php } else { ?>
-
-    <h1 class="intro-title recipe-title"><?php the_title(); ?></h1>
-    
-    <?php } ?>
-
     <?php $authors = get_field('author');
-
+  
       if( $authors ): ?>
+    
+        <?php if ( is_archive() ) { ?>
 
-      <?php foreach( $authors as $author ): // variable must NOT be called $post (IMPORTANT) ?>
+          <a href="<?php the_permalink(); ?>" class="block">
+            <h1 class="intro-title recipe-title"><?php the_title(); ?><cite>&#169;</cite></h1>
+          </a>
+
+        <?php } else { ?>
+
+          <h1 class="intro-title recipe-title"><?php the_title(); ?><cite>&#169;</cite></h1>
+
+        <?php } ?>
+    
+    <?php foreach( $authors as $author ): // variable must NOT be called $post (IMPORTANT) ?>
 
       <author>by <?php if ($author->post_content == '') { echo get_the_title( $author->ID ); } else { echo get_the_title( $author->ID ); } ?></author>
 
