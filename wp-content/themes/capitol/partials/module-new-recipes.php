@@ -2,7 +2,7 @@
 
     $args = array(
       'post_type' => 'recipes',
-      'showposts'=> 6,
+      'showposts'=> 4,
       'post__not_in' => array($post->ID)
     );
 

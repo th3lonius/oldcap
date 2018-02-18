@@ -109,8 +109,11 @@ section {
 }
 
 .article-title {
+  @include respond-to(laptop) {
+    font-size: $h2;
+  }
   letter-spacing: normal;
-  font-size: $h2;
+  font-size: $h3;
   margin: 0.2em 0;
 }
 
@@ -148,6 +151,13 @@ iframe.video-recipe {
   z-index: -1;
 }
 
+.offset-top-margin {
+  margin-top: $h1;
+  &--small {
+    margin-top: $h4;
+  }
+}
+
 /* =REUSABLE CLASSES
 ----------------------------------------------- */
 %mask {
@@ -171,7 +181,7 @@ iframe.video-recipe {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 84vh;
+  height: 80vh;
   position: relative;
   top: 0; left: 0;
   &::after {
@@ -264,6 +274,24 @@ iframe.video-recipe {
   }
 }
 
+.animated {
+  @include respond-to(tablet) {
+    opacity: 0;
+  }
+  opacity: 1;
+}
+
+.sharedaddy .sd-content ul {
+  margin: 0.5em 0!important;
+}
+
+.recipe-page .sharedaddy {
+  @include translate(-50%,0);
+  position: absolute;
+  left: 50%; bottom: $small;
+  z-index: 99;
+}
+
 /* =HOMEPAGE COVER SECTION
 ----------------------------------------------- */
 a.module-link--full {
@@ -324,7 +352,7 @@ a.module-link--full {
       font-style: normal;
       letter-spacing: 0.05em;
       line-height: 1;
-      padding: 0.4em $h4 0.5em $h4;
+      padding: 0.4em;
     }
   }
 }
@@ -370,13 +398,17 @@ a.module-link--full {
       }
     }
     li {
+      @include respond-to(tablet) {
+        margin: $base;
+        width: 5em; height: 5em;
+      }
       background-position: center;
       background-repeat: no-repeat;
       background-size: 100%;
       display: inline-block;
-      margin: $base;
+      margin: 0.5em;
       text-indent: -9999px;
-      width: 5em; height: 5em;
+      width: 4em; height: 4em;
     }
     #client-uofi {
       background-image: url(img/icon/logo-uofi.svg);

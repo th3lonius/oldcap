@@ -25,8 +25,6 @@ get_header();
       
     <?php include(locate_template('module-photo--header.php')); ?>
 
-      <h3 class="latest-tag">Latest Recipe</h3>
-
       <header class="intro-details">
         
         <span class="serving">Serving <?php the_field('servings'); ?></span>

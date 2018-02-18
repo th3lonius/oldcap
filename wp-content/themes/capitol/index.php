@@ -15,8 +15,13 @@ get_header(); ?>
 
 <main class="blogroll container">
 
-  <section class="container__row">
-
+  <section class="container__row container__col- offset-top-margin">
+  
+    <header class="section-header">
+      <h2 class="section-title st-blogroll">What's Cookin'?</h2>
+      <small class="section-title--sub">Catching up with Old Capitol</small>
+    </header>
+    
     <?php if ( have_posts() ) : ?>
 
       <?php while ( have_posts() ) : the_post(); ?>

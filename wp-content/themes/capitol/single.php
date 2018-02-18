@@ -22,7 +22,7 @@
 
   <?php if ( have_posts() ) : ?>
   
-  <section class="container__row">
+  <section class="container__row offset-top-margin--small">
     
    <nav>
       <?php previous_post_link( '%link', 'Older' ); ?>
@@ -36,6 +36,14 @@
       <header>
         <h1 class="article-title"><?php the_title(); ?></h1>
         <date><?php the_date('F j, Y'); ?></date>
+        <?php if ( function_exists( 'sharing_display' ) ) {
+          sharing_display( '', true );
+      }
+
+      if ( class_exists( 'Jetpack_Likes' ) ) {
+          $custom_likes = new Jetpack_Likes;
+          echo $custom_likes->post_likes( '' );
+      } ?>
         <ul class="post-categories">
           <?php
           $categories = get_the_category();

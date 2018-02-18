@@ -2,7 +2,7 @@
 
     $args = array(
       'post_type' => 'recipes',
-      'showposts'=> 6,
+      'showposts'=> 8,
       'post__not_in' => array($post->ID)
     );
 
@@ -12,11 +12,11 @@
 
 <?php if ( $query->have_posts() ) : ?>
 
-  <section class="more-recipes container__row">
+  <section class="more-recipes bg-color-gray container__row container__col->">
 
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-    <article class="container__col-sm-12 container__col-md-6 container__col-lg-3 no-padding">
+    <article class="container__col-sm-12 container__col-md-6 container__col-lg-3">
 
       <a href="<?php the_permalink(); ?>" class="block">
         
