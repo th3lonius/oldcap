@@ -40,7 +40,7 @@
 
     <?php endwhile; ?>
 
-      <a href="<?php $url = home_url( 'blog', 'relative' ); echo esc_url( $url ); ?>">View all blog posts</a>
+      <a class="link-box" href="<?php $url = home_url( 'blog', 'relative' ); echo esc_url( $url ); ?>">View all blog posts</a>
 
     </section>
 

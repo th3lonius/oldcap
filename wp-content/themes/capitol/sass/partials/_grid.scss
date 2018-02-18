@@ -47,7 +47,7 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
   @include respond-to(tablet) {
     padding: $h2;
   }
-  padding: $base;
+  padding: $h3 $base;
   & [class*='container__col-'] {
     @include respond-to(tablet) {
       padding: $base;

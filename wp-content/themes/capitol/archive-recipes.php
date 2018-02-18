@@ -50,6 +50,8 @@ get_header();
       </header>
 
     </section>
+  
+    <?php get_template_part( 'module', 'recipe--intro' ); ?>   
 
   <?php endwhile; ?>
 
