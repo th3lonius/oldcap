@@ -36,12 +36,6 @@
     
   </article>
   
-  <article class="bg-color-green-lt container__row">
-  
-    <?php get_template_part( 'partials/module', 'stores' ); ?>
-    
-  </article>
-  
 </main>
 
 <?php get_footer(); ?>

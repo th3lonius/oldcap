@@ -98,7 +98,7 @@
 }
 
 @mixin grayscale {
-    -webkit-filter: contrast(50%) grayscale(100%);
+    -webkit-filter: contrast(65%) grayscale(80%);
     filter: gray; /* IE6-9 */
 }
 
